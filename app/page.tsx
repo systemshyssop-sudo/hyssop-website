@@ -52,7 +52,7 @@ const heroSlides: Slide[] = [
     label: "Tumaini Estate",
   },
   {
-    image: "/hyssop/diaspora/2.jpg",
+    image: "/hyssop/diaspora/23.jpg",
     eyebrow: "Diaspora support",
     title: "Invest from anywhere.",
     text: "Helping Kenyans in the diaspora acquire property back home with confidence.",
