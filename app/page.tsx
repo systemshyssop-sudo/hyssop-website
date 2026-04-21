@@ -78,12 +78,12 @@ const properties: Property[] = [
     href: "/properties",
   },
   {
-    name: "Palm Ridge, Kitengela",
-    location: "3 minutes from Namanga Road",
+    name: "Hyssop Acres, Malindi",
+    location: "20 minutes from Malindi Town",
     price: "Accessible investment location",
     description:
       "A well-positioned opportunity for buyers seeking convenience, growth potential, and verified ownership.",
-    image: "/hyssop/palmr.png",
+    image: "/hyssop/malindi.png",
     href: "/properties",
   },
 ];
