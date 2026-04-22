@@ -18,7 +18,7 @@ export default function PropertiesPage() {
           Our Properties
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Verified land ownership opportunities in high-growth locations across Kenya.
+          Verified land for sale in Kenya in high-growth locations.
         </p>
       </section>
 

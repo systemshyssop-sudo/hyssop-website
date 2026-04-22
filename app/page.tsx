@@ -48,7 +48,7 @@ const heroSlides: Slide[] = [
     image: "/hyssop/hero/7.png",
     eyebrow: "Featured location",
     title: "Prime land. Clear process.",
-    text: "Carefully selected projects designed for confident ownership and long-term value.",
+    text: "Premium land for sale in Kenya with verified title deeds and transparent ownership.",
     label: "Tumaini Estate",
   },
   {
