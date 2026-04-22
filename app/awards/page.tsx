@@ -78,36 +78,48 @@ export default function AwardsPage() {
       <Navbar />
 
       {/* HERO */}
-      <section className="px-6 pt-20 pb-12">
-  <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-8">
+<section className="px-6 pt-30 pb-16 lg:px-12">
+  <div className="mx-auto max-w-6xl">
+    <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+      
+      {/* TEXT */}
+      <div className="text-center lg:text-left">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
+          Awards & Recognition
+        </p>
 
-    {/* TEXT (LEFT) */}
-    <div className="flex-1 text-center lg:text-left">
-      <h1 className="text-4xl md:text-5xl font-bold mb-4">
-        Awards & Recognition
-      </h1>
+        <h1 className="text-4xl font-bold tracking-tight text-[#0b1f52] sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
+          Built on trust.
+          <span className="block">Recognized for excellence.</span>
+        </h1>
 
-      <p className="max-w-xl text-gray-600 mx-auto lg:mx-0">
-        Our journey is defined by trust, consistency, and meaningful impact.
-        These recognitions reflect not only our performance in real estate,
-        but also our commitment to community, culture, and long-term value creation.
-      </p>
-    </div>
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#5d6a84] lg:mx-0 lg:max-w-xl">
+          Our journey is defined by trust, consistency, and meaningful impact.
+          These recognitions reflect not only our performance in real estate,
+          but also our commitment to community, culture, and long-term value creation.
+        </p>
 
-    {/* IMAGE (RIGHT — SMALL, CONTROLLED) */}
-    <div className="w-full lg:w-auto flex justify-center lg:justify-end">
-      <div className="w-[220px] sm:w-[260px] rounded-xl overflow-hidden shadow-md">
-        <Image
-          src="/hyssop/awards/hero.png" // your image path
-          alt="Hyssop award moment"
-          width={260}
-          height={180}
-          className="w-full h-auto object-cover"
-          priority
-        />
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm font-medium text-[#0b1f52] lg:justify-start">
+          <span className="rounded-full bg-[#eef7df] px-4 py-2">Trusted brand</span>
+          <span className="rounded-full bg-[#eef2f7] px-4 py-2">Industry recognition</span>
+          <span className="rounded-full bg-[#eef2f7] px-4 py-2">Community impact</span>
+        </div>
       </div>
-    </div>
 
+      {/* IMAGE */}
+      <div className="flex justify-center lg:justify-end">
+        <div className="relative w-full max-w-[360px] h-[420px] overflow-hidden rounded-[28px] border border-[#e5ebf3] bg-white p-2 shadow-[0_24px_60px_rgba(11,31,82,0.10)]">
+          <Image
+            src="/hyssop/awards/hero.png"
+            alt="Hyssop award moment"
+            fill
+            className="rounded-[22px] object-contain"
+            priority
+          />
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 

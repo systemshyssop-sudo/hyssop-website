@@ -24,7 +24,7 @@ export default function TumainiPage() {
   const heroSrc = useMemo(() => `${base}/tumaini-hero.jpg`, []);
   const locationSrc = useMemo(() => `${base}/location.png`, []);
   const droneThumbSrc = useMemo(() => `${base}/tumaini-drone-thumb.jpg`, []);
-  const droneVideoSrc = useMemo(() => `${base}/tumaini-edited-drone.mp4`, []);
+  const droneVideoSrc = useMemo(() => `${base}/tumaini-drone.mp4`, []);
 
   return (
     <main className="min-h-screen bg-white text-[#0b1f52]">

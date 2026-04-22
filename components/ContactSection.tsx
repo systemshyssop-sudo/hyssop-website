@@ -1,6 +1,6 @@
 "use client";
 
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaFacebookF, FaInstagram, FaXTwitter, FaTiktok } from "react-icons/fa6";
 
 const offices = [
   {
@@ -76,25 +76,65 @@ export default function ContactSection() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col justify-center gap-4 md:flex-row">
-          <a
-            href="https://wa.me/254707666000"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8cc63f] px-7 py-3.5 font-semibold text-[#0b1f52] shadow-[0_14px_34px_rgba(140,198,63,0.25)] transition-transform duration-300 hover:scale-[1.02]"
-          >
-            <FaWhatsapp />
-            Chat on WhatsApp
-          </a>
+        <div className="mt-12">
+  <div className="flex flex-col justify-center gap-4 md:flex-row">
+    <a
+      href="https://wa.me/254707666000"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8cc63f] px-7 py-3.5 font-semibold text-[#0b1f52] shadow-[0_14px_34px_rgba(140,198,63,0.25)] transition-transform duration-300 hover:scale-[1.02]"
+    >
+      <FaWhatsapp />
+      Chat on WhatsApp
+    </a>
 
-          <a
-            href="tel:+254707666000"
-            className="inline-flex items-center justify-center rounded-full border border-white/25 px-7 py-3.5 font-semibold text-white transition-colors duration-300 hover:bg-white hover:text-[#0b1f52]"
-          >
-            Call Us Now
-          </a>
-        </div>
-      </div>
+    <a
+      href="tel:+254707666000"
+      className="inline-flex items-center justify-center rounded-full border border-white/25 px-7 py-3.5 font-semibold text-white transition-colors duration-300 hover:bg-white hover:text-[#0b1f52]"
+    >
+      Call Us Now
+    </a>
+  </div>
+
+  <div className="mt-6 flex justify-center gap-5">
+    <a
+      href="https://web.facebook.com/hyssopke/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook"
+    >
+      <FaFacebookF className="text-xl text-white/80 hover:text-[#8cc63f] transition-colors duration-300" />
+    </a>
+
+    <a
+      href="https://www.instagram.com/hyssopke/?hl=en"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+    >
+      <FaInstagram className="text-xl text-white/80 hover:text-[#8cc63f] transition-colors duration-300" />
+    </a>
+
+    <a
+      href="https://x.com/hyssopke"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="X"
+    >
+      <FaXTwitter className="text-xl text-white/80 hover:text-[#8cc63f] transition-colors duration-300" />
+    </a>
+
+    <a
+      href="https://www.tiktok.com/@hyssopke"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="TikTok"
+    >
+      <FaTiktok className="text-xl text-white/80 hover:text-[#8cc63f] transition-colors duration-300" />
+    </a>
+  </div>
+</div>
+</div>
     </section>
   );
 }
