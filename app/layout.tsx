@@ -13,37 +13,51 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hyssopproperties.com"),
+
   title: {
     default: "Hyssop Properties – A Culture of Trust",
     template: "%s | Hyssop Properties",
   },
-  description:
-    "Secure land investments in Kenya with verified title deeds. Hyssop Properties offers transparent processes, flexible payments, and trusted ownership.",
-  metadataBase: new URL("http://hyssopproperties.com"),
-  openGraph: {
-  title: "Hyssop Properties – Secure Land Investments in Kenya",
+
   description:
     "Premium land investments backed by trust, transparency, and real title delivery.",
-  url: "http://hyssopproperties.com",
-  siteName: "Hyssop Properties",
-  images: [
-    {
-      url: "http://hyssopproperties.com/hyssop/hero/001.png",
-      width: 1200,
-      height: 630,
-      alt: "Hyssop Properties",
-    },
-  ],
-  locale: "en_KE",
-  type: "website",
-},
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Hyssop Properties",
+    title: "Hyssop Properties – Secure Land Investments in Kenya",
+    description:
+      "Premium land investments backed by trust, transparency, and real title delivery.",
+    images: [
+      {
+        url: "/hyssop/hero/001.png",
+        width: 1200,
+        height: 630,
+        alt: "Hyssop Properties",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Hyssop Properties – Secure Land Investments in Kenya",
+    description:
+      "Premium land investments backed by trust, transparency, and real title delivery.",
+    images: ["/hyssop/hero/001.png"],
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
