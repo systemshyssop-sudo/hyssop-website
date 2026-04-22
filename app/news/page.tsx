@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/navbar";
 import ContactSection from "@/components/ContactSection";
 
-export default function NewsPage() {
+function NewsPageContent() {
   const searchParams = useSearchParams();
   const activeTab = searchParams.get("tab") || "events";
   const activePost = searchParams.get("post");
@@ -270,6 +271,14 @@ export default function NewsPage() {
       <div id="contact" className="scroll-mt-[100px]">
         <ContactSection />
       </div>
-    </main>
+        </main>
+  );
+}
+
+export default function NewsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#f7f8fa]" />}>
+      <NewsPageContent />
+    </Suspense>
   );
 }
