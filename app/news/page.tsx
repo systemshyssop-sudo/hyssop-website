@@ -1,18 +1,41 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
 import ContactSection from "@/components/ContactSection";
 
+const eventImages = [
+  "/hyssop/events/1.jpg",
+  "/hyssop/events/2.jpg",
+  "/hyssop/events/3.jpg",
+  "/hyssop/events/4.jpg",
+  "/hyssop/events/5.jpg",
+  "/hyssop/events/6.jpg",
+  "/hyssop/events/7.jpg",
+  "/hyssop/events/8.jpg",
+];
+
+const eventHeroImage = "/hyssop/events/hero.jpg";
+const eventVideo = "/hyssop/events/Recap1.mp4";
+
 function NewsPageContent() {
-  const searchParams = useSearchParams();
-  const activeTab = searchParams.get("tab") || "events";
-  const activePost = searchParams.get("post");
+  const [activeTab, setActiveTab] = useState<"events" | "blogs">("events");
+  const [activePost, setActivePost] = useState<string | null>(null);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   const whatsappLink = "https://wa.me/254707666000";
+
+  useEffect(() => {
+    if (!videoOpen) return;
+
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setVideoOpen(false);
+    };
+
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [videoOpen]);
 
   const blog = {
     slug: "avoid-land-scams-kenya",
@@ -27,123 +50,188 @@ function NewsPageContent() {
     <main className="min-h-screen bg-[#f7f8fa] text-[#0b1f52]">
       <Navbar />
 
-      {/* HERO */}
-      <section className="relative w-full pt-[84px]">
-        <div className="relative w-full">
-          <Image
-            src="/hyssop/eventcropped.png"
-            alt="Hyssop Investors Day countdown at Tumaini Estate, Nakuru"
-            width={2048}
-            height={921}
-            priority
-            className="w-full h-auto object-contain"
-          />
-        </div>
-      </section>
-
       {/* TAB NAV */}
-      <section className="relative z-10 px-6 -mt-6 sm:-mt-8">
+      <section className="relative z-10 bg-[#f7f8fa] px-6 pt-[112px]">
         <div className="mx-auto max-w-5xl">
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Link
-              href="/news?tab=events"
-              className={`px-6 py-3 rounded-full font-medium transition ${
+          <div className="flex flex-wrap justify-center gap-4">
+            <button
+              type="button"
+              onClick={() => {
+                setActiveTab("events");
+                setActivePost(null);
+              }}
+              className={`rounded-full px-6 py-3 font-medium transition ${
                 activeTab === "events"
                   ? "bg-[#8cc63f] text-[#0b1f52]"
-                  : "bg-white text-[#0b1f52] shadow-md"
+                  : "bg-white text-[#0b1f52] shadow-md hover:shadow-lg"
               }`}
             >
               Events
-            </Link>
+            </button>
 
-            <Link
-              href="/news?tab=blogs"
-              className={`px-6 py-3 rounded-full font-medium transition ${
+            <button
+              type="button"
+              onClick={() => {
+                setActiveTab("blogs");
+                setActivePost(null);
+              }}
+              className={`rounded-full px-6 py-3 font-medium transition ${
                 activeTab === "blogs"
                   ? "bg-[#8cc63f] text-[#0b1f52]"
-                  : "bg-white text-[#0b1f52] shadow-md"
+                  : "bg-white text-[#0b1f52] shadow-md hover:shadow-lg"
               }`}
             >
               Blogs
-            </Link>
+            </button>
           </div>
         </div>
       </section>
 
       {/* EVENTS */}
-      {activeTab === "events" && (
-        <section className="px-6 pt-10 pb-20">
-          <div className="mx-auto max-w-5xl space-y-10">
-            <div className="rounded-[28px] border border-[#e7ecf3] bg-white p-8 shadow-[0_24px_60px_rgba(11,31,82,0.10)] sm:p-10 md:p-12">
-              <div className="mb-4 flex flex-wrap items-center gap-3 text-sm">
-                <span className="inline-flex rounded-full bg-[#eaf6d7] px-4 py-1 font-semibold text-[#4a8c2f]">
-                  Upcoming Event
-                </span>
-                <span className="text-[#5b6880]">April 25, 2026</span>
-                <span className="text-[#5b6880]">•</span>
-                <span className="text-[#5b6880]">Tumaini Estate, Nakuru</span>
-              </div>
+{activeTab === "events" && (
+  <>
+    <section className="bg-[#f7f8fa] px-6 pb-8 pt-12 lg:px-16">
+      <div className="mx-auto max-w-5xl text-center">
+        <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
+          Event Recap
+        </span>
 
-              <h1 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl md:text-5xl">
-                Investors Day at Tumaini Estate
-              </h1>
+        <h1 className="text-4xl font-black leading-[1.05] tracking-tight text-[#0b1f52] sm:text-5xl lg:text-[4rem]">
+          A milestone delivered.
+        </h1>
 
-              <p className="mt-5 max-w-3xl text-base leading-8 text-[#5b6880] sm:text-lg">
-                Join us for a special Investors Day at Tumaini Estate, Nakuru.
-                This event is designed to bring together clients, investors, and
-                prospective land buyers for a meaningful day centered on real
-                ownership, trust, and long-term value.
-              </p>
+        <p className="mx-auto mt-5 max-w-3xl text-base font-medium leading-8 text-[#61708a] sm:text-lg">
+          A look inside Hyssop Properties' April 2026 title deed issuance and
+          investor event at Tumaini Estate, Nakuru.
+        </p>
+      </div>
+    </section>
 
-              <p className="mt-4 max-w-3xl text-base leading-8 text-[#5b6880] sm:text-lg">
-                Guests will get the opportunity to experience the project,
-                connect with the Hyssop team, and witness the confidence that
-                comes with investing in trusted real estate in Kenya. If you
-                have been exploring land for sale in Nakuru or looking for a
-                secure property investment opportunity, this is a timely moment
-                to engage directly with us.
-              </p>
+    {/* VIDEO THUMBNAIL */}
+    <section className="bg-[#f7f8fa] px-6 pb-20 lg:px-16">
+      <div className="mx-auto max-w-6xl">
+        <button
+          type="button"
+          onClick={() => setVideoOpen(true)}
+          className="group relative aspect-video w-full overflow-hidden rounded-[34px] bg-black shadow-[0_28px_80px_rgba(11,31,82,0.16)] ring-1 ring-black/5"
+        >
+          <img
+            src={eventHeroImage}
+            alt="Hyssop title deed issuance video thumbnail"
+            className="absolute inset-0 h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]"
+          />
 
-              <p className="mt-4 max-w-3xl text-base leading-8 text-[#5b6880] sm:text-lg">
-                We would love to host you. Reach out on WhatsApp to confirm your
-                attendance, ask questions, or request directions.
-              </p>
+          <div className="absolute inset-0 bg-black/20" />
 
-              <div className="mt-8">
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(0,0,0,0.18)] transition duration-300 hover:scale-[1.02]"
-                >
-                  Chat on WhatsApp
-                </a>
-              </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="flex h-24 w-24 items-center justify-center rounded-full bg-[#8cc63f] text-4xl font-bold text-[#0b1f52] shadow-2xl transition duration-300 group-hover:scale-110">
+              ▶
             </div>
           </div>
-        </section>
-      )}
+        </button>
+      </div>
+    </section>
+
+    <section className="bg-white px-6 py-24 lg:px-16">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
+        <div>
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
+            What this moment represents
+          </span>
+
+          <h2 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
+            More than an event - proof of a completed journey.
+          </h2>
+
+          <p className="mt-5 text-base leading-8 text-[#61708a]">
+            From site visits to documentation and title deed issuance, this
+            milestone reflects Hyssop's commitment to walking with clients until
+            ownership is clear, verified, and confidently secured.
+          </p>
+
+          <p className="mt-4 text-base leading-8 text-[#61708a]">
+            The event gave clients a chance to celebrate real progress, meet the
+            Hyssop team, and experience the confidence that comes with investing
+            through a transparent real estate process.
+          </p>
+        </div>
+
+        <div className="grid gap-4">
+          {[
+            "Title deed handovers completed",
+            "Clients and investors hosted on site",
+            "Verified ownership process celebrated",
+          ].map((item) => (
+            <div
+              key={item}
+              className="rounded-[24px] border border-[#e7edf4] bg-[#fbfcfe] p-6 shadow-[0_14px_35px_rgba(11,31,82,0.06)]"
+            >
+              <p className="text-lg font-semibold text-[#0b1f52]">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="bg-[#f7f9fc] px-6 py-24 lg:px-16">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 text-center">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
+            Event moments
+          </span>
+
+          <h2 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
+            Moments from the day.
+          </h2>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {eventImages.map((src, index) => (
+            <div
+              key={src}
+              className="group overflow-hidden rounded-[24px] bg-white shadow-[0_18px_50px_rgba(11,31,82,0.08)] ring-1 ring-black/5"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] bg-[#eef3f8]">
+                <Image
+                  src={src}
+                  alt={`Hyssop event moment ${index + 1}`}
+                  fill
+                  quality={90}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover object-center transition duration-700 group-hover:scale-[1.02]"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </>
+)}
 
       {/* BLOGS LIST */}
       {activeTab === "blogs" && !activePost && (
-        <section className="px-6 pt-10 pb-20">
+        <section className="px-6 pb-20 pt-16">
           <div className="mx-auto max-w-5xl">
             <div className="mb-8 text-center">
               <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#8cc63f]">
                 Insights
               </span>
+
               <h1 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
                 Latest from Hyssop
               </h1>
+
               <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-[#61708a] sm:text-base">
                 Practical insights on land ownership, real estate in Kenya, and
                 smarter property investment decisions.
               </p>
             </div>
 
-            <Link
-              href={`/news?tab=blogs&post=${blog.slug}`}
-              className="block rounded-[28px] border border-[#e7ecf3] bg-white p-8 shadow-[0_24px_60px_rgba(11,31,82,0.10)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(11,31,82,0.14)] sm:p-10"
+            <button
+              type="button"
+              onClick={() => setActivePost(blog.slug)}
+              className="block w-full rounded-[28px] border border-[#e7ecf3] bg-white p-8 text-left shadow-[0_24px_60px_rgba(11,31,82,0.10)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(11,31,82,0.14)] sm:p-10"
             >
               <div className="mb-4 flex flex-wrap items-center gap-3 text-sm text-[#5b6880]">
                 <span>{blog.date}</span>
@@ -162,21 +250,22 @@ function NewsPageContent() {
               <span className="mt-6 inline-flex text-sm font-semibold text-[#4a8c2f]">
                 Read article
               </span>
-            </Link>
+            </button>
           </div>
         </section>
       )}
 
       {/* SINGLE BLOG POST */}
       {activeTab === "blogs" && activePost === blog.slug && (
-        <section className="px-6 pt-10 pb-20">
+        <section className="px-6 pb-20 pt-16">
           <div className="mx-auto max-w-4xl">
-            <Link
-              href="/news?tab=blogs"
-              className="mb-6 inline-flex text-sm font-semibold text-[#4a8c2f]"
+            <button
+              type="button"
+              onClick={() => setActivePost(null)}
+              className="mb-6 inline-flex text-sm font-semibold text-[#4a8c2f] hover:text-[#3d7326]"
             >
               ← Back to blogs
-            </Link>
+            </button>
 
             <article className="rounded-[28px] border border-[#e7ecf3] bg-white p-8 shadow-[0_24px_60px_rgba(11,31,82,0.10)] sm:p-10 md:p-12">
               <div className="mb-4 flex flex-wrap items-center gap-3 text-sm text-[#5b6880]">
@@ -268,10 +357,46 @@ function NewsPageContent() {
         </section>
       )}
 
+      {/* VIDEO MODAL */}
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 py-8"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-5xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-12 right-0 text-3xl font-light text-white hover:text-gray-300"
+              aria-label="Close video"
+            >
+              ×
+            </button>
+
+            <div className="overflow-hidden rounded-[1.5rem] bg-black shadow-2xl">
+              <video
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                poster={eventHeroImage}
+                className="max-h-[80vh] w-full object-contain"
+              >
+                <source src={eventVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div id="contact" className="scroll-mt-[100px]">
         <ContactSection />
       </div>
-        </main>
+    </main>
   );
 }
 

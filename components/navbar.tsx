@@ -2,13 +2,13 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  /* CLOSE DROPDOWN ON OUTSIDE CLICK */
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -28,15 +28,10 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-[9999] bg-[#0b1f52] text-white h-[80px] flex items-center justify-between px-6 lg:px-16">
-
+    <nav className="fixed top-0 left-0 w-full z-[9999] bg-white/95 text-[#0b1f52] backdrop-blur-md border-b border-[#e8eef5] shadow-sm h-[80px] flex items-center justify-between px-6 lg:px-16">
       {/* LOGO */}
       <Link href="/">
-        <img
-          src="/logo.png"
-          alt="Hyssop"
-          className="h-[70px] cursor-pointer"
-        />
+        <img src="/logo1.png" alt="Hyssop" className="h-[80px] cursor-pointer" />
       </Link>
 
       {/* DESKTOP NAV */}
@@ -44,8 +39,7 @@ export default function Navbar() {
         className="hidden lg:flex gap-8 text-sm font-medium items-center"
         ref={dropdownRef}
       >
-
-                {/* ABOUT */}
+        {/* ABOUT */}
         <div className="relative">
           <button
             onClick={() => toggleDropdown("about")}
@@ -84,12 +78,15 @@ export default function Navbar() {
         <Link href="/properties" className="hover:text-[#7ab62f]">
           Properties
         </Link>
+
         <Link href="/diaspora" className="hover:text-[#7ab62f]">
           Diaspora
         </Link>
+
         <Link href="/investments" className="hover:text-[#7ab62f]">
           Investment Co-operative
         </Link>
+
         <Link href="/foundation" className="hover:text-[#7ab62f]">
           Foundation
         </Link>
@@ -103,39 +100,43 @@ export default function Navbar() {
         </Link>
 
         {/* NEWS */}
-<div className="relative">
-  <button
-    onClick={() => toggleDropdown("news")}
-    className="hover:text-[#7ab62f]"
-  >
-    News
-  </button>
+        <div className="relative">
+          <button
+            onClick={() => toggleDropdown("news")}
+            className="hover:text-[#7ab62f]"
+          >
+            News
+          </button>
 
-  {openDropdown === "news" && (
-    <div className="absolute top-full left-0 mt-2 bg-white text-[#0b1f52] rounded-xl shadow-lg w-56 py-2">
-      <Link
-        href="/news?tab=events"
-        className="block px-4 py-2 hover:bg-gray-100"
-        onClick={() => setOpenDropdown(null)}
-      >
-        Events
-      </Link>
-
-      <Link
-        href="/news?tab=blogs"
-        className="block px-4 py-2 hover:bg-gray-100"
-        onClick={() => setOpenDropdown(null)}
-      >
-        Blogs
-      </Link>
-    </div>
-  )}
-</div>
+          {openDropdown === "news" && (
+            <div className="absolute top-full left-0 mt-2 bg-white text-[#0b1f52] rounded-xl shadow-lg w-56 py-2">
+              <Link
+                href="/news?tab=events"
+                className="block px-4 py-2 hover:bg-gray-100"
+                onClick={() => setOpenDropdown(null)}
+              >
+                Events
+              </Link>
+              <Link
+                href="/news?tab=blogs"
+                className="block px-4 py-2 hover:bg-gray-100"
+                onClick={() => setOpenDropdown(null)}
+              >
+                Blogs
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* CONTACT */}
-<a
+      <a
   href="#contact"
+  onClick={() => {
+    console.log("CONTACT CLICK TRACKED");
+    trackEvent("contact_click", {
+      location: "navbar_desktop",
+    });
+  }}
   className="hidden lg:block bg-[#7ab62f] text-[#0b1f52] px-4 py-2 rounded-full text-sm font-semibold"
 >
   Contact
@@ -143,7 +144,7 @@ export default function Navbar() {
 
       {/* MOBILE TOGGLE */}
       <button
-        className="lg:hidden text-2xl"
+        className="lg:hidden text-2xl text-[#0b1f52]"
         onClick={() => setMobileOpen(!mobileOpen)}
       >
         ☰
@@ -151,8 +152,7 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="fixed top-[80px] left-0 w-full bg-[#0b1f52] text-white flex flex-col px-6 py-6 gap-4 z-[9999]">
-
+        <div className="fixed top-[80px] left-0 w-full bg-white text-[#0b1f52] flex flex-col px-6 py-6 gap-4 z-[9999] border-t border-[#e8eef5] shadow-lg">
           <Link href="/about?tab=about" onClick={() => setMobileOpen(false)}>
             About
           </Link>
@@ -162,25 +162,40 @@ export default function Navbar() {
           <Link href="/about?tab=careers" onClick={() => setMobileOpen(false)}>
             Careers
           </Link>
-
-          <Link href="/properties" onClick={() => setMobileOpen(false)}>Properties</Link>
-          <Link href="/diaspora" onClick={() => setMobileOpen(false)}>Diaspora</Link>
-          <Link href="/investments" onClick={() => setMobileOpen(false)}>Investment Co-operative</Link>
-          <Link href="/foundation" onClick={() => setMobileOpen(false)}>Foundation</Link>
-
-          <Link href="/testimonials" onClick={() => setMobileOpen(false)}>Testimonials</Link>
-          <Link href="/awards" onClick={() => setMobileOpen(false)}>Awards</Link>
-
+          <Link href="/properties" onClick={() => setMobileOpen(false)}>
+            Properties
+          </Link>
+          <Link href="/diaspora" onClick={() => setMobileOpen(false)}>
+            Diaspora
+          </Link>
+          <Link href="/investments" onClick={() => setMobileOpen(false)}>
+            Investment Co-operative
+          </Link>
+          <Link href="/foundation" onClick={() => setMobileOpen(false)}>
+            Foundation
+          </Link>
+          <Link href="/testimonials" onClick={() => setMobileOpen(false)}>
+            Testimonials
+          </Link>
+          <Link href="/awards" onClick={() => setMobileOpen(false)}>
+            Awards
+          </Link>
           <Link href="/news?tab=events" onClick={() => setMobileOpen(false)}>
-  Events
-</Link>
-<Link href="/news?tab=blogs" onClick={() => setMobileOpen(false)}>
-  Blogs
-</Link>
+            Events
+          </Link>
+          <Link href="/news?tab=blogs" onClick={() => setMobileOpen(false)}>
+            Blogs
+          </Link>
 
-  <a
+          <a
   href="#contact"
-  onClick={() => setMobileOpen(false)}
+  onClick={() => {
+    console.log("MOBILE CONTACT CLICK TRACKED");
+    trackEvent("contact_click", {
+      location: "navbar_mobile",
+    });
+    setMobileOpen(false);
+  }}
   className="mt-4 inline-block bg-[#7ab62f] text-[#0b1f52] px-4 py-2 rounded-full text-sm font-semibold"
 >
   Contact

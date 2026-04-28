@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import ContactSection from "@/components/ContactSection";
@@ -19,227 +19,227 @@ const galleryImages = [
 
 export default function KonzaPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [videoOpen, setVideoOpen] = useState(false);
 
-  const heroSrc = useMemo(() => `${base}/konza-hero.png`, []);
-  const locationSrc = useMemo(() => `${base}/location.png`, []);
-  const droneThumbSrc = useMemo(() => `${base}/drone-thumb.png`, []);
-  const droneVideoSrc = useMemo(() => `${base}/drone.mp4`, []);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    preferredDay: "",
+    message: "",
+  });
+
+  const projectName = "Konza Ridge – Malili";
+  const heroSrc = `${base}/konza-hero.png`;
+  const droneThumbSrc = `${base}/drone-thumb.png`;
+  const droneVideoSrc = `${base}/drone.mp4`;
+
+  useEffect(() => {
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setSelectedImage(null);
+        setVideoOpen(false);
+      }
+    }
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const text = `Hello Hyssop Properties, I am interested in ${projectName}.
+
+Name: ${formData.name}
+Phone: ${formData.phone}
+Preferred Day: ${formData.preferredDay || "Not specified"}
+Project of Interest: ${projectName}
+Message: ${
+      formData.message ||
+      "I would like more information and site visit assistance."
+    }`;
+
+    window.open(
+      `https://wa.me/254707666000?text=${encodeURIComponent(text)}`,
+      "_blank"
+    );
+  }
 
   return (
     <main className="min-h-screen bg-white text-[#0b1f52]">
       <Navbar />
+      <div className="h-[80px]" />
 
       {/* HERO */}
-      <section className="relative">
-        <div className="relative h-[50vh] min-h-[480px] w-full overflow-hidden bg-[#e9edf3]">
-          <img
-            src={heroSrc}
-            alt="Konza Ridge – Malili"
-            className="block h-full w-full object-cover"
-          />
+      <section className="bg-gradient-to-b from-[#f8fbff] to-white px-6 pt-10 pb-20 lg:px-12">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="relative h-[50vh] min-h-[480px] w-full overflow-hidden rounded-[2rem] bg-[#e9edf3]">
+            <Image
+              src={heroSrc}
+              alt="Konza Ridge – Malili"
+              fill
+              priority
+              quality={90}
+              sizes="100vw"
+              className="object-cover"
+            />
 
-          <div className="absolute inset-0 bg-black/10" />
+            <div className="absolute inset-0 bg-black/10" />
 
-          <div className="absolute inset-0 z-20 flex items-start pt-20">
-            <div className="inline-block px-6 lg:px-8">
-              <div
-                className="ml-2 w-[420px] max-w-[calc(100vw-3rem)] rounded-[24px] px-5 py-5 shadow-[0_24px_60px_rgba(0,0,0,0.35)] md:ml-4 md:px-6 md:py-6"
-                style={{ backgroundColor: "rgba(11, 31, 82, 0.88)" }}
+            <div className="absolute left-6 top-6 z-10 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
+              Ready Title Deeds
+            </div>
+
+            <div className="absolute bottom-6 left-6 right-6 z-10 max-w-2xl rounded-[1.5rem] bg-[#0b1f52]/80 p-5 backdrop-blur-sm">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
+                Konza Ridge · Malili
+              </p>
+              <h1 className="max-w-2xl text-3xl font-bold leading-tight text-white sm:text-5xl">
+                Invest where Kenya’s future city is being built
+              </h1>
+            </div>
+          </div>
+
+          <div className="flex flex-col justify-center rounded-[2rem] border border-[#e8eef5] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+              Featured Project
+            </p>
+
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Konza Ridge – Malili
+            </h2>
+
+            <div className="mt-6 rounded-[1.5rem] bg-[#0b1f52] p-6 text-white">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#8cc63f]">
+                Starting Price
+              </p>
+              <p className="text-4xl font-bold">KSh 449,000</p>
+              <p className="mt-1 text-sm text-white/75">Per 50 x 100 plot</p>
+            </div>
+
+            <p className="mt-6 text-base leading-8 text-gray-600">
+              Konza Ridge offers affordable 1/8 acre plots just minutes from
+              Konza Techno City, giving buyers early access to one of Kenya’s
+              most ambitious growth corridors with ready title deeds and
+              flexible payment options.
+            </p>
+
+            <div className="mt-7 grid grid-cols-2 gap-3">
+              <Fact label="Plot Size" value="50 x 100" />
+              <Fact label="Location" value="Malili" />
+              <Fact label="Access" value="2.5–3 km off Mombasa Road" />
+              <Fact label="Payment" value="Flexible Plans" />
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#site-visit"
+                className="rounded-full bg-[#7ab62f] px-7 py-3 font-semibold text-[#0b1f52] transition hover:scale-105"
               >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#8cc63f]">
-                  KONZA RIDGE – MALILI
-                </p>
+                Book Site Visit
+              </a>
 
-                <div className="mt-2 h-[2px] w-10 bg-[#8cc63f]" />
+              <a
+                href="#gallery"
+                className="rounded-full border border-[#0b1f52] px-7 py-3 font-semibold text-[#0b1f52] transition hover:bg-[#0b1f52] hover:text-white"
+              >
+                View Gallery
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <h1 className="mt-5 text-2xl font-semibold leading-tight text-white md:text-4xl">
-                  Invest where Kenya’s future city is being built
-                </h1>
+      {/* SUMMARY */}
+      <section className="px-6 pb-20 lg:px-12">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
+          <InfoCard
+            title="Location Intelligence"
+            text="Located at Malili, close to Konza Techno City, approximately 2.5 to 3 km off Mombasa Road and positioned near the Nairobi–Mombasa highway corridor."
+          />
+          <InfoCard
+            title="Investment Position"
+            text="Designed for buyers seeking affordable early entry into one of Kenya’s most visible future growth zones with strong long-term appreciation potential."
+          />
+          <InfoCard
+            title="Ownership Confidence"
+            text="50 x 100 plots with ready title deeds, clearly demarcated plots, numbered beacons, and flexible payment options."
+          />
+        </div>
+      </section>
 
-                <p className="mt-4 max-w-[460px] text-sm leading-6 text-white/90 md:text-base">
-                  Konza Ridge offers affordable 1/8 acre plots just minutes from
-                  Konza Techno City, giving buyers early access to one of
-                  Kenya’s most ambitious growth corridors with ready title deeds
-                  and flexible payment options.
-                </p>
+      {/* WHY KONZA */}
+      <section className="bg-[#f8fafc] px-6 py-20 lg:px-12">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
+          <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+              Why Konza Ridge
+            </p>
 
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <a
-                    href="https://wa.me/254707666000?text=Hello%20Hyssop%20Properties%2C%20I%20would%20like%20to%20book%20a%20site%20visit%20for%20Konza%20Ridge%20%E2%80%93%20Malili."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full bg-[#8cc63f] px-5 py-2.5 text-sm font-semibold text-[#0b1f52] transition hover:brightness-95"
-                  >
-                    Book a Site Visit
-                  </a>
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Affordable entry into one of Kenya’s most talked-about future
+              growth zones.
+            </h2>
 
-                  <a
-                    href="#gallery"
-                    className="rounded-full border border-white/40 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
-                  >
-                    View Gallery
-                  </a>
-                </div>
+            <p className="mt-6 text-base leading-8 text-gray-600">
+              Konza Ridge is designed for buyers who want to secure land before
+              the wider value curve fully forms. Located near Malili and just
+              minutes from Konza Techno City, the project offers an early
+              position in a corridor shaped by infrastructure ambition, future
+              business activity, and strong long-term visibility.
+            </p>
+
+            <p className="mt-4 text-base leading-8 text-gray-600">
+              With ready title deeds, clearly demarcated plots, and flexible
+              payment options, Konza Ridge makes it easier to enter a
+              future-facing location at an accessible price point while the area
+              is still building momentum.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setVideoOpen(true)}
+            className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-white text-left shadow-[0_24px_70px_rgba(11,31,82,0.12)]"
+            aria-label="Play Konza Ridge aerial video"
+          >
+            <Image
+              src={droneThumbSrc}
+              quality={90}
+              alt="Konza Ridge aerial video preview"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+
+            <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/30" />
+
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/95 text-[#0b1f52] shadow-xl transition group-hover:scale-110">
+                <span className="ml-1 text-3xl">▶</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* QUICK FACTS */}
-      <section className="px-6 py-16 lg:px-16">
-        <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <FactCard label="Location" value="Malili, near Konza Techno City" />
-          <FactCard label="Distance" value="Approx. 2.5–3 km from Mombasa Road" />
-          <FactCard label="Plot Size" value="50x100" />
-          <FactCard label="Payment" value="From KSh 449K cash" />
-        </div>
-      </section>
-
-      {/* WHY THIS PROJECT */}
-      <section className="px-6 pb-16 lg:px-16">
-        <div className="mx-auto max-w-4xl text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#7ab62f]">
-            Why Konza Ridge
-          </span>
-
-          <h2 className="text-2xl font-semibold sm:text-3xl">
-            Affordable entry into one of Kenya’s most talked-about future growth zones
-          </h2>
-
-          <p className="mt-6 text-base leading-8 text-gray-600">
-            Konza Ridge is designed for buyers who want to secure land before
-            the wider value curve fully forms. Located near Malili and just
-            minutes from Konza Techno City, the project offers an early position
-            in a corridor shaped by infrastructure ambition, future business
-            activity, and strong long-term visibility.
-          </p>
-
-          <p className="mt-4 text-base leading-8 text-gray-600">
-            With ready title deeds, clearly demarcated plots, and flexible
-            payment options, Konza Ridge makes it easier to enter a future-facing
-            location at an accessible price point while the area is still
-            building momentum.
-          </p>
-        </div>
-      </section>
-
-      {/* INVESTMENT POSITIONING */}
-      <section className="px-6 pb-16 lg:px-16">
-        <div className="mx-auto max-w-4xl text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#7ab62f]">
-            Investment Perspective
-          </span>
-
-          <h2 className="text-2xl font-semibold sm:text-3xl">
-            Secure your position before the city fully forms
-          </h2>
-
-          <p className="mt-6 text-base leading-8 text-gray-600">
-            Konza is planned as a world-class city powered by ICT, reliable
-            infrastructure, and business-friendly governance. That makes Konza
-            Ridge attractive not just for residential use, but for buyers who
-            understand the value of timing in real estate.
-          </p>
-
-          <p className="mt-4 text-base leading-8 text-gray-600">
-            This is a vision-driven, future-facing land play. It is well suited
-            for buyers seeking legacy ownership, long-term appreciation, and a
-            strategic foothold near a location that has already captured
-            national attention as Kenya’s Silicon Savannah.
-          </p>
-
-          <p className="mt-4 font-medium text-[#0b1f52]">
-            Get in early. Hold with vision. Own next to the future.
-          </p>
-        </div>
-      </section>
-
-      {/* LOCATION INTELLIGENCE */}
-      <section className="bg-[#f8f9fa] px-6 py-16 lg:px-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
-          <div>
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#7ab62f]">
-              Location Intelligence
-            </span>
-
-            <h2 className="text-2xl font-semibold sm:text-3xl">
-              Strategic proximity to Konza Techno City and the Nairobi–Mombasa corridor
-            </h2>
-
-            <ul className="mt-6 space-y-3 text-gray-600">
-              <li>• Located at Malili, close to Konza Techno City</li>
-              <li>• Approximately 2.5 to 3 km off Mombasa Road</li>
-              <li>• Just off the Nairobi–Mombasa highway corridor</li>
-              <li>• Attractive for future residential development</li>
-              <li>• 1/8 acre plots with numbered beacons and ready title deeds</li>
-              <li>• Positioned within one of Kenya’s most visible future growth stories</li>
-            </ul>
-          </div>
-
-          <div className="relative overflow-hidden rounded-[24px] bg-white shadow-[0_20px_50px_rgba(11,31,82,0.10)]">
-            <div className="relative aspect-[4/3]">
-              <MediaImage
-                src={locationSrc}
-                alt="Konza Ridge location view"
-                fill
-                quality={70}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                fallbackLabel="Location image missing"
-              />
+            <div className="absolute bottom-5 left-5 rounded-full bg-white/95 px-5 py-2 text-sm font-bold text-[#0b1f52] shadow-sm">
+              Watch access preview
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* DRONE / ACCESS CLIP */}
-      <section className="bg-[#f5f7fb] px-6 py-20 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.38em] text-[#8cc63f]">
-              Access Preview
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[#0b1f52] md:text-5xl">
-              A quick look at access and surroundings
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-[#31456f]">
-              A short preview of the access road and surrounding environment to
-              help you understand the location before visiting.
-            </p>
-          </div>
-
-          <div className="mt-12">
-            <div className="mx-auto max-w-4xl overflow-hidden rounded-[28px] bg-[#e9edf3] shadow-[0_24px_60px_rgba(11,31,82,0.12)]">
-              <video
-                controls
-                preload="none"
-                playsInline
-                poster={droneThumbSrc}
-                className="block w-full rounded-[28px] bg-black"
-              >
-                <source src={droneVideoSrc} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
+          </button>
         </div>
       </section>
 
       {/* FEATURES */}
-      <section className="bg-[#f8f9fa] px-6 py-16 lg:px-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-10 text-center">
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#7ab62f]">
+      <section className="bg-white px-6 py-20 lg:px-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
               Key Features
-            </span>
-
-            <h2 className="text-2xl font-semibold sm:text-3xl">
+            </p>
+            <h2 className="text-3xl font-bold sm:text-4xl">
               Structured, affordable, and positioned for the future
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <FeatureCard text="Affordable 1/8 acre plots near Konza Techno City" />
             <FeatureCard text="Approximately 2.5 to 3 km from Mombasa Road" />
             <FeatureCard text="Ready title deeds for confident ownership" />
@@ -251,17 +251,18 @@ export default function KonzaPage() {
       </section>
 
       {/* GALLERY */}
-      <section id="gallery" className="scroll-mt-24 px-6 py-16 lg:px-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-10 text-center">
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#7ab62f]">
+      <section
+        id="gallery"
+        className="scroll-mt-24 bg-[#f8fafc] px-6 py-20 lg:px-12"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
               Project Gallery
-            </span>
-
-            <h2 className="text-2xl font-semibold sm:text-3xl">
+            </p>
+            <h2 className="text-3xl font-bold sm:text-4xl">
               Explore the project visually
             </h2>
-
             <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-600">
               View the site surroundings, access profile, and future-facing
               setting of Konza Ridge more closely.
@@ -274,55 +275,124 @@ export default function KonzaPage() {
                 key={src}
                 type="button"
                 onClick={() => setSelectedImage(src)}
-                className="group relative overflow-hidden rounded-[20px] bg-[#eef2f7] text-left shadow-[0_14px_35px_rgba(11,31,82,0.08)]"
+                className="group relative overflow-hidden rounded-[1.5rem] bg-[#eef2f7] shadow-[0_14px_35px_rgba(11,31,82,0.08)]"
               >
                 <div className="relative aspect-[4/3]">
-                  <MediaImage
+                  <Image
                     src={src}
+                    quality={90}
                     alt={`Konza Ridge gallery image ${index + 1}`}
                     fill
-                    quality={70}
                     sizes="(max-width: 768px) 50vw, 33vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                    fallbackLabel={`Gallery image ${index + 1} missing`}
+                    className="object-cover transition duration-700 group-hover:scale-105"
                   />
                 </div>
-
-                <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/10" />
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[#0b1f52] px-6 py-20 text-center text-white lg:px-16">
-        <h2 className="text-2xl font-semibold sm:text-3xl">
-          Secure your place next to Kenya’s future city
-        </h2>
+      {/* SITE VISIT FORM */}
+      <section id="site-visit" className="bg-white px-6 py-20 lg:px-12">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+              Book a Site Visit
+            </p>
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Interested in this property?
+            </h2>
+            <p className="mt-5 text-base leading-8 text-gray-600">
+              Send your details directly to our team on WhatsApp. The project
+              of interest is already set to Konza Ridge – Malili.
+            </p>
+          </div>
 
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-white/80">
-          Speak to our team today about cash pricing, flexible payment options,
-          title deed guidance, and the next steps to secure your plot at Konza
-          Ridge – Malili.
-        </p>
-
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href="https://wa.me/254707666000"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-[#7ab62f] px-6 py-3 font-semibold text-[#0b1f52] transition hover:scale-105"
+          <form
+            onSubmit={handleSubmit}
+            className="rounded-[2rem] border border-[#e8eef5] bg-[#f8fafc] p-6 shadow-sm sm:p-8"
           >
-            Chat on WhatsApp
-          </a>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Field
+                label="Name"
+                required
+                value={formData.name}
+                onChange={(value) =>
+                  setFormData((prev) => ({ ...prev, name: value }))
+                }
+                placeholder="Enter your name"
+              />
 
-          <a
-            href="tel:+254707666000"
-            className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white hover:text-[#0b1f52]"
-          >
-            Call Now
-          </a>
+              <Field
+                label="Phone"
+                required
+                value={formData.phone}
+                onChange={(value) =>
+                  setFormData((prev) => ({ ...prev, phone: value }))
+                }
+                placeholder="Enter your phone number"
+              />
+
+              <label className="sm:col-span-2">
+                <span className="mb-2 block text-sm font-semibold">
+                  Preferred Day
+                </span>
+                <select
+                  value={formData.preferredDay}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      preferredDay: e.target.value,
+                    }))
+                  }
+                  className="w-full rounded-2xl border border-[#e8eef5] bg-white px-4 py-3 text-sm outline-none focus:border-[#7ab62f]"
+                >
+                  <option value="">Select preferred day</option>
+                  <option value="Weekday">Weekday</option>
+                  <option value="Saturday">Saturday</option>
+                  <option value="Sunday">Sunday</option>
+                  <option value="Any day">Any day</option>
+                </select>
+              </label>
+
+              <label className="sm:col-span-2">
+                <span className="mb-2 block text-sm font-semibold">
+                  Project of Interest
+                </span>
+                <input
+                  value={projectName}
+                  readOnly
+                  className="w-full rounded-2xl border border-[#e8eef5] bg-[#eef2f7] px-4 py-3 text-sm text-gray-600 outline-none"
+                />
+              </label>
+
+              <label className="sm:col-span-2">
+                <span className="mb-2 block text-sm font-semibold">
+                  Message
+                </span>
+                <textarea
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      message: e.target.value,
+                    }))
+                  }
+                  placeholder="Optional message"
+                  rows={4}
+                  className="w-full rounded-2xl border border-[#e8eef5] bg-white px-4 py-3 text-sm outline-none focus:border-[#7ab62f]"
+                />
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              className="mt-6 rounded-full bg-[#7ab62f] px-7 py-3 font-semibold text-[#0b1f52] transition hover:scale-105"
+            >
+              Submit Interest on WhatsApp
+            </button>
+          </form>
         </div>
       </section>
 
@@ -330,7 +400,41 @@ export default function KonzaPage() {
       <FloatingWhatsApp />
       <ChatbotWidget />
 
-      {/* GALLERY MODAL */}
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 py-8"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-5xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-12 right-0 text-3xl font-light text-white"
+              aria-label="Close video"
+            >
+              ×
+            </button>
+
+            <div className="overflow-hidden rounded-[1.5rem] bg-black shadow-2xl">
+              <video
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                poster={droneThumbSrc}
+                className="max-h-[80vh] w-full object-contain"
+              >
+                <source src={droneVideoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      )}
+
       {selectedImage && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4"
@@ -338,7 +442,7 @@ export default function KonzaPage() {
         >
           <div
             className="relative w-full max-w-5xl"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
           >
             <button
               type="button"
@@ -349,7 +453,7 @@ export default function KonzaPage() {
               ×
             </button>
 
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] bg-black">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-black">
               <img
                 src={selectedImage}
                 alt="Konza Ridge enlarged view"
@@ -363,58 +467,61 @@ export default function KonzaPage() {
   );
 }
 
-function MediaImage({
-  src,
-  alt,
-  fallbackLabel,
-  className,
-  ...props
-}: {
-  src: string;
-  alt: string;
-  fallbackLabel: string;
-  className?: string;
-  [key: string]: any;
-}) {
-  const [failed, setFailed] = useState(false);
-
-  if (failed) {
-    return (
-      <div className="absolute inset-0 flex items-center justify-center bg-[#e9edf3] px-4 text-center">
-        <div>
-          <p className="text-sm font-semibold text-[#0b1f52]">{fallbackLabel}</p>
-          <p className="mt-1 break-all text-xs text-gray-500">{src}</p>
-        </div>
-      </div>
-    );
-  }
-
+function Fact({ label, value }: { label: string; value: string }) {
   return (
-    <Image
-      {...props}
-      src={src}
-      alt={alt}
-      className={className}
-      onError={() => setFailed(true)}
-    />
+    <div className="rounded-2xl border border-[#e8eef5] bg-[#f8fafc] p-4">
+      <p className="mb-1 text-xs text-gray-500">{label}</p>
+      <p className="text-sm font-bold text-[#0b1f52]">{value}</p>
+    </div>
   );
 }
 
-function FactCard({ label, value }: { label: string; value: string }) {
+function InfoCard({ title, text }: { title: string; text: string }) {
   return (
-    <div className="rounded-[20px] border border-[#e8edf3] bg-white p-6 text-center shadow-[0_10px_30px_rgba(11,31,82,0.05)]">
-      <p className="text-sm uppercase tracking-[0.12em] text-gray-500">
-        {label}
-      </p>
-      <p className="mt-2 font-semibold text-[#0b1f52]">{value}</p>
+    <div className="rounded-[1.5rem] border border-[#e8eef5] bg-white p-6 shadow-sm">
+      <h3 className="mb-3 text-xl font-bold">{title}</h3>
+      <p className="text-sm leading-7 text-gray-600">{text}</p>
     </div>
   );
 }
 
 function FeatureCard({ text }: { text: string }) {
   return (
-    <div className="rounded-[20px] bg-white p-6 text-center shadow-[0_10px_30px_rgba(11,31,82,0.05)]">
-      <p className="font-medium text-[#0b1f52]">{text}</p>
+    <div className="rounded-[1.5rem] border border-[#e8eef5] bg-white p-6 shadow-sm">
+      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#8cc63f]/15 text-[#4c7d16]">
+        ✓
+      </div>
+      <p className="font-semibold leading-7 text-[#0b1f52]">{text}</p>
     </div>
+  );
+}
+
+function Field({
+  label,
+  value,
+  onChange,
+  placeholder,
+  required = false,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  placeholder: string;
+  required?: boolean;
+}) {
+  return (
+    <label>
+      <span className="mb-2 block text-sm font-semibold">
+        {label}
+        {required ? " *" : ""}
+      </span>
+      <input
+        required={required}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        className="w-full rounded-2xl border border-[#e8eef5] bg-white px-4 py-3 text-sm outline-none focus:border-[#7ab62f]"
+      />
+    </label>
   );
 }

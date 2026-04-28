@@ -36,37 +36,6 @@ type Award = {
   subtitle: string;
 };
 
-const heroSlides: Slide[] = [
-  {
-    image: "/hyssop/hero/001.png",
-    eyebrow: "Verified ownership",
-    title: "A culture of trust.",
-    text: "Secure land investments backed by transparency, clarity, and real title delivery.",
-    label: "Title Event",
-  },
-  {
-    image: "/hyssop/hero/7.png",
-    eyebrow: "Featured location",
-    title: "Prime land. Clear process.",
-    text: "Premium land for sale in Kenya with verified title deeds and transparent ownership.",
-    label: "Tumaini Estate",
-  },
-  {
-    image: "/hyssop/diaspora/23.jpg",
-    eyebrow: "Diaspora support",
-    title: "Invest from anywhere.",
-    text: "Helping Kenyans in the diaspora acquire property back home with confidence.",
-    label: "Diaspora",
-  },
-  {
-    image: "/hyssop/hero/44.png",
-    eyebrow: "Beyond ownership",
-    title: "Grow beyond the title deed.",
-    text: "Turn property into a stronger financial future through strategic investment support.",
-    label: "Investment",
-  },
-];
-
 const properties: Property[] = [
   {
     name: "Tumaini Estate",
@@ -74,8 +43,8 @@ const properties: Property[] = [
     price: "Prime gated plots",
     description:
       "A calm, strategic development positioned for secure family ownership and long-term value growth.",
-    image: "/hyssop/gallery-1.png",
-    href: "/properties",
+    image: "/hyssop/1.png",
+    href: "/properties/tumaini",
   },
   {
     name: "Hyssop Acres, Malindi",
@@ -83,8 +52,8 @@ const properties: Property[] = [
     price: "Accessible investment location",
     description:
       "A well-positioned opportunity for buyers seeking convenience, growth potential, and verified ownership.",
-    image: "/hyssop/malindi.png",
-    href: "/properties",
+    image: "/hyssop/location.jpg",
+    href: "/properties/malindi",
   },
 ];
 
@@ -112,10 +81,10 @@ const approach: ApproachItem[] = [
 ];
 
 const testimonialImages = [
-  "/hyssop/testimonials/1.png",
-  "/hyssop/testimonials/2.png",
+  "/hyssop/testimonials/1.jpg",
+  "/hyssop/testimonials/2.jpg",
   "/hyssop/testimonials/3.png",
-  "/hyssop/testimonials/4.jpg",
+  "/hyssop/testimonials/04.jpg",
   "/hyssop/testimonials/5.jpg",
   "/hyssop/testimonials/6.jpg",
 ];
@@ -146,10 +115,10 @@ export default function Home() {
       <Hero />
       <FeaturedProperties />
       <OurApproach />
-      <InvestmentCTA />
       <Stats />
       <Testimonials />
       <Awards />
+      <InvestmentCTA />
 
       <div id="contact" className="scroll-mt-[120px]">
         <ContactSection />
@@ -161,120 +130,162 @@ export default function Home() {
   );
 }
 
-function Hero() {
-  const slides = [
-    {
-      image: "/hyssop/hero/001.png",
-      text: "Join us on April 25th as we hand over real title deeds.",
-      label: "Title Event",
-    },
-    {
-      image: "/hyssop/hero/7.png",
-      text: "Invest in land you can trust.",
-      label: "Tumaini Estate",
-    },
-    {
-      image: "/hyssop/diaspora/2.jpg",
-      text: "Connecting Kenyans in diaspora to home.",
-      label: "Diaspora",
-    },
-    {
-      image: "/hyssop/hero/44.png",
-      text: "Grow beyond ownership.",
-      label: "Investment",
-    },
-  ];
+const heroSlides: Slide[] = [
+  {
+    image: "/hyssop/hero/03.jpg",
+    eyebrow: "Proof of delivery",
+    title: "A Culture of Trust.",
+    text: "Real clients. Verified ownership. Delivered by Hyssop Properties.",
+    label: "Testimonials",
+  },
+  {
+    image: "/hyssop/diaspora/2.jpg",
+    eyebrow: "Diaspora support",
+    title: "Invest from anywhere.",
+    text: "Helping Kenyans in the diaspora acquire property back home with confidence.",
+    label: "Diaspora",
+  },
+  {
+  image: "/hyssop/hero/01.png",
+  eyebrow: "Featured location",
+  title: "Prime land. Clear process.",
+  text: "Premium land for sale in Kenya with verified title deeds and transparent ownership.",
+  label: "Tumaini Estate",
+}
+];
 
+function Hero() {
   const [current, setCurrent] = useState(0);
   const [typed, setTyped] = useState("");
 
-  // TYPEWRITER
+  const activeSlide = heroSlides[current];
+
+  useEffect(() => {
+    const auto = window.setInterval(() => {
+      setCurrent((prev) => (prev + 1) % heroSlides.length);
+    }, 8500);
+
+    return () => window.clearInterval(auto);
+  }, []);
+
   useEffect(() => {
     let i = 0;
     setTyped("");
 
-    const typing = setInterval(() => {
-      setTyped(slides[current].text.slice(0, i));
+    const typing = window.setInterval(() => {
+      setTyped(activeSlide.text.slice(0, i));
       i++;
-      if (i > slides[current].text.length) clearInterval(typing);
-    }, 35);
 
-    return () => clearInterval(typing);
-  }, [current]);
+      if (i > activeSlide.text.length) {
+        window.clearInterval(typing);
+      }
+    }, 28);
 
-  // AUTO SLIDE
-  useEffect(() => {
-    const auto = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 6000);
-
-    return () => clearInterval(auto);
-  }, []);
+    return () => window.clearInterval(typing);
+  }, [activeSlide.text]);
 
   return (
-    <section className="min-h-screen flex items-center pt-[100px] px-6 lg:px-12 bg-white">
-
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 items-center">
-
-        {/* LEFT TEXT */}
-        <div className="max-w-xl">
-
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-6">
-            <span className="block text-[#0b1f52]">A Culture of</span>
-            <span className="block text-[#7ab62f]">Trust</span>
-          </h1>
-
-          <p className="text-lg text-gray-600 mb-8 min-h-[28px]">
-            {typed}
-          </p>
-
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <Link href="/properties">
-              <button className="bg-[#7ab62f] text-[#0b1f52] px-6 py-3 rounded-full font-semibold hover:scale-105 transition w-full sm:w-auto">
-                View Properties
-              </button>
-            </Link>
-
-            <Link href="/investments">
-              <button className="border border-[#0b1f52] text-[#0b1f52] px-6 py-3 rounded-full font-semibold hover:bg-[#0b1f52] hover:text-white transition w-full sm:w-auto">
-                Explore Investments
-              </button>
-            </Link>
+    <section className="relative min-h-screen overflow-hidden bg-[#061531] text-white">
+      {/* FULL BACKGROUND SLIDER */}
+      <div className="absolute inset-0">
+        {heroSlides.map((slide, index) => (
+          <div
+            key={slide.image}
+            className="absolute inset-0 transition-opacity duration-[1600ms] ease-in-out"
+            style={{
+              opacity: current === index ? 1 : 0,
+              zIndex: current === index ? 2 : 1,
+            }}
+          >
+            <Image
+              src={slide.image}
+              alt={slide.label}
+              fill
+              priority={index === 0}
+              quality={90}
+              sizes="100vw"
+              className="object-cover object-center"
+            />
           </div>
+        ))}
 
-          {/* SLIDE CONTROLS */}
-          <div className="flex gap-2 flex-wrap">
-            {slides.map((slide, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                  current === i
-                    ? "bg-[#0b1f52] text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                }`}
+        {/* CONSISTENT READABILITY OVERLAY */}
+<div className="absolute inset-0 z-10 bg-[#061531]/15" />
+
+{/* Left text protection */}
+<div className="absolute inset-y-0 left-0 z-10 w-[56%] bg-[#061531]/28 backdrop-blur-[5px]" />
+
+<div className="absolute inset-0 z-10 bg-gradient-to-r from-[#061531]/72 via-[#061531]/38 to-transparent" />
+<div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-[#061531]/18" />
+      </div>
+
+      {/* HERO CONTENT */}
+      <div
+  className="absolute inset-x-0 z-20 px-6 lg:px-16"
+  style={{ bottom: "50px" }}
+>
+        <div className="mx-auto w-full max-w-7xl">
+          <div
+  className="max-w-2xl p-6 lg:-translate-x-6 xl:-translate-x-10"
+  style={{
+    background: "rgba(6, 21, 49, 0.48)",
+    borderRadius: "28px",
+    boxShadow: "0 20px 55px rgba(0,0,0,0.18)",
+  }}
+>
+            <div className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f] backdrop-blur-sm">
+              {activeSlide.eyebrow}
+            </div>
+
+            <h1 className="text-4xl font-black leading-[1.02] tracking-tight drop-shadow-[0_5px_22px_rgba(0,0,0,0.75)] sm:text-5xl lg:text-[3.55rem]">
+              {activeSlide.title}
+            </h1>
+
+            <p
+  className="mt-4 inline-block max-w-xl px-4 py-3 text-sm font-bold leading-7 text-white sm:text-lg"
+  style={{
+    background: "rgba(6, 21, 49, 0.52)",
+    borderRadius: "16px",
+    boxShadow: "0 14px 32px rgba(0,0,0,0.22)",
+  }}
+>
+  {typed}
+  <span className="ml-1 inline-block h-5 w-[2px] translate-y-1 bg-[#8cc63f] shadow-[0_0_8px_rgba(140,198,63,0.9)]" />
+</p>
+
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/properties"
+                className="inline-flex items-center justify-center rounded-full bg-[#8cc63f] px-7 py-3 text-sm font-bold text-[#0b1f52] transition hover:scale-[1.02]"
               >
-                {slide.label}
-              </button>
-            ))}
+                View Properties
+              </Link>
+
+              <Link
+                href="/investments"
+                className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 py-3 text-sm font-bold text-white transition hover:bg-white hover:text-[#0b1f52]"
+              >
+                Explore Investments
+              </Link>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-2">
+              {heroSlides.map((slide, index) => (
+                <button
+                  key={slide.label}
+                  onClick={() => setCurrent(index)}
+                  className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
+                    current === index
+                      ? "bg-white text-[#0b1f52]"
+                      : "bg-white/10 text-white/75 hover:bg-white/20"
+                  }`}
+                >
+                  {slide.label}
+                </button>
+              ))}
+            </div>
           </div>
-
         </div>
-
-        {/* RIGHT IMAGE */}
-        <div className="relative w-full h-[420px] sm:h-[500px] lg:h-[560px] rounded-2xl overflow-hidden shadow-xl">
-
-          <Image
-            src={slides[current].image}
-            alt="Hero"
-            fill
-            className="object-cover transition duration-700 ease-in-out"
-            priority
-          />
-
-        </div>
-
       </div>
     </section>
   );
@@ -284,17 +295,20 @@ function FeaturedProperties() {
   return (
     <section className="bg-[#f7f9fc] px-6 py-24 lg:px-16">
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#8cc63f]">
-            Featured Properties
-          </span>
+        <div className="mb-16 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
+              Featured Properties
+            </span>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
-            Premium opportunities, presented with clarity.
-          </h2>
+            <h2 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
+              Premium opportunities, presented with clarity.
+            </h2>
+          </div>
 
-          <p className="mt-5 text-base leading-8 text-[#61708a]">
-            Prime locations, ready title deeds, and carefully selected investment opportunities designed for secure ownership and long-term growth.
+          <p className="max-w-xl text-base leading-8 text-[#61708a]">
+            Explore selected Hyssop projects with clear location advantages,
+            verified ownership support, and a guided path to title transfer.
           </p>
         </div>
 
@@ -302,29 +316,33 @@ function FeaturedProperties() {
           {properties.map((property) => (
             <article
               key={property.name}
-              className="group overflow-hidden rounded-[28px] border border-[#e4ebf3] bg-white shadow-[0_20px_55px_rgba(11,31,82,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(11,31,82,0.12)]"
+              className="group overflow-hidden rounded-[30px] border border-[#dfe7f0] bg-white shadow-[0_20px_55px_rgba(11,31,82,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(11,31,82,0.12)]"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative h-[260px] w-full overflow-hidden bg-[#eef3f8]">
                 <Image
                   src={property.image}
                   alt={property.name}
                   fill
-                  quality={100}
+                  quality={90}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center transition duration-700 group-hover:scale-[1.04]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061531]/70 via-[#061531]/10 to-transparent" />
+
+                <div className="absolute bottom-5 left-5">
+                  <span className="rounded-full bg-[#8cc63f] px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#0b1f52]">
+                    {property.price}
+                  </span>
+                </div>
               </div>
 
               <div className="p-7 sm:p-8">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="rounded-full bg-[#eef7df] px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#5f8f1f]">
-                    {property.price}
-                  </span>
-                  <span className="text-sm text-[#6b7a93]">{property.location}</span>
-                </div>
+                <p className="text-sm font-medium text-[#6b7a93]">
+                  {property.location}
+                </p>
 
-                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[#0b1f52]">
+                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[#0b1f52]">
                   {property.name}
                 </h3>
 
@@ -335,9 +353,9 @@ function FeaturedProperties() {
                 <div className="mt-7">
                   <Link
                     href={property.href}
-                    className="inline-flex items-center justify-center rounded-full border border-[#0b1f52]/12 px-5 py-3 text-sm font-semibold text-[#0b1f52] transition duration-300 hover:bg-[#0b1f52] hover:text-white"
+                    className="inline-flex items-center justify-center rounded-full bg-[#0b1f52] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#8cc63f] hover:text-[#0b1f52]"
                   >
-                    View Property
+                    View Project
                   </Link>
                 </div>
               </div>
@@ -348,7 +366,7 @@ function FeaturedProperties() {
         <div className="mt-12 text-center">
           <Link
             href="/properties"
-            className="inline-flex items-center justify-center rounded-full bg-[#8cc63f] px-7 py-3.5 font-semibold text-[#0b1f52] transition duration-300 hover:scale-[1.02]"
+            className="inline-flex items-center justify-center rounded-full bg-[#8cc63f] px-8 py-3.5 font-bold text-[#0b1f52] transition duration-300 hover:scale-[1.02]"
           >
             View All Properties
           </Link>
@@ -359,35 +377,133 @@ function FeaturedProperties() {
 }
 
 function OurApproach() {
+  const [videoOpen, setVideoOpen] = useState(false);
+
+  useEffect(() => {
+    if (!videoOpen) return;
+
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setVideoOpen(false);
+    };
+
+    window.addEventListener("keydown", handleEsc);
+
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [videoOpen]);
+
   return (
     <section className="bg-white px-6 py-24 lg:px-16">
-      <div className="mx-auto max-w-7xl">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#8cc63f]">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2">
+        {/* LEFT */}
+        <div className="max-w-xl">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
             Our Difference
           </span>
 
           <h2 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
-            Why clients choose Hyssop.
+            Ownership you can see, not just promises.
           </h2>
 
           <p className="mt-5 text-base leading-8 text-[#61708a]">
-            Every investment journey should feel clear, supported, and built for long-term confidence.
+            From site visits to title deed issuance, Hyssop supports clients
+            through a clear, documented, and confidence-led ownership journey.
           </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {approach.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-[20px] border border-[#e7edf4] bg-[#fbfcfe] p-5"
+              >
+                <h3 className="text-base font-semibold text-[#0b1f52]">
+                  {item.title}
+                </h3>
+
+                <p className="mt-2 text-sm leading-7 text-[#61708a]">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {approach.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-[24px] border border-[#e7edf4] bg-[#fbfcfe] p-8 shadow-[0_10px_24px_rgba(11,31,82,0.04)] transition duration-300 hover:border-[#8cc63f]/35 hover:shadow-[0_18px_40px_rgba(11,31,82,0.08)]"
-            >
-              <h3 className="text-xl font-semibold text-[#0b1f52]">{item.title}</h3>
-              <p className="mt-4 text-base leading-8 text-[#61708a]">{item.description}</p>
+        {/* RIGHT */}
+        <div className="w-full" style={{ marginTop: "64px" }}>
+          <p className="mb-7 max-w-xl text-[15px] leading-8 text-[#4f6384]">
+            Check out highlights from our recent title deed issuance event and
+            see the trust, transparency, and client confidence behind every
+            Hyssop investment.
+          </p>
+
+          <button
+            type="button"
+            onClick={() => setVideoOpen(true)}
+            className="group relative h-[420px] w-full overflow-hidden rounded-[34px] bg-[#eef3f8] text-left shadow-[0_28px_80px_rgba(11,31,82,0.16)] ring-1 ring-black/5"
+          >
+            <Image
+              src="/hyssop/thumbnail.jpg"
+              alt="Hyssop title deed issuance event"
+              fill
+              quality={90}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center transition duration-700 group-hover:scale-[1.04]"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061531]/80 via-[#061531]/20 to-transparent" />
+
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-2xl font-bold text-[#0b1f52] shadow-[0_18px_45px_rgba(0,0,0,0.25)] transition duration-300 group-hover:scale-110">
+                ▶
+              </div>
             </div>
-          ))}
+
+            <div className="absolute bottom-6 left-6 right-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
+                Watch the event
+              </p>
+
+              <h3 className="mt-2 max-w-xl text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                Title deed issuance, client confidence, and real ownership.
+              </h3>
+            </div>
+          </button>
         </div>
       </div>
+
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 py-8"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-5xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-12 right-0 text-3xl font-light text-white"
+              aria-label="Close video"
+            >
+              ×
+            </button>
+
+            <div className="overflow-hidden rounded-[1.5rem] bg-black shadow-2xl">
+              <video
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                poster="/hyssop/thumbnail.jpg"
+                className="max-h-[80vh] w-full object-contain"
+              >
+                <source src="/hyssop/Recap.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -556,31 +672,37 @@ function Testimonials() {
           </h2>
 
           <p className="mt-5 text-base leading-8 text-[#61708a]">
-            A few of the many clients who have secured verified land and property through Hyssop Properties.
+            Moments from our recent title deed issuance event - real clients taking ownership, backed by transparency and trust.
           </p>
         </div>
+
+        <div className="mt-8 mb-8 flex justify-center">
+  <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-medium text-[#0b1f52] shadow-sm ring-1 ring-black/5">
+    Tumaini Estate • Title Deed Issuance Event
+  </span>
+</div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {featured.map((src, index) => (
             <div
               key={src}
-              className="group overflow-hidden rounded-[24px] border border-[#e4ebf3] bg-white p-3 shadow-[0_16px_40px_rgba(11,31,82,0.07)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(11,31,82,0.10)]"
+              className="group overflow-hidden rounded-[28px] bg-white shadow-[0_18px_50px_rgba(11,31,82,0.08)] ring-1 ring-black/5"
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[18px] bg-[#eef3f8]">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[28px]">
                 <Image
                   src={src}
                   alt={`Hyssop client success story ${index + 1}`}
                   fill
                   quality={100}
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                  className="object-cover object-center transition duration-700 group-hover:scale-[1.03]"
+                  className="object-cover object-center transition duration-700 group-hover:scale-[1.02]"
                 />
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <Link
             href="/testimonials"
             className="inline-flex items-center justify-center rounded-full border border-[#0b1f52]/12 px-7 py-3.5 font-semibold text-[#0b1f52] transition duration-300 hover:bg-[#0b1f52] hover:text-white"

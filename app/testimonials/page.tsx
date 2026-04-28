@@ -7,7 +7,7 @@ import ContactSection from "@/components/ContactSection";
 export default function TestimonialsPage() {
   const images = [
     "1.png",
-    "2.png",
+    "02.png",
     "3.png",
     "4.jpg",
     "5.jpg",
@@ -20,7 +20,7 @@ export default function TestimonialsPage() {
     "12.png",
     "13.png",
     "14.png",
-    "15.png",
+    "15.jpg",
     "16.png",
   ];
 
@@ -33,7 +33,7 @@ export default function TestimonialsPage() {
   <div className="relative w-full">
 
     <Image
-      src="/hyssop/eventcropped.png"
+      src="/hyssop/03.jpg"
       alt="Hyssop title deed ceremony"
       width={1920}
       height={1080}
