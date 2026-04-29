@@ -72,7 +72,7 @@ Message: ${
 
       {/* HERO */}
       <section className="bg-gradient-to-b from-[#f8fbff] to-white px-6 pt-10 pb-20 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="mx-auto max-w-7xl">
           <div className="relative h-[50vh] min-h-[480px] w-full overflow-hidden rounded-[2rem] bg-[#e9edf3]">
             <Image
               src={heroSrc}
@@ -100,7 +100,7 @@ Message: ${
             </div>
           </div>
 
-          <div className="flex flex-col justify-center rounded-[2rem] border border-[#e8eef5] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+          <div className="mt-8 rounded-[2rem] border border-[#e8eef5] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
               Featured Project
             </p>

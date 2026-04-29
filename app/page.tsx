@@ -12,7 +12,7 @@ type Slide = {
   image: string;
   eyebrow: string;
   title: string;
-  text: string;
+  subtitle: string;
   label: string;
 };
 
@@ -66,7 +66,7 @@ const approach: ApproachItem[] = [
   {
     title: "Ownership",
     description:
-      "We stay with you until your investment is fully yours — verified, documented, and confidently secured.",
+      "We stay with you until your investment is fully yours - verified, documented, and confidently secured.",
   },
   {
     title: "Growth",
@@ -76,14 +76,14 @@ const approach: ApproachItem[] = [
   {
     title: "Investment",
     description:
-      "Your property can become more than ownership — a foundation for leverage, income, and broader financial growth.",
+      "Your property can become more than ownership - a foundation for leverage, income, and broader financial growth.",
   },
 ];
 
 const testimonialImages = [
   "/hyssop/testimonials/1.jpg",
-  "/hyssop/testimonials/2.jpg",
   "/hyssop/testimonials/3.png",
+  "/hyssop/testimonials/15.jpg",
   "/hyssop/testimonials/04.jpg",
   "/hyssop/testimonials/5.jpg",
   "/hyssop/testimonials/6.jpg",
@@ -109,23 +109,20 @@ const awards: Award[] = [
 
 export default function Home() {
   return (
-    <main className="isolate bg-white text-[#0b1f52]">
+    <main className="min-h-screen bg-white text-[#0b1f52]">
       <Navbar />
 
+      <div className="h-[80px]" />
+    
       <Hero />
+
       <FeaturedProperties />
       <OurApproach />
       <Stats />
       <Testimonials />
       <Awards />
       <InvestmentCTA />
-
-      <div id="contact" className="scroll-mt-[120px]">
-        <ContactSection />
-      </div>
-
-      <FloatingWhatsApp />
-      <ChatbotWidget />
+      <ContactSection />
     </main>
   );
 }
@@ -133,68 +130,90 @@ export default function Home() {
 const heroSlides: Slide[] = [
   {
     image: "/hyssop/hero/03.jpg",
-    eyebrow: "Proof of delivery",
+    eyebrow: "Proof of Delivery",
     title: "A Culture of Trust.",
-    text: "Real clients. Verified ownership. Delivered by Hyssop Properties.",
+    subtitle: "Real clients. Verified ownership. Delivered results.",
     label: "Testimonials",
   },
   {
     image: "/hyssop/diaspora/2.jpg",
-    eyebrow: "Diaspora support",
+    eyebrow: "Diaspora Support",
     title: "Invest from anywhere.",
-    text: "Helping Kenyans in the diaspora acquire property back home with confidence.",
+    subtitle: "Invest from anywhere with confidence and transparency.",
     label: "Diaspora",
   },
   {
-  image: "/hyssop/hero/01.png",
-  eyebrow: "Featured location",
-  title: "Prime land. Clear process.",
-  text: "Premium land for sale in Kenya with verified title deeds and transparent ownership.",
-  label: "Tumaini Estate",
-}
+    image: "/hyssop/hero/12.jpg",
+    eyebrow: "Featured Location",
+    title: "Prime land. Clear process.",
+    subtitle: "Premium land for sale in Kenya with verified title deeds and transparent ownership.",
+    label: "Tumaini Estate",
+  },
 ];
 
 function Hero() {
-  const [current, setCurrent] = useState(0);
-  const [typed, setTyped] = useState("");
 
-  const activeSlide = heroSlides[current];
+  const [current, setCurrent] = useState(0);
+
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+
+
 
   useEffect(() => {
-    const auto = window.setInterval(() => {
-      setCurrent((prev) => (prev + 1) % heroSlides.length);
-    }, 8500);
 
-    return () => window.clearInterval(auto);
+    autoPlayRef.current = setInterval(() => {
+
+      setCurrent((prev) => (prev + 1) % heroSlides.length);
+
+    }, 8000);
+
+
+
+    return () => {
+
+      if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+
+    };
+
   }, []);
 
-  useEffect(() => {
-    let i = 0;
-    setTyped("");
 
-    const typing = window.setInterval(() => {
-      setTyped(activeSlide.text.slice(0, i));
-      i++;
 
-      if (i > activeSlide.text.length) {
-        window.clearInterval(typing);
-      }
-    }, 28);
+  const goToSlide = (index: number) => {
 
-    return () => window.clearInterval(typing);
-  }, [activeSlide.text]);
+    setCurrent(index);
+
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+
+    autoPlayRef.current = setInterval(() => {
+
+      setCurrent((prev) => (prev + 1) % heroSlides.length);
+
+    }, 8000);
+
+  };
+
+
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#061531] text-white">
-      {/* FULL BACKGROUND SLIDER */}
+
+    <section
+
+      className="relative overflow-hidden bg-[#0b1f52] text-white"
+
+      style={{ minHeight: "70vh" }}
+
+    >
+
+      {/* BACKGROUND SLIDES & LABELS */}
       <div className="absolute inset-0">
         {heroSlides.map((slide, index) => (
           <div
-            key={slide.image}
-            className="absolute inset-0 transition-opacity duration-[1600ms] ease-in-out"
+            key={`${slide.image}-${index}`}
+            className="absolute inset-0 transition-opacity duration-[1800ms] ease-in-out"
             style={{
               opacity: current === index ? 1 : 0,
-              zIndex: current === index ? 2 : 1,
+              zIndex: current === index ? 20 : 0, // Dynamic Z-index to force visibility
             }}
           >
             <Image
@@ -202,98 +221,118 @@ function Hero() {
               alt={slide.label}
               fill
               priority={index === 0}
-              quality={90}
+              quality={95}
               sizes="100vw"
               className="object-cover object-center"
             />
+            
+            {/* LABEL IS NOW ANCHORED TO THE ACTIVE SLIDE LAYER */}
+            <div className="absolute top-12 left-6 lg:left-16 z-[50]">
+              <p className="text-sm font-black uppercase tracking-[0.35em] text-[#8cc63f] drop-shadow-[0_4px_12px_rgba(0,0,0,1)] sm:text-base">
+                {slide.eyebrow}
+              </p>
+            </div>
           </div>
         ))}
 
-        {/* CONSISTENT READABILITY OVERLAY */}
-<div className="absolute inset-0 z-10 bg-[#061531]/15" />
-
-{/* Left text protection */}
-<div className="absolute inset-y-0 left-0 z-10 w-[56%] bg-[#061531]/28 backdrop-blur-[5px]" />
-
-<div className="absolute inset-0 z-10 bg-gradient-to-r from-[#061531]/72 via-[#061531]/38 to-transparent" />
-<div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-[#061531]/18" />
+        {/* OVERLAYS (STAY AT Z-10) */}
+        <div className="absolute inset-0 z-10 bg-black/30" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/95 via-black/20 to-transparent" />
       </div>
 
-      {/* HERO CONTENT */}
-      <div
-  className="absolute inset-x-0 z-20 px-6 lg:px-16"
-  style={{ bottom: "50px" }}
->
-        <div className="mx-auto w-full max-w-7xl">
-          <div
-  className="max-w-2xl p-6 lg:-translate-x-6 xl:-translate-x-10"
-  style={{
-    background: "rgba(6, 21, 49, 0.48)",
-    borderRadius: "28px",
-    boxShadow: "0 20px 55px rgba(0,0,0,0.18)",
-  }}
->
-            <div className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f] backdrop-blur-sm">
-              {activeSlide.eyebrow}
-            </div>
 
-            <h1 className="text-4xl font-black leading-[1.02] tracking-tight drop-shadow-[0_5px_22px_rgba(0,0,0,0.75)] sm:text-5xl lg:text-[3.55rem]">
-              {activeSlide.title}
-            </h1>
 
-            <p
-  className="mt-4 inline-block max-w-xl px-4 py-3 text-sm font-bold leading-7 text-white sm:text-lg"
-  style={{
-    background: "rgba(6, 21, 49, 0.52)",
-    borderRadius: "16px",
-    boxShadow: "0 14px 32px rgba(0,0,0,0.22)",
-  }}
->
-  {typed}
-  <span className="ml-1 inline-block h-5 w-[2px] translate-y-1 bg-[#8cc63f] shadow-[0_0_8px_rgba(140,198,63,0.9)]" />
+      
+
+
+
+      {/* MAIN CONTENT (BOTTOM CENTER) */}
+
+<div className="absolute inset-x-0 bottom-0 z-20 px-6 pb-4">
+
+
+<div className="mx-auto flex max-w-4xl flex-col items-center justify-end h-[600px]">
+
+   
+
+    <div className="text-center w-full">
+
+      
+
+
+<p className="mt-3 text-2xl font-black leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,1)] sm:text-4xl lg:text-[2.8rem]">
+  A Culture of <span className="text-[#8cc63f]">Trust</span>
 </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/properties"
-                className="inline-flex items-center justify-center rounded-full bg-[#8cc63f] px-7 py-3 text-sm font-bold text-[#0b1f52] transition hover:scale-[1.02]"
-              >
-                View Properties
-              </Link>
 
-              <Link
-                href="/investments"
-                className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 py-3 text-sm font-bold text-white transition hover:bg-white hover:text-[#0b1f52]"
-              >
-                Explore Investments
-              </Link>
-            </div>
 
-            <div className="mt-8 flex flex-wrap gap-2">
-              {heroSlides.map((slide, index) => (
-                <button
-                  key={slide.label}
-                  onClick={() => setCurrent(index)}
-                  className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
-                    current === index
-                      ? "bg-white text-[#0b1f52]"
-                      : "bg-white/10 text-white/75 hover:bg-white/20"
-                  }`}
-                >
-                  {slide.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* CTA BUTTONS */}
+
+      <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+
+        <Link
+
+          href="/properties"
+
+          className="inline-flex w-full items-center justify-center rounded-full bg-[#8cc63f] px-8 py-3.5 text-sm font-bold text-[#0b1f52] transition hover:scale-[1.03] sm:w-auto"
+
+        >
+
+          View Properties
+
+        </Link>
+
+
+
+        <Link
+
+          href="/investments"
+
+          className="inline-flex w-full items-center justify-center rounded-full border border-white/60 px-8 py-3.5 text-sm font-bold text-white transition hover:bg-white hover:text-[#0b1f52] sm:w-auto"
+
+        >
+
+          Explore Investments
+
+        </Link>
+
       </div>
+
+
+
+      {/* NAVIGATION DOTS */}
+<div className="mt-10 flex justify-center gap-3">
+  {heroSlides.map((_, index) => (
+    <button
+      key={index}
+      type="button"
+      onClick={() => goToSlide(index)}
+      aria-label={`Go to slide ${index + 1}`}
+      className={`h-3 rounded-full transition-all duration-300 ${
+        current === index
+          ? "w-10 bg-[#8cc63f]"
+          : "w-3 bg-white hover:bg-white/80"
+      }`}
+    />
+  ))}
+</div>
+
+    </div>
+
+  </div>
+
+</div>
+
     </section>
+
   );
+
 }
+
 
 function FeaturedProperties() {
   return (
-    <section className="bg-[#f7f9fc] px-6 py-24 lg:px-16">
+    <section className="bg-[#f7f9fc] px-6 py-16 lg:px-16">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
@@ -470,6 +509,7 @@ function OurApproach() {
         </div>
       </div>
 
+
       {videoOpen && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 py-8"
@@ -487,6 +527,7 @@ function OurApproach() {
             >
               ×
             </button>
+            
 
             <div className="overflow-hidden rounded-[1.5rem] bg-black shadow-2xl">
               <video

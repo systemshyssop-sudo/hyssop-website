@@ -114,10 +114,12 @@ export default function RootLayout({
         </Script>
       </head>
 
-      <body className="min-h-full flex flex-col">
-        {children}
-        <CookieConsent />
-      </body>
+      <body className={`${geistSans.className} min-h-full flex flex-col relative`}>
+  <main className="flex-grow">
+    {children}
+  </main>
+  <CookieConsent />
+</body>
     </html>
   );
 }
