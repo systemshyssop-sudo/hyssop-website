@@ -19,26 +19,102 @@ function AboutPageContent() {
       <Navbar />
 
       {/* HERO */}
-      <section className="relative min-h-[90vh] text-white flex items-center pt-[100px]">
-        <Image
-          src="/hyssop/about.png"
-          alt="About Hyssop"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50" />
+<>
+  {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
+  <section className="bg-[#0b1f52] text-white lg:hidden">
+    <div className="px-6 pt-8 pb-7">
+      <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
+        About Hyssop
+      </div>
 
-        <div className="relative z-10 max-w-5xl px-6 lg:px-16 center-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
-            A culture of <br />
-            <span className="text-[#7ab62f]">trust.</span>
-          </h1>
+      <h1 className="text-3xl font-bold leading-tight text-white">
+        A culture of trust.
+      </h1>
 
-          <p className="mt-6 text-lg opacity-90">Built over a decade.</p>
-        </div>
-      </section>
+      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
+        Built over a decade
+      </p>
+    </div>
+
+    <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
+      <Image
+        src="/hyssop/about-hero.png"
+        alt="About Hyssop"
+        fill
+        priority
+        quality={90}
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
+        className="object-cover object-center"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+    </div>
+  </section>
+
+  {/* DESKTOP HERO - SAME PROPERTY HERO STYLE */}
+  <section
+    className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
+    style={{
+      height: "46vh",
+      minHeight: "360px",
+    }}
+  >
+    <Image
+      src="/hyssop/about-hero.png"
+      alt="About Hyssop"
+      fill
+      priority
+      quality={90}
+      sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
+      className="object-cover object-center lg:object-[center_45%]"
+    />
+
+    {/* Image readability overlay - no blue text card */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+    <div
+      className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
+      style={{
+        position: "absolute",
+        top: "24px",
+        left: "24px",
+        zIndex: 10,
+      }}
+    >
+      About Hyssop
+    </div>
+
+    <div
+      style={{
+        position: "absolute",
+        left: "24px",
+        right: "24px",
+        bottom: "28px",
+        zIndex: 10,
+        maxWidth: "760px",
+      }}
+    >
+      <h1
+        className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
+        style={{
+          textShadow: "0 4px 24px rgba(0,0,0,0.7)",
+        }}
+      >
+        A culture of trust.
+      </h1>
+
+      <p
+        className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
+        style={{
+          textShadow: "0 2px 12px rgba(0,0,0,0.55)",
+        }}
+      >
+        Built over a decade
+      </p>
+    </div>
+  </section>
+</>
 
       {/* TABS */}
       <div className="relative z-20 px-6 -mt-20">

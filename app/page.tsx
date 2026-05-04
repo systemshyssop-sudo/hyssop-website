@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import ChatbotWidget from "@/components/ChatbotWidget";
 import ContactSection from "@/components/ContactSection";
+import GoogleReviewsSection from "@/components/GoogleReviewsSection";
+import ContactRequestForm from "@/components/ContactRequestForm";
 
 type Slide = {
   image: string;
@@ -111,8 +111,6 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-[#0b1f52]">
       <Navbar />
-
-      <div className="h-[80px]" />
     
       <Hero />
 
@@ -120,7 +118,9 @@ export default function Home() {
       <OurApproach />
       <Stats />
       <Testimonials />
+      <GoogleReviewsSection />
       <Awards />
+      <ContactRequestForm />
       <InvestmentCTA />
       <ContactSection />
     </main>
@@ -152,187 +152,224 @@ const heroSlides: Slide[] = [
 ];
 
 function Hero() {
-
   const [current, setCurrent] = useState(0);
-
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-
-
   useEffect(() => {
-
     autoPlayRef.current = setInterval(() => {
-
       setCurrent((prev) => (prev + 1) % heroSlides.length);
-
     }, 8000);
 
-
-
     return () => {
-
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
-
     };
-
   }, []);
 
-
-
   const goToSlide = (index: number) => {
-
     setCurrent(index);
 
     if (autoPlayRef.current) clearInterval(autoPlayRef.current);
 
     autoPlayRef.current = setInterval(() => {
-
       setCurrent((prev) => (prev + 1) % heroSlides.length);
-
     }, 8000);
-
   };
 
+  const activeSlide = heroSlides[current];
 
+ return (
+  <div className="relative">
+      {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
+      <section className="bg-[#0b1f52] text-white lg:hidden">
+        {/* TEXT CONTENT */}
+        <div className="px-6 pt-8 pb-7 text-center">
+          <p className="text-xs font-black uppercase tracking-[0.24em] text-[#8cc63f]">
+            {activeSlide.eyebrow}
+          </p>
 
-  return (
+          <h1 className="mt-5 text-4xl font-black leading-tight">
+            A Culture of <span className="text-[#8cc63f]">Trust</span>
+          </h1>
 
-    <section
+          <div className="mt-7 flex flex-col gap-3">
+            <Link
+              href="/properties"
+              className="inline-flex items-center justify-center rounded-full bg-[#8cc63f] px-8 py-3.5 text-sm font-bold text-[#0b1f52]"
+            >
+              View Properties
+            </Link>
 
-      className="relative overflow-hidden bg-[#0b1f52] text-white"
+            <Link
+              href="/investments"
+              className="inline-flex items-center justify-center rounded-full border border-white/70 px-8 py-3.5 text-sm font-bold text-white"
+            >
+              Explore Investments
+            </Link>
+          </div>
+        </div>
 
-      style={{ minHeight: "70vh" }}
+        {/* MOBILE IMAGE */}
+        <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
+          <Image
+            key={activeSlide.image}
+            src={activeSlide.image}
+            alt={activeSlide.label}
+            fill
+            priority
+            quality={95}
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
+            className="object-cover object-center"
+          />
 
-    >
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+        </div>
+      </section>
 
-      {/* BACKGROUND SLIDES & LABELS */}
-      <div className="absolute inset-0">
-        {heroSlides.map((slide, index) => (
-          <div
-            key={`${slide.image}-${index}`}
-            className="absolute inset-0 transition-opacity duration-[1800ms] ease-in-out"
-            style={{
-              opacity: current === index ? 1 : 0,
-              zIndex: current === index ? 20 : 0, // Dynamic Z-index to force visibility
-            }}
-          >
-            <Image
-              src={slide.image}
-              alt={slide.label}
-              fill
-              priority={index === 0}
-              quality={95}
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-            
-            {/* LABEL IS NOW ANCHORED TO THE ACTIVE SLIDE LAYER */}
-            <div className="absolute top-12 left-6 lg:left-16 z-[50]">
-              <p className="text-sm font-black uppercase tracking-[0.35em] text-[#8cc63f] drop-shadow-[0_4px_12px_rgba(0,0,0,1)] sm:text-base">
+      {/* DESKTOP HERO - IMAGE OVERLAY */}
+      <section
+        className="relative hidden w-full overflow-hidden bg-[#0b1f52] text-white lg:block"
+        style={{
+          height: "58vh",
+          minHeight: "440px",
+        }}
+      >
+        {/* BACKGROUND SLIDES */}
+        <div className="absolute inset-0">
+          {heroSlides.map((slide, index) => (
+            <div
+              key={`${slide.image}-${index}`}
+              className="absolute inset-0 transition-opacity duration-[1800ms] ease-in-out"
+              style={{
+                opacity: current === index ? 1 : 0,
+                zIndex: current === index ? 20 : 0,
+              }}
+            >
+              <Image
+                src={slide.image}
+                alt={slide.label}
+                fill
+                priority={index === 0}
+                quality={95}
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
+                className="object-cover object-center lg:object-[center_45%]"
+              />
+
+              <div
+                className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
+                style={{
+                  position: "absolute",
+                  top: "24px",
+                  left: "24px",
+                  zIndex: 50,
+                }}
+              >
                 {slide.eyebrow}
-              </p>
+              </div>
+            </div>
+          ))}
+
+          <div className="absolute inset-0 z-30 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
+          <div className="absolute inset-0 z-30 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        </div>
+
+        {/* MAIN CONTENT */}
+        <div
+          style={{
+            position: "absolute",
+            left: "24px",
+            right: "24px",
+            bottom: "34px",
+            zIndex: 40,
+          }}
+        >
+          <div className="mx-auto max-w-4xl text-center">
+            <p
+              className="text-3xl font-black leading-tight text-white sm:text-5xl lg:text-[3.4rem]"
+              style={{
+                textShadow: "0 4px 24px rgba(0,0,0,0.75)",
+              }}
+            >
+              A Culture of <span className="text-[#8cc63f]">Trust</span>
+            </p>
+
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link
+                href="/properties"
+                className="inline-flex w-full items-center justify-center rounded-full bg-[#8cc63f] px-8 py-3.5 text-sm font-bold text-[#0b1f52] transition hover:scale-[1.03] sm:w-auto"
+              >
+                View Properties
+              </Link>
+
+              <Link
+                href="/investments"
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/60 px-8 py-3.5 text-sm font-bold text-white transition hover:bg-white hover:text-[#0b1f52] sm:w-auto"
+              >
+                Explore Investments
+              </Link>
             </div>
           </div>
-        ))}
+        </div>
+      </section>
 
-        {/* OVERLAYS (STAY AT Z-10) */}
-        <div className="absolute inset-0 z-10 bg-black/30" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/95 via-black/20 to-transparent" />
-      </div>
+      {/* HERO DOTS - SAFE CENTERED CONTROL */}
+<div
+  style={{
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "-24px",
+    marginBottom: "24px",
+    position: "relative",
+    zIndex: 90,
+  }}
+>
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "14px",
+      border: "1px solid #dfe7f0",
+      background: "rgba(255,255,255,0.98)",
+      borderRadius: "999px",
+      padding: "12px 24px",
+      boxShadow: "0 14px 35px rgba(11,31,82,0.14)",
+    }}
+  >
+    {heroSlides.map((_, index) => {
+      const isActive = current === index;
 
-
-
-      
-
-
-
-      {/* MAIN CONTENT (BOTTOM CENTER) */}
-
-<div className="absolute inset-x-0 bottom-0 z-20 px-6 pb-4">
-
-
-<div className="mx-auto flex max-w-4xl flex-col items-center justify-end h-[600px]">
-
-   
-
-    <div className="text-center w-full">
-
-      
-
-
-<p className="mt-3 text-2xl font-black leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,1)] sm:text-4xl lg:text-[2.8rem]">
-  A Culture of <span className="text-[#8cc63f]">Trust</span>
-</p>
-
-
-
-      {/* CTA BUTTONS */}
-
-      <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-
-        <Link
-
-          href="/properties"
-
-          className="inline-flex w-full items-center justify-center rounded-full bg-[#8cc63f] px-8 py-3.5 text-sm font-bold text-[#0b1f52] transition hover:scale-[1.03] sm:w-auto"
-
-        >
-
-          View Properties
-
-        </Link>
-
-
-
-        <Link
-
-          href="/investments"
-
-          className="inline-flex w-full items-center justify-center rounded-full border border-white/60 px-8 py-3.5 text-sm font-bold text-white transition hover:bg-white hover:text-[#0b1f52] sm:w-auto"
-
-        >
-
-          Explore Investments
-
-        </Link>
-
-      </div>
-
-
-
-      {/* NAVIGATION DOTS */}
-<div className="mt-10 flex justify-center gap-3">
-  {heroSlides.map((_, index) => (
-    <button
-      key={index}
-      type="button"
-      onClick={() => goToSlide(index)}
-      aria-label={`Go to slide ${index + 1}`}
-      className={`h-3 rounded-full transition-all duration-300 ${
-        current === index
-          ? "w-10 bg-[#8cc63f]"
-          : "w-3 bg-white hover:bg-white/80"
-      }`}
-    />
-  ))}
-</div>
-
-    </div>
-
+      return (
+        <button
+          key={index}
+          type="button"
+          onClick={() => goToSlide(index)}
+          aria-label={`Go to slide ${index + 1}`}
+          style={{
+            display: "block",
+            width: isActive ? "52px" : "16px",
+            height: "16px",
+            borderRadius: "999px",
+            border: isActive ? "1px solid #8cc63f" : "1px solid rgba(11,31,82,0.28)",
+            backgroundColor: isActive ? "#8cc63f" : "rgba(11,31,82,0.42)",
+            cursor: "pointer",
+            transition: "all 0.25s ease",
+            padding: 0,
+          }}
+        />
+      );
+    })}
   </div>
-
 </div>
-
-    </section>
-
+    </div>
   );
-
 }
 
 
 function FeaturedProperties() {
   return (
-    <section className="bg-[#f7f9fc] px-6 py-16 lg:px-16">
+    <section className="bg-[#f7f9fc] px-6 py-12 lg:px-16">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
@@ -755,6 +792,8 @@ function Testimonials() {
     </section>
   );
 }
+
+
 
 function Awards() {
   return (

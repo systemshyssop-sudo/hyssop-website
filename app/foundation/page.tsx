@@ -104,72 +104,102 @@ export default function FoundationPage() {
       <Navbar />
 
       {/* HERO */}
-<section className="relative overflow-hidden pt-[110px] pb-20 text-white">
-  {/* Background image */}
-  <div className="absolute inset-0 z-0">
+<>
+  {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
+  <section className="bg-[#0b1f52] text-white lg:hidden">
+    <div className="px-6 pt-8 pb-7">
+      <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
+        Hyssop Foundation
+      </div>
+
+      <h1 className="text-3xl font-bold leading-tight text-white">
+        Real estate with real human impact
+      </h1>
+
+      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
+        Real estate with purpose
+      </p>
+    </div>
+
+    <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
+      <Image
+        src="/hyssop/foundation/hero.png"
+        alt="Hyssop Foundation"
+        fill
+        priority
+        quality={90}
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
+        className="object-cover object-center"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+    </div>
+  </section>
+
+  {/* DESKTOP HERO - IMAGE WITH OVERLAY TEXT */}
+  <section
+    className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
+    style={{
+      height: "46vh",
+      minHeight: "360px",
+    }}
+  >
     <Image
-      src="/hyssop/foundation/bg.png"
-      alt="Hyssop Foundation background"
+      src="/hyssop/foundation/hero.png"
+      alt="Hyssop Foundation"
       fill
       priority
-      className="object-cover object-right"
+      quality={90}
+      sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
+      className="object-cover object-center lg:object-[center_45%]"
     />
-    <div className="absolute inset-0 bg-[#0b1f52]/72" />
-    <div className="absolute inset-0 bg-gradient-to-r from-[#0b1f52]/88 via-[#0b1f52]/70 to-[#0b1f52]/38" />
-  </div>
 
-  {/* Content */}
-  <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-    <div className="flex min-h-[560px] items-center">
-      <div className="max-w-3xl">
-        <p className="mb-5 inline-flex rounded-full border border-[#8cc63f]/60 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#a7d85f]">
-          Hyssop Foundation
-        </p>
+    {/* Image readability overlay - no blue text card */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-        <h1 className="text-5xl font-black leading-[0.95] tracking-[-0.03em] sm:text-6xl lg:text-[6rem]">
-          Real estate with
-          <span className="block text-[#8cc63f]">real human</span>
-          <span className="block text-[#8cc63f]">impact.</span>
-        </h1>
-
-        <p className="mt-8 max-w-2xl text-lg leading-9 text-white/88">
-          At Hyssop Properties, our journey goes beyond land and ownership.
-          Through the Hyssop Foundation, we are committed to supporting
-          vulnerable families, empowering communities, and creating lasting
-          impact where it matters most.
-        </p>
-
-        <p className="mt-6 max-w-2xl text-lg leading-9 text-white/80">
-          Every outreach initiative is made possible by the trust our clients
-          place in us. Because of you, our work extends beyond property —
-          into lives, dignity, and futures.
-        </p>
-      </div>
+    <div
+      className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
+      style={{
+        position: "absolute",
+        top: "24px",
+        left: "24px",
+        zIndex: 10,
+      }}
+    >
+      Hyssop Foundation
     </div>
-  </div>
-</section>
 
-      {/* INTRO */}
-      <section className="px-6 py-20 lg:px-12">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
-            Giving back, together
-          </p>
+    <div
+      style={{
+        position: "absolute",
+        left: "24px",
+        right: "24px",
+        bottom: "28px",
+        zIndex: 10,
+        maxWidth: "760px",
+      }}
+    >
+      <h1
+        className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
+        style={{
+          textShadow: "0 4px 24px rgba(0,0,0,0.7)",
+        }}
+      >
+        Real estate with real human impact
+      </h1>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
-            Community impact, captured in action
-          </h2>
-
-          <div className="mx-auto mt-6 h-[2px] w-16 bg-[#8cc63f]" />
-
-          <p className="mx-auto mt-8 max-w-3xl text-base leading-8 text-[#61708a]">
-            Our foundation work is rooted in practical support and human dignity
-            - from feeding families and providing bedding, to essential care
-            and empowering local businesses. These moments reflect the people,
-            partnerships, and purpose behind the Hyssop Foundation.
-          </p>
-        </div>
-      </section>
+      <p
+        className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
+        style={{
+          textShadow: "0 2px 12px rgba(0,0,0,0.55)",
+        }}
+      >
+        Real estate with purpose
+      </p>
+    </div>
+  </section>
+</>
 
       {/* IMPACT SECTIONS */}
       <section className="px-6 pb-24 lg:px-12">

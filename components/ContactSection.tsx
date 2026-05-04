@@ -1,140 +1,348 @@
 "use client";
 
-import { FaWhatsapp, FaFacebookF, FaInstagram, FaXTwitter, FaTiktok } from "react-icons/fa6";
-
-const offices = [
-  {
-    name: "Nairobi HQ",
-    phone: "+254 707 666 000",
-    address: "Hyssop Center, Ridgeways Springs, Kiambu Road",
-  },
-  {
-    name: "Nakuru Office",
-    phone: "+254 758 707050",
-    address: "Tower One, 3rd Floor, Moi Rd",
-  },
-  {
-    name: "Kisii Office",
-    phone: "+254 758 555000",
-    address: "Magsons Plaza, Opposite KCB Bank",
-  },
-  {
-    name: "Malindi Office",
-    phone: "+254 758 555000",
-    address: "Next to Malindi Law Courts",
-  },
-];
+import Link from "next/link";
+import {
+  FaWhatsapp,
+  FaPhone,
+  FaEnvelope,
+  FaFacebookF,
+  FaInstagram,
+  FaXTwitter,
+  FaTiktok,
+  FaLocationDot,
+} from "react-icons/fa6";
 
 export default function ContactSection() {
   return (
-    <section className="relative overflow-hidden bg-[#081942] px-6 py-24 text-white lg:px-16">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(140,198,63,0.18),transparent_30%)]" />
-      <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] [background-size:48px_48px]" />
-
-      <div className="relative mx-auto max-w-7xl">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
-            Contact Hyssop
-          </span>
-
-          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
-            Let’s hold your hand to the perfect investment.
-          </h2>
-
-          <p className="mt-5 text-sm leading-7 text-white/75 sm:text-base">
-            Reach us via phone, WhatsApp, or visit one of our offices for
-            guided property investment support.
-          </p>
-
-          <p className="mt-6 font-medium text-[#a7d85f]">
-            info@hyssopproperties.com
-          </p>
-        </div>
-
-        <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {offices.map((office, idx) => (
-            <div
-              key={idx}
-              className="rounded-[24px] border border-white/10 bg-white/95 p-6 text-left text-[#0b1f52] shadow-[0_20px_45px_rgba(0,0,0,0.18)]"
-            >
-              <div className="mb-4 h-1.5 w-12 rounded-full bg-[#8cc63f]" />
-
-              <h3 className="text-lg font-semibold">{office.name}</h3>
-
-              <p className="mt-4 text-sm">
-                <span className="font-medium">Phone:</span>{" "}
-                <a href={`tel:${office.phone}`} className="hover:underline">
-                  {office.phone}
-                </a>
-              </p>
-
-              <p className="mt-3 text-sm leading-6 text-[#5e6b84]">
-                <span className="font-medium text-[#0b1f52]">Address:</span>{" "}
-                {office.address}
-              </p>
+    <footer
+      id="contact"
+      className="relative"
+      style={{ backgroundColor: "#0b1f52" }}
+    >
+      {/* Top CTA Section */}
+      <section className="relative overflow-hidden">
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/10" />
+        
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            {/* Label */}
+            <div className="inline-block">
+              <span className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#8cc63f] opacity-90">
+                Contact Hyssop
+              </span>
             </div>
-          ))}
+
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              Let's hold your hand to the{" "}
+              <span style={{ color: "#8cc63f" }}>perfect investment.</span>
+            </h2>
+
+            {/* Supporting text */}
+            <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+              Reach us via phone, WhatsApp, email, or any of our offices.
+            </p>
+
+            {/* Email */}
+            <div className="pt-2">
+              <a
+                href="mailto:info@hyssopproperties.com"
+                className="inline-flex items-center gap-2 text-white/80 hover:text-[#8cc63f] transition-colors group"
+              >
+                <FaEnvelope className="text-lg group-hover:scale-110 transition-transform" />
+                <span className="text-sm sm:text-base font-medium">
+                  info@hyssopproperties.com
+                </span>
+              </a>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <a
+                href="https://wa.me/254707666000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#8cc63f] hover:bg-[#7ab535] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              >
+                <FaWhatsapp className="text-xl" />
+                <span>Chat on WhatsApp</span>
+              </a>
+
+              <a
+                href="tel:+254707666000"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 border border-white/20 hover:border-white/40"
+              >
+                <FaPhone className="text-lg" />
+                <span>Call Us Now</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="border-t border-white/10" />
+      </div>
+
+      {/* Footer Body - Quick Links & Office Locations */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Quick Links - Appears first on mobile */}
+<nav>
+  <p
+    className="mb-10 text-xs font-black uppercase"
+    style={{
+      color: "#8cc63f",
+      letterSpacing: "0.34em",
+    }}
+  >
+    Quick Links
+  </p>
+
+  <div className="grid gap-10 sm:grid-cols-2 sm:gap-x-24">
+    <ul className="space-y-4">
+      {[
+        { label: "Home", href: "/" },
+        { label: "About Us", href: "/about?tab=about" },
+        { label: "Properties", href: "/properties" },
+        { label: "Diaspora", href: "/diaspora" },
+        { label: "Investment Co-operative", href: "/investments" },
+      ].map((item) => (
+        <li key={item.href}>
+          <Link
+            href={item.href}
+            className="relative flex min-h-[40px] items-center border-b border-white/10 pl-5 text-sm font-semibold text-white/70 transition hover:text-[#8cc63f]"
+          >
+            <span
+  className="absolute left-0 top-1/2 h-[6px] w-[6px] -translate-y-1/2 rounded-full"
+  style={{
+    backgroundColor: "#8cc63f",
+    boxShadow: "0 0 0 2px rgba(140,198,63,0.18)",
+  }}
+/>
+            {item.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+
+    <ul className="space-y-4">
+      {[
+        { label: "Foundation", href: "/foundation" },
+        { label: "Testimonials", href: "/testimonials" },
+        { label: "Awards", href: "/awards" },
+        { label: "Events", href: "/news?tab=events" },
+        { label: "Blog", href: "/news?tab=blogs" },
+      ].map((item) => (
+        <li key={item.href}>
+          <Link
+            href={item.href}
+            className="relative flex min-h-[40px] items-center border-b border-white/10 pl-5 text-sm font-semibold text-white/70 transition hover:text-[#8cc63f]"
+          >
+            <span
+  className="absolute left-0 top-1/2 h-[6px] w-[6px] -translate-y-1/2 rounded-full"
+  style={{
+    backgroundColor: "#8cc63f",
+    boxShadow: "0 0 0 2px rgba(140,198,63,0.18)",
+  }}
+/>
+            {item.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+          {/* Office Locations */}
+<div className="space-y-10">
+  <div>
+    <span
+      className="block text-xs font-black uppercase"
+      style={{
+        color: "#8cc63f",
+        letterSpacing: "0.34em",
+      }}
+    >
+      Our Offices
+    </span>
+  </div>
+
+  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    {/* Nairobi HQ */}
+    <div
+      className="rounded-[1rem] border border-white/15 p-5 transition-all duration-300 hover:border-[#8cc63f]/40"
+      style={{ backgroundColor: "#142c5f" }}
+    >
+      <div className="space-y-4">
+        <div className="flex items-start gap-3">
+          <FaLocationDot className="mt-1 shrink-0 text-sm text-[#8cc63f]" />
+          <div>
+            <h4 className="text-base font-bold text-white">Nairobi HQ</h4>
+            <p className="mt-1 text-sm leading-6 text-white/75">
+              Hyssop Center, Ridgeways
+            </p>
+          </div>
         </div>
 
-        <div className="mt-12">
-  <div className="flex flex-col justify-center gap-4 md:flex-row">
-    <a
-      href="https://wa.me/254707666000"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8cc63f] px-7 py-3.5 font-semibold text-[#0b1f52] shadow-[0_14px_34px_rgba(140,198,63,0.25)] transition-transform duration-300 hover:scale-[1.02]"
-    >
-      <FaWhatsapp />
-      Chat on WhatsApp
-    </a>
+        <a
+          href="tel:+254707666000"
+          className="flex items-center gap-3 text-sm font-semibold transition-colors hover:text-[#8cc63f]"
+          style={{ color: "rgba(255,255,255,0.82)" }}
+        >
+          <FaPhone className="shrink-0 text-xs text-[#8cc63f]" />
+          <span>+254 707 666 000</span>
+        </a>
+      </div>
+    </div>
 
-    <a
-      href="tel:+254707666000"
-      className="inline-flex items-center justify-center rounded-full border border-white/25 px-7 py-3.5 font-semibold text-white transition-colors duration-300 hover:bg-white hover:text-[#0b1f52]"
+    {/* Nakuru Office */}
+    <div
+      className="rounded-[1rem] border border-white/15 p-5 transition-all duration-300 hover:border-[#8cc63f]/40"
+      style={{ backgroundColor: "#142c5f" }}
     >
-      Call Us Now
-    </a>
-  </div>
+      <div className="space-y-4">
+        <div className="flex items-start gap-3">
+          <FaLocationDot className="mt-1 shrink-0 text-sm text-[#8cc63f]" />
+          <div>
+            <h4 className="text-base font-bold text-white">Nakuru Office</h4>
+            <p className="mt-1 text-sm leading-6 text-white/75">
+              Tower One, Moi Rd
+            </p>
+          </div>
+        </div>
 
-  <div className="mt-6 flex justify-center gap-5">
-    <a
-      href="https://web.facebook.com/hyssopke/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Facebook"
-    >
-      <FaFacebookF className="text-xl text-white/80 hover:text-[#8cc63f] transition-colors duration-300" />
-    </a>
+        <a
+          href="tel:+254758707050"
+          className="flex items-center gap-3 text-sm font-semibold transition-colors hover:text-[#8cc63f]"
+          style={{ color: "rgba(255,255,255,0.82)" }}
+        >
+          <FaPhone className="shrink-0 text-xs text-[#8cc63f]" />
+          <span>+254 758 707 050</span>
+        </a>
+      </div>
+    </div>
 
-    <a
-      href="https://www.instagram.com/hyssopke/?hl=en"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Instagram"
+    {/* Kisii Office */}
+    <div
+      className="rounded-[1rem] border border-white/15 p-5 transition-all duration-300 hover:border-[#8cc63f]/40"
+      style={{ backgroundColor: "#142c5f" }}
     >
-      <FaInstagram className="text-xl text-white/80 hover:text-[#8cc63f] transition-colors duration-300" />
-    </a>
+      <div className="space-y-4">
+        <div className="flex items-start gap-3">
+          <FaLocationDot className="mt-1 shrink-0 text-sm text-[#8cc63f]" />
+          <div>
+            <h4 className="text-base font-bold text-white">Kisii Office</h4>
+            <p className="mt-1 text-sm leading-6 text-white/75">
+              Magsons Plaza, Opp. KCB
+            </p>
+          </div>
+        </div>
 
-    <a
-      href="https://x.com/hyssopke"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="X"
-    >
-      <FaXTwitter className="text-xl text-white/80 hover:text-[#8cc63f] transition-colors duration-300" />
-    </a>
+        <a
+          href="tel:+254758555000"
+          className="flex items-center gap-3 text-sm font-semibold transition-colors hover:text-[#8cc63f]"
+          style={{ color: "rgba(255,255,255,0.82)" }}
+        >
+          <FaPhone className="shrink-0 text-xs text-[#8cc63f]" />
+          <span>+254 758 555 000</span>
+        </a>
+      </div>
+    </div>
 
-    <a
-      href="https://www.tiktok.com/@hyssopke"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="TikTok"
+    {/* Malindi Office */}
+    <div
+      className="rounded-[1rem] border border-white/15 p-5 transition-all duration-300 hover:border-[#8cc63f]/40"
+      style={{ backgroundColor: "#142c5f" }}
     >
-      <FaTiktok className="text-xl text-white/80 hover:text-[#8cc63f] transition-colors duration-300" />
-    </a>
+      <div className="space-y-4">
+        <div className="flex items-start gap-3">
+          <FaLocationDot className="mt-1 shrink-0 text-sm text-[#8cc63f]" />
+          <div>
+            <h4 className="text-base font-bold text-white">Malindi Office</h4>
+            <p className="mt-1 text-sm leading-6 text-white/75">
+              Near Malindi Law Courts
+            </p>
+          </div>
+        </div>
+
+        <a
+          href="tel:+254758555000"
+          className="flex items-center gap-3 text-sm font-semibold transition-colors hover:text-[#8cc63f]"
+          style={{ color: "rgba(255,255,255,0.82)" }}
+        >
+          <FaPhone className="shrink-0 text-xs text-[#8cc63f]" />
+          <span>+254 758 555 000</span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
-</div>
-    </section>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="border-t border-white/10" />
+      </div>
+
+      {/* Social Media & Copyright */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-8 sm:py-10">
+        <div className="flex flex-col items-center gap-6">
+          {/* Social Icons */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://web.facebook.com/hyssopke/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-[#8cc63f] text-white transition-all duration-300 hover:scale-110"
+              aria-label="Facebook"
+            >
+              <FaFacebookF className="text-sm" />
+            </a>
+            <a
+              href="https://www.instagram.com/hyssopke/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-[#8cc63f] text-white transition-all duration-300 hover:scale-110"
+              aria-label="Instagram"
+            >
+              <FaInstagram className="text-sm" />
+            </a>
+            <a
+              href="https://x.com/hyssopke"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-[#8cc63f] text-white transition-all duration-300 hover:scale-110"
+              aria-label="X (Twitter)"
+            >
+              <FaXTwitter className="text-sm" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@hyssopke"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-[#8cc63f] text-white transition-all duration-300 hover:scale-110"
+              aria-label="TikTok"
+            >
+              <FaTiktok className="text-sm" />
+            </a>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center text-sm text-white/90 font-light">
+            Copyright © 2026 Hyssop Properties | All Rights Reserved |{" "}
+            <Link
+              href="/privacy-policy"
+              className="text-white hover:text-[#8cc63f] transition-colors underline underline-offset-2"
+            >
+              Privacy Policy
+            </Link>
+          </div>
+        </div>
+      </section>
+    </footer>
   );
 }
