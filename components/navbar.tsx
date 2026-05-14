@@ -176,10 +176,9 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* PRIORITY PROJECT */}
             <Link
               href="/plots-for-sale-in-ngata-nakuru"
-              className="flex h-full items-center whitespace-nowrap font-semibold text-[#0b1f52] transition-colors hover:text-[#7ab62f]"
+              className="flex h-full items-center transition-colors hover:text-[#7ab62f]"
             >
               Ngata Commercial Center
             </Link>
@@ -373,7 +372,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => goToMobileLink("/plots-for-sale-in-ngata-nakuru")}
-                className="rounded-2xl bg-[#8cc63f] px-5 py-4 text-left text-lg font-bold text-[#0b1f52]"
+                className="w-full text-left text-lg font-medium hover:text-[#8cc63f]"
               >
                 Ngata Commercial Center
               </button>

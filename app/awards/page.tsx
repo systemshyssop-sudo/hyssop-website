@@ -81,7 +81,12 @@ export default function AwardsPage() {
 <section className="relative overflow-hidden bg-white">
   <div className="mx-auto max-w-[1440px] px-6 pt-20 lg:px-20 lg:pt-32">
     <div className="h-4 lg:h-8" />
-    <div className="grid items-end gap-10 lg:grid-cols-2 lg:gap-0">
+    
+    {/* 
+        Changed 'items-end' to 'items-stretch'. 
+        This prevents the image from "floating" based on text height. 
+    */}
+    <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-0">
       
       {/* TEXT CONTENT */}
       <div className="pb-16 lg:pb-32">
@@ -115,10 +120,9 @@ export default function AwardsPage() {
         </div>
       </div>
 
-      {/* IMAGE */}
-      <div className="relative flex justify-end">
+      {/* IMAGE - Locked Positioning */}
+      <div className="relative flex flex-col justify-end">
         <div className="relative w-full max-w-[620px] lg:mr-[-40px]">
-          {/* Maintained the flush crop style from the reference */}
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-tl-[3rem] lg:aspect-[1.1/1]">
             <Image
               src="/hyssop/awards/hero1.png"

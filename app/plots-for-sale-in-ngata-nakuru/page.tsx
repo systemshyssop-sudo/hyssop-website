@@ -125,7 +125,7 @@ async function openSelectedImageFullscreen() {
               Ready Titles | Tarmac-Touching
             </div>
 
-            <h1 className="text-[2.4rem] font-bold leading-[1.6] text-white">
+    <h1 className="text-[2rem] font-bold leading-[1.15] text-white sm:text-[2.35rem]">
   Own the Gateway to Nakuru: Prime Commercial &amp; Residential Plots at Ngata
   Commercial Centre
 </h1>
@@ -154,7 +154,7 @@ async function openSelectedImageFullscreen() {
               fill
               priority
               quality={90}
-              sizes="100vw"
+              sizes="(max-width: 1024px) 50vw, 25vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
@@ -205,11 +205,11 @@ async function openSelectedImageFullscreen() {
             }}
           >
             <h1
-              className="max-w-4xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-[3.4rem]"
-              style={{
-                textShadow: "0 4px 28px rgba(0,0,0,0.85)",
-              }}
-            >
+  className="max-w-4xl text-3xl font-bold leading-[1.12] text-white sm:text-4xl lg:text-[2.9rem] xl:text-[3.15rem]"
+  style={{
+    textShadow: "0 4px 28px rgba(0,0,0,0.85)",
+  }}
+>
               Own the Gateway to Nakuru: Prime Commercial &amp; Residential
               Plots at Ngata Commercial Centre
             </h1>
@@ -508,24 +508,24 @@ async function openSelectedImageFullscreen() {
 </section>
 
       {/* URGENCY + MAP + FORM */}
-      <section className="bg-white px-6 py-20 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
-              Ready to take the next step?
-            </p>
+<section className="bg-white px-6 py-20 lg:px-12">
+  <div className="mx-auto flex max-w-5xl flex-col gap-10">
+    <div>
+      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+        Ready to take the next step?
+      </p>
 
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              The Best Time to Buy Was Yesterday. The Second Best Time is NOW.
-            </h2>
+      <h2 className="text-3xl font-bold sm:text-4xl">
+        The Best Time to Buy Was Yesterday. The Second Best Time is NOW.
+      </h2>
 
-            <p className="mt-6 text-base leading-8 text-gray-600">
-              Property values along the Nakuru-Eldoret highway are appreciating
-              rapidly. Don&apos;t wait until the &quot;Sold Out&quot; signs go
-              up.
-            </p>
+      <p className="mt-6 text-base leading-8 text-gray-600">
+        Property values along the Nakuru-Eldoret highway are appreciating
+        rapidly. Don&apos;t wait until the &quot;Sold Out&quot; signs go
+        up.
+      </p>
 
-            <div className="mt-8 overflow-hidden rounded-[2rem] border border-[#e8eef5] bg-[#f8fafc] shadow-sm">
+      <div className="mt-8 overflow-hidden rounded-[2rem] border border-[#e8eef5] bg-[#f8fafc] shadow-sm">
               <div className="p-5">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7ab62f]">
                   Interactive Map
