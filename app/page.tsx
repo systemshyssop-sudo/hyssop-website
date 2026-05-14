@@ -30,6 +30,12 @@ type ApproachItem = {
   description: string;
 };
 
+type TestimonialItem = {
+  type: "video" | "image";
+  src: string;
+  title: string;
+};
+
 type Award = {
   image: string;
   title: string;
@@ -38,6 +44,15 @@ type Award = {
 
 const properties: Property[] = [
   {
+    name: "Ngata Commercial Center",
+    location: "10 minutes from Nakuru CBD",
+    price: "Prime commercial & residential plots",
+    description:
+      "The perfect intersection of high-traffic business and serene modern living, located at the gateway to Nakuru.",
+    image: "/hyssop/ncc/3.png",
+    href: "/plots-for-sale-in-ngata-nakuru",
+  },
+  {
     name: "Tumaini Estate",
     location: "10 minutes from Nakuru CBD",
     price: "Prime gated plots",
@@ -45,15 +60,6 @@ const properties: Property[] = [
       "A calm, strategic development positioned for secure family ownership and long-term value growth.",
     image: "/hyssop/1.png",
     href: "/properties/tumaini",
-  },
-  {
-    name: "Hyssop Acres, Malindi",
-    location: "20 minutes from Malindi Town",
-    price: "Accessible investment location",
-    description:
-      "A well-positioned opportunity for buyers seeking convenience, growth potential, and verified ownership.",
-    image: "/hyssop/location.jpg",
-    href: "/properties/malindi",
   },
 ];
 
@@ -80,13 +86,37 @@ const approach: ApproachItem[] = [
   },
 ];
 
-const testimonialImages = [
-  "/hyssop/testimonials/1.jpg",
-  "/hyssop/testimonials/3.png",
-  "/hyssop/testimonials/15.jpg",
-  "/hyssop/testimonials/04.jpg",
-  "/hyssop/testimonials/5.jpg",
-  "/hyssop/testimonials/6.jpg",
+const testimonials: TestimonialItem[] = [
+  {
+    type: "video",
+    src: "/hyssop/testimonials/1.mp4",
+    title: "Client testimonial 1",
+  },
+  {
+    type: "video",
+    src: "/hyssop/testimonials/2.mp4",
+    title: "Client testimonial 2",
+  },
+  {
+    type: "video",
+    src: "/hyssop/testimonials/4.mp4",
+    title: "Client testimonial 4",
+  },
+   {
+    type: "image",
+    src: "/hyssop/testimonials/1.jpg",
+    title: "Client ownership moment",
+  },
+  {
+    type: "image",
+    src: "/hyssop/testimonials/4.jpg",
+    title: "Client title deed moment",
+  },
+  {
+    type: "image",
+    src: "/hyssop/testimonials/15.jpg",
+    title: "Client title deed moment",
+  },
 ];
 
 const awards: Award[] = [
@@ -143,11 +173,11 @@ const heroSlides: Slide[] = [
     label: "Diaspora",
   },
   {
-    image: "/hyssop/hero/12.jpg",
+    image: "/hyssop/ncc/7.png",
     eyebrow: "Featured Location",
     title: "Prime land. Clear process.",
     subtitle: "Premium land for sale in Kenya with verified title deeds and transparent ownership.",
-    label: "Tumaini Estate",
+    label: "Ngata Commercial Center",
   },
 ];
 
@@ -370,23 +400,21 @@ function Hero() {
 function FeaturedProperties() {
   return (
     <section className="bg-[#f7f9fc] px-6 py-12 lg:px-16">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-16 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
-              Featured Properties
-            </span>
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-16 max-w-2xl">
+  <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
+    Featured Properties
+  </span>
 
-            <h2 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
-              Premium opportunities, presented with clarity.
-            </h2>
-          </div>
+  <h2 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
+    Premium opportunities, presented with clarity.
+  </h2>
 
-          <p className="max-w-xl text-base leading-8 text-[#61708a]">
-            Explore selected Hyssop projects with clear location advantages,
-            verified ownership support, and a guided path to title transfer.
-          </p>
-        </div>
+  <p className="mt-7 max-w-xl text-base leading-8 text-[#61708a]">
+    Explore selected Hyssop projects with clear location advantages,
+    verified ownership support, and a guided path to title transfer.
+  </p>
+</div>
 
         <div className="grid gap-8 lg:grid-cols-2">
           {properties.map((property) => (
@@ -394,24 +422,28 @@ function FeaturedProperties() {
               key={property.name}
               className="group overflow-hidden rounded-[30px] border border-[#dfe7f0] bg-white shadow-[0_20px_55px_rgba(11,31,82,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(11,31,82,0.12)]"
             >
-              <div className="relative h-[260px] w-full overflow-hidden bg-[#eef3f8]">
-                <Image
-                  src={property.image}
-                  alt={property.name}
-                  fill
-                  quality={90}
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-center transition duration-700 group-hover:scale-[1.04]"
-                />
+              <Link
+  href={property.href}
+  aria-label={`View ${property.name}`}
+  className="relative block h-[260px] w-full overflow-hidden bg-[#eef3f8]"
+>
+  <Image
+    src={property.image}
+    alt={property.name}
+    fill
+    quality={90}
+    sizes="(max-width: 1024px) 100vw, 50vw"
+    className="object-cover object-center transition duration-700 group-hover:scale-[1.04]"
+  />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#061531]/70 via-[#061531]/10 to-transparent" />
+  <div className="absolute inset-0 bg-gradient-to-t from-[#061531]/70 via-[#061531]/10 to-transparent" />
 
-                <div className="absolute bottom-5 left-5">
-                  <span className="rounded-full bg-[#8cc63f] px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#0b1f52]">
-                    {property.price}
-                  </span>
-                </div>
-              </div>
+  <div className="absolute bottom-5 left-5">
+    <span className="rounded-full bg-[#8cc63f] px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#0b1f52]">
+      {property.price}
+    </span>
+  </div>
+</Link>
 
               <div className="p-7 sm:p-8">
                 <p className="text-sm font-medium text-[#6b7a93]">
@@ -631,7 +663,7 @@ function InvestmentCTA() {
 function Stats() {
   const stats = [
     { value: 24, start: 18, suffix: "+", label: "Projects" },
-    { value: 50001, start: 48000, suffix: "+", label: "Titles Issued" },
+    { value: 50000, start: 9600, suffix: "+", label: "Titles Issued" },
     { value: 10000, start: 8600, suffix: "+", label: "Satisfied Clients" },
     { value: 15, start: 10, suffix: "+", label: "Awards" },
   ];
@@ -735,12 +767,27 @@ function formatNumber(value: number) {
 }
 
 function Testimonials() {
-  const featured = testimonialImages.slice(0, 4);
+  const [selectedVideo, setSelectedVideo] = useState<TestimonialItem | null>(
+    null
+  );
+
+  useEffect(() => {
+    if (!selectedVideo) return;
+
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedVideo(null);
+    };
+
+    window.addEventListener("keydown", handleEsc);
+
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [selectedVideo]);
 
   return (
     <section className="bg-[#f7f9fc] px-6 py-24 lg:px-16">
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
+        {/* HEADER */}
+        <div className="mx-auto mb-12 max-w-3xl text-center">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#8cc63f]">
             Success stories
           </span>
@@ -750,33 +797,72 @@ function Testimonials() {
           </h2>
 
           <p className="mt-5 text-base leading-8 text-[#61708a]">
-            Moments from our recent title deed issuance event - real clients taking ownership, backed by transparency and trust.
+            Hear directly from Hyssop clients and see real ownership moments
+            from our title deed issuance journey.
           </p>
         </div>
 
-        <div className="mt-8 mb-8 flex justify-center">
-  <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-medium text-[#0b1f52] shadow-sm ring-1 ring-black/5">
-    Tumaini Estate • Title Deed Issuance Event
-  </span>
-</div>
+        <div className="mb-10 flex justify-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-medium text-[#0b1f52] shadow-sm ring-1 ring-black/5">
+            Client Testimonials • Ownership Stories
+          </span>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {featured.map((src, index) => (
-            <div
-              key={src}
-              className="group overflow-hidden rounded-[28px] bg-white shadow-[0_18px_50px_rgba(11,31,82,0.08)] ring-1 ring-black/5"
+        {/* TESTIMONIAL GRID */}
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-x-7 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((item, index) => (
+            <article
+              key={`${item.src}-${index}`}
+              className="group overflow-hidden rounded-[16px] bg-white shadow-[0_12px_28px_rgba(11,31,82,0.10)] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(11,31,82,0.14)]"
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[28px]">
-                <Image
-                  src={src}
-                  alt={`Hyssop client success story ${index + 1}`}
-                  fill
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                  className="object-cover object-center transition duration-700 group-hover:scale-[1.02]"
-                />
-              </div>
-            </div>
+              {item.type === "video" ? (
+                <button
+                  type="button"
+                  onClick={() => setSelectedVideo(item)}
+                  className="relative block aspect-video w-full overflow-hidden bg-[#0b1f52] text-left"
+                  aria-label={`Play ${item.title}`}
+                >
+                  <video
+                    src={item.src}
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#061531]/75 via-[#061531]/15 to-transparent" />
+
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/95 text-xl font-bold text-[#0b1f52] shadow-[0_12px_30px_rgba(0,0,0,0.22)] transition duration-300 group-hover:scale-110">
+                      ▶
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#8cc63f]">
+                      Video testimonial
+                    </p>
+                  </div>
+                </button>
+              ) : (
+                <div className="relative aspect-video w-full overflow-hidden bg-[#eef3f8]">
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.04]"
+                    loading="lazy"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#061531]/55 via-[#061531]/10 to-transparent" />
+
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#8cc63f]">
+                      Ownership moment
+                    </p>
+                  </div>
+                </div>
+              )}
+            </article>
           ))}
         </div>
 
@@ -789,9 +875,45 @@ function Testimonials() {
           </Link>
         </div>
       </div>
+
+      {/* VIDEO MODAL */}
+      {selectedVideo && selectedVideo.type === "video" && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 py-8"
+          onClick={() => setSelectedVideo(null)}
+        >
+          <div
+            className="relative w-full max-w-5xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedVideo(null)}
+              className="absolute -top-12 right-0 text-3xl font-light text-white"
+              aria-label="Close testimonial video"
+            >
+              ×
+            </button>
+
+            <div className="overflow-hidden rounded-[1.5rem] bg-black shadow-2xl">
+              <video
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                className="max-h-[80vh] w-full object-contain"
+              >
+                <source src={selectedVideo.src} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
+
 
 
 

@@ -78,44 +78,57 @@ export default function AwardsPage() {
       <Navbar />
 
       {/* HERO */}
-<section className="px-6 pt-30 pb-16 lg:px-12">
-  <div className="mx-auto max-w-6xl">
-    <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+<section className="relative overflow-hidden bg-white">
+  <div className="mx-auto max-w-[1440px] px-6 pt-20 lg:px-20 lg:pt-32">
+    <div className="h-4 lg:h-8" />
+    <div className="grid items-end gap-10 lg:grid-cols-2 lg:gap-0">
       
-      {/* TEXT */}
-      <div className="text-center lg:text-left">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
-          Awards & Recognition
+      {/* TEXT CONTENT */}
+      <div className="pb-16 lg:pb-32">
+        <p className="mb-10 text-[0.75rem] font-bold uppercase tracking-[0.35em] text-[#8cc63f]">
+          Awards &amp; Recognition
         </p>
 
-        <h1 className="text-4xl font-bold tracking-tight text-[#0b1f52] sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
+        <h1 className="max-w-xl text-[3.5rem] font-bold leading-[1.1] tracking-tight text-[#0b1f52] sm:text-6xl lg:text-[5.2rem]">
           Built on trust.
           <span className="block">Recognized for excellence.</span>
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#5d6a84] lg:mx-0 lg:max-w-xl">
-          Our journey is defined by trust, consistency, and meaningful impact.
-          These recognitions reflect not only our performance in real estate,
+        <p className="mt-10 max-w-lg text-[1.05rem] leading-relaxed text-[#5d6a84]">
+          Our journey is defined by trust, consistency, and meaningful impact. 
+          These recognitions reflect not only our performance in real estate, 
           but also our commitment to community, culture, and long-term value creation.
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm font-medium text-[#0b1f52] lg:justify-start">
-          <span className="rounded-full bg-[#eef7df] px-4 py-2">Trusted brand</span>
-          <span className="rounded-full bg-[#eef2f7] px-4 py-2">Industry recognition</span>
-          <span className="rounded-full bg-[#eef2f7] px-4 py-2">Community impact</span>
+        <div className="mt-12 flex flex-wrap items-center gap-4">
+          <span className="rounded-full bg-[#f1f8e8] px-6 py-3 text-xs font-bold text-[#0b1f52]">
+            Trusted brand
+          </span>
+
+          <span className="rounded-full bg-[#f1f4f9] px-6 py-3 text-xs font-bold text-[#0b1f52]">
+            Industry recognition
+          </span>
+
+          <span className="rounded-full bg-[#f1f4f9] px-6 py-3 text-xs font-bold text-[#0b1f52]">
+            Community impact
+          </span>
         </div>
       </div>
 
       {/* IMAGE */}
-      <div className="flex justify-center lg:justify-end">
-        <div className="relative w-full max-w-[360px] h-[420px] overflow-hidden rounded-[28px] border border-[#e5ebf3] bg-white p-2 shadow-[0_24px_60px_rgba(11,31,82,0.10)]">
-          <Image
-            src="/hyssop/awards/hero.png"
-            alt="Hyssop award moment"
-            fill
-            className="rounded-[22px] object-contain"
-            priority
-          />
+      <div className="relative flex justify-end">
+        <div className="relative w-full max-w-[620px] lg:mr-[-40px]">
+          {/* Maintained the flush crop style from the reference */}
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-tl-[3rem] lg:aspect-[1.1/1]">
+            <Image
+              src="/hyssop/awards/hero1.png"
+              alt="Hyssop Properties award recognition"
+              fill
+              priority
+              quality={100}
+              className="object-cover object-top"
+            />
+          </div>
         </div>
       </div>
 

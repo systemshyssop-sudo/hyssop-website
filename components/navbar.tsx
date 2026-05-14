@@ -23,12 +23,14 @@ const dropdownItems: Record<Exclude<DropdownKey, null>, DropdownItem[]> = {
     { label: "Our Team", href: "/about?tab=team" },
     { label: "Careers", href: "/about?tab=careers" },
   ],
+
   properties: [
     { label: "Plots for Sale in Nakuru", href: "/plots-for-sale-in-nakuru" },
     { label: "Plots for Sale in Machakos", href: "/properties/konza" },
     { label: "Plots for Sale in Kitengela", href: "/properties/lush4" },
     { label: "Plots for Sale in Malindi", href: "/properties/malindi" },
   ],
+
   news: [
     { label: "Events", href: "/news?tab=events" },
     { label: "Blogs", href: "/news?tab=blogs" },
@@ -109,9 +111,9 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 left-0 z-[9999] w-full overflow-visible">
+      <header className="sticky left-0 top-0 z-[9999] w-full overflow-visible">
         <nav
-          className="flex h-[80px] w-full items-center justify-between overflow-visible border-b border-[#e8eef5] bg-white/95 px-6 text-[#0b1f52] shadow-sm backdrop-blur-md lg:px-16"
+          className="flex h-[80px] w-full items-center justify-between overflow-visible border-b border-[#e8eef5] bg-white/95 px-6 text-[#0b1f52] shadow-sm backdrop-blur-md lg:px-10 xl:px-16"
           style={{ overflow: "visible" }}
         >
           {/* LOGO */}
@@ -124,7 +126,7 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP NAV */}
-          <div className="hidden h-full items-center gap-8 text-sm font-medium lg:flex">
+          <div className="hidden h-full items-center gap-5 text-sm font-medium lg:flex xl:gap-6">
             <Link
               href="/"
               className="flex h-full items-center transition-colors hover:text-[#7ab62f]"
@@ -173,6 +175,14 @@ export default function Navbar() {
                 </span>
               </button>
             </div>
+
+            {/* PRIORITY PROJECT */}
+            <Link
+              href="/plots-for-sale-in-ngata-nakuru"
+              className="flex h-full items-center whitespace-nowrap font-semibold text-[#0b1f52] transition-colors hover:text-[#7ab62f]"
+            >
+              Ngata Commercial Center
+            </Link>
 
             <Link
               href="/diaspora"
@@ -252,7 +262,7 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* MOBILE MENU - inside sticky header so it opens under the logo and pushes content down */}
+        {/* MOBILE MENU */}
         {mobileOpen && (
           <div className="relative z-[9998] w-full border-b border-white/10 bg-[#0b1f52] text-white shadow-lg lg:hidden">
             <div className="flex flex-col gap-6 px-6 py-10">
@@ -329,9 +339,7 @@ export default function Navbar() {
                 {mobileDropdown === "mobile-properties" && (
                   <div className="flex flex-col gap-4 border-l border-white/20 pl-4">
                     <button
-                      onClick={() =>
-                        goToMobileLink("/plots-for-sale-in-nakuru")
-                      }
+                      onClick={() => goToMobileLink("/plots-for-sale-in-nakuru")}
                       className="text-left text-white/80 hover:text-[#8cc63f]"
                     >
                       ↳ Plots for Sale in Nakuru
@@ -360,6 +368,15 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
+
+              {/* PRIORITY PROJECT MOBILE */}
+              <button
+                type="button"
+                onClick={() => goToMobileLink("/plots-for-sale-in-ngata-nakuru")}
+                className="rounded-2xl bg-[#8cc63f] px-5 py-4 text-left text-lg font-bold text-[#0b1f52]"
+              >
+                Ngata Commercial Center
+              </button>
 
               <Link
                 href="/diaspora"
@@ -449,7 +466,7 @@ export default function Navbar() {
         )}
       </header>
 
-      {/* DESKTOP DROPDOWN PORTAL - outside header so page sections cannot cover it */}
+      {/* DESKTOP DROPDOWN PORTAL */}
       {openDropdown && (
         <div
           onMouseEnter={clearCloseTimer}
