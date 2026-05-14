@@ -466,39 +466,38 @@ Message: ${formData.message || "I would like more information and site visit ass
       <ChatbotWidget />
 
       {videoOpen && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 py-8"
-          onClick={() => setVideoOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-5xl"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setVideoOpen(false)}
-              className="absolute -top-12 right-0 text-3xl font-light text-white"
-              aria-label="Close video"
-            >
-              ×
-            </button>
+  <div
+    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
+    onClick={() => setVideoOpen(false)}
+  >
+    <div
+      className="relative w-full max-w-4xl"
+      onClick={(event) => event.stopPropagation()}
+    >
+      <button
+        type="button"
+        onClick={() => setVideoOpen(false)}
+        className="absolute -top-12 right-0 text-white text-lg font-medium hover:text-[#8cc63f]"
+        aria-label="Close video"
+      >
+        Close ×
+      </button>
 
-            <div className="overflow-hidden rounded-[1.5rem] bg-black shadow-2xl">
-              <video
-                controls
-                autoPlay
-                playsInline
-                preload="metadata"
-                poster={droneThumbSrc}
-                className="max-h-[80vh] w-full object-contain"
-              >
-                <source src={droneVideoSrc} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        </div>
-      )}
+      <video
+        key={droneVideoSrc}
+        controls
+        autoPlay
+        playsInline
+        preload="metadata"
+        poster={droneThumbSrc}
+        className="w-full max-h-[80vh] rounded-xl shadow-2xl bg-black"
+      >
+        <source src={droneVideoSrc} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+)}
 
       {selectedImage && (
         <div

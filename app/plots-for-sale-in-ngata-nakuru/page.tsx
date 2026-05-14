@@ -154,7 +154,7 @@ async function openSelectedImageFullscreen() {
               fill
               priority
               quality={90}
-              sizes="(max-width: 1024px) 50vw, 25vw"
+              sizes="100vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
@@ -670,39 +670,30 @@ async function openSelectedImageFullscreen() {
 
       {/* VIDEO MODAL */}
       {videoOpen && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 py-8"
-          onClick={() => setVideoOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-5xl"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setVideoOpen(false)}
-              className="absolute -top-12 right-0 text-3xl font-light text-white"
-              aria-label="Close video"
-            >
-              ×
-            </button>
-
-            <div className="overflow-hidden rounded-[1.5rem] bg-black shadow-2xl">
-              <video
-                controls
-                autoPlay
-                playsInline
-                preload="metadata"
-                poster={videoPosterSrc}
-                className="max-h-[80vh] w-full object-contain"
-              >
-                <source src={videoSrc} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        </div>
-      )}
+  <div
+    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
+    onClick={() => setVideoOpen(false)}
+  >
+    <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+      {/* This matches the 'Close x' look in image_757958.jpg */}
+      <button
+        type="button"
+        onClick={() => setVideoOpen(false)}
+        className="absolute -top-8 left-0 text-white text-lg font-medium hover:text-[#8cc63f]"
+      >
+        Close ×
+      </button>
+      
+      <video
+        controls
+        autoPlay
+        className="w-full max-h-[80vh] rounded-xl shadow-2xl bg-black"
+      >
+        <source src={videoSrc} type="video/mp4" />
+      </video>
+    </div>
+  </div>
+)}
     </main>
   );
 }

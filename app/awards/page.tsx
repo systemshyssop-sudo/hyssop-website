@@ -73,78 +73,71 @@ export default function AwardsPage() {
 
   return (
     <main className="bg-[#f8f9fa] text-[#0b1f52] min-h-screen">
-
-      {/* NAVBAR */}
       <Navbar />
 
       {/* HERO */}
-<section className="relative overflow-hidden bg-white">
-  <div className="mx-auto max-w-[1440px] px-6 pt-20 lg:px-20 lg:pt-32">
-    <div className="h-4 lg:h-8" />
-    
-    {/* 
-        Changed 'items-end' to 'items-stretch'. 
-        This prevents the image from "floating" based on text height. 
-    */}
-    <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-0">
-      
-      {/* TEXT CONTENT */}
-      <div className="pb-16 lg:pb-32">
-        <p className="mb-10 text-[0.75rem] font-bold uppercase tracking-[0.35em] text-[#8cc63f]">
-          Awards &amp; Recognition
-        </p>
+      <section className="relative overflow-hidden bg-white">
+        <div className="mx-auto max-w-[1440px] px-6 pt-20 lg:px-20 lg:pt-32">
+          <div className="h-4 lg:h-8" />
+          
+          {/* Using items-center ensures the image and text stay vertically balanced */}
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-0">
+            
+            {/* TEXT CONTENT */}
+            <div className="pb-16 lg:pb-32">
+              <p className="mb-10 text-[0.75rem] font-bold uppercase tracking-[0.35em] text-[#8cc63f]">
+                Awards &amp; Recognition
+              </p>
 
-        <h1 className="max-w-xl text-[3.5rem] font-bold leading-[1.1] tracking-tight text-[#0b1f52] sm:text-6xl lg:text-[5.2rem]">
-          Built on trust.
-          <span className="block">Recognized for excellence.</span>
-        </h1>
+              <h1 className="max-w-xl text-[3.5rem] font-bold leading-[1.1] tracking-tight text-[#0b1f52] sm:text-6xl lg:text-[5.2rem]">
+                Built on trust.
+                <span className="block">Recognized for excellence.</span>
+              </h1>
 
-        <p className="mt-10 max-w-lg text-[1.05rem] leading-relaxed text-[#5d6a84]">
-          Our journey is defined by trust, consistency, and meaningful impact. 
-          These recognitions reflect not only our performance in real estate, 
-          but also our commitment to community, culture, and long-term value creation.
-        </p>
+              <p className="mt-10 max-w-lg text-[1.05rem] leading-relaxed text-[#5d6a84]">
+                Our journey is defined by trust, consistency, and meaningful impact. 
+                These recognitions reflect not only our performance in real estate, 
+                but also our commitment to community, culture, and long-term value creation.
+              </p>
 
-        <div className="mt-12 flex flex-wrap items-center gap-4">
-          <span className="rounded-full bg-[#f1f8e8] px-6 py-3 text-xs font-bold text-[#0b1f52]">
-            Trusted brand
-          </span>
+              <div className="mt-12 flex flex-wrap items-center gap-4">
+                <span className="rounded-full bg-[#f1f8e8] px-6 py-3 text-xs font-bold text-[#0b1f52]">
+                  Trusted brand
+                </span>
+                <span className="rounded-full bg-[#f1f4f9] px-6 py-3 text-xs font-bold text-[#0b1f52]">
+                  Industry recognition
+                </span>
+                <span className="rounded-full bg-[#f1f4f9] px-6 py-3 text-xs font-bold text-[#0b1f52]">
+                  Community impact
+                </span>
+              </div>
+            </div>
 
-          <span className="rounded-full bg-[#f1f4f9] px-6 py-3 text-xs font-bold text-[#0b1f52]">
-            Industry recognition
-          </span>
+            {/* IMAGE - Fixed "Dropped" behavior */}
+            <div className="relative flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-[620px]">
+                {/* Changed to aspect-[4/3] to give the image more vertical presence */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-tl-[3rem] lg:rounded-tl-[5rem] shadow-2xl">
+                  <Image
+                    src="/hyssop/awards/hero1.png"
+                    alt="Hyssop Properties award recognition"
+                    fill
+                    priority
+                    quality={100}
+                    className="object-cover object-center"
+                  />
+                </div>
+              </div>
+            </div>
 
-          <span className="rounded-full bg-[#f1f4f9] px-6 py-3 text-xs font-bold text-[#0b1f52]">
-            Community impact
-          </span>
-        </div>
-      </div>
-
-      {/* IMAGE - Locked Positioning */}
-      <div className="relative flex flex-col justify-end">
-        <div className="relative w-full max-w-[620px] lg:mr-[-40px]">
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-tl-[3rem] lg:aspect-[1.1/1]">
-            <Image
-              src="/hyssop/awards/hero1.png"
-              alt="Hyssop Properties award recognition"
-              fill
-              priority
-              quality={100}
-              className="object-cover object-top"
-            />
           </div>
         </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* ================= REAL ESTATE ================= */}
-      <section className="px-6 pb-16">
+      <section className="px-6 py-24">
         <div className="max-w-6xl mx-auto">
-
-          <h2 className="text-3xl font-bold mb-10 text-center">
+          <h2 className="text-3xl font-bold mb-16 text-center">
             Excellence in Real Estate
           </h2>
 
@@ -152,33 +145,29 @@ export default function AwardsPage() {
             {realEstateAwards.map((award, i) => (
               <div
                 key={i}
-                className="relative group rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl transition"
+                className="relative group rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                <div className="relative h-[220px]">
+                <div className="relative h-[240px]">
                   <Image
-  src={`/hyssop/awards/${award.img}`}
-  alt={award.title}
-  fill
-  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-  className="object-cover group-hover:scale-105 transition duration-500"
-/>
+                    src={`/hyssop/awards/${award.img}`}
+                    alt={award.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition duration-500"
+                  />
                 </div>
 
-                <div className="p-6 space-y-3">
-                  <p className="text-sm text-[#8cc63f] font-semibold">
+                <div className="p-8 space-y-4">
+                  <p className="text-sm text-[#8cc63f] font-bold uppercase tracking-wider">
                     {award.org}
                   </p>
-
-                  <h3 className="font-bold text-lg leading-snug">
+                  <h3 className="font-bold text-xl leading-tight text-[#0b1f52]">
                     {award.title}
                   </h3>
-
                   <p className="text-gray-600 text-sm leading-relaxed">
                     {award.desc}
                   </p>
                 </div>
-
-                <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-[#8cc63f]/40 transition" />
               </div>
             ))}
           </div>
@@ -188,8 +177,7 @@ export default function AwardsPage() {
       {/* ================= BEYOND REAL ESTATE ================= */}
       <section className="px-6 pb-24">
         <div className="max-w-6xl mx-auto">
-
-          <h2 className="text-3xl font-bold mb-10 text-center">
+          <h2 className="text-3xl font-bold mb-16 text-center">
             Beyond Real Estate
           </h2>
 
@@ -197,33 +185,29 @@ export default function AwardsPage() {
             {impactAwards.map((award, i) => (
               <div
                 key={i}
-                className="relative group rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl transition"
+                className="relative group rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                <div className="relative h-[220px]">
+                <div className="relative h-[240px]">
                   <Image
-  src={`/hyssop/awards/${award.img}`}
-  alt={award.title}
-  fill
-  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-  className="object-cover group-hover:scale-105 transition duration-500"
-/>
+                    src={`/hyssop/awards/${award.img}`}
+                    alt={award.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition duration-500"
+                  />
                 </div>
 
-                <div className="p-6 space-y-3">
-                  <p className="text-sm text-[#8cc63f] font-semibold">
+                <div className="p-8 space-y-4">
+                  <p className="text-sm text-[#8cc63f] font-bold uppercase tracking-wider">
                     {award.org}
                   </p>
-
-                  <h3 className="font-bold text-lg leading-snug">
+                  <h3 className="font-bold text-xl leading-tight text-[#0b1f52]">
                     {award.title}
                   </h3>
-
                   <p className="text-gray-600 text-sm leading-relaxed">
                     {award.desc}
                   </p>
                 </div>
-
-                <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-[#8cc63f]/40 transition" />
               </div>
             ))}
           </div>
@@ -231,25 +215,21 @@ export default function AwardsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 text-center">
-        <div className="max-w-3xl mx-auto space-y-6">
-
-          <h2 className="text-2xl font-semibold">
+      <section className="py-24 px-6 bg-[#0b1f52] text-white text-center">
+        <div className="max-w-3xl mx-auto space-y-8">
+          <h2 className="text-3xl md:text-4xl font-bold">
             Built on Trust. Driven by Impact.
           </h2>
-
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-blue-100 text-lg leading-relaxed">
             From real estate excellence to community engagement, every milestone 
             reflects our commitment to doing more — for our clients, our partners, 
             and the communities we serve.
           </p>
-
-          <a href="/#contact">
-            <button className="bg-[#8cc63f] text-[#0b1f52] px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
+          <a href="/#contact" className="inline-block">
+            <button className="bg-[#8cc63f] text-[#0b1f52] px-10 py-4 rounded-full font-bold hover:bg-white transition-colors duration-300">
               Speak to a Consultant
             </button>
           </a>
-
         </div>
       </section>
 
