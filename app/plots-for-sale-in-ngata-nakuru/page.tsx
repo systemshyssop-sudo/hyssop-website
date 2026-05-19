@@ -7,7 +7,7 @@ import Navbar from "@/components/navbar";
 import ContactSection from "@/components/ContactSection";
 
 const projectName = "Ngata Commercial Centre";
-const whatsappNumber = "254707666000";
+const whatsappNumber = "254723032522";
 
 const heroSrc = "/hyssop/ncc/1.png";
 const videoSrc = "/hyssop/ncc/video.mp4";
@@ -15,8 +15,6 @@ const videoPosterSrc = "/hyssop/ncc/2.png";
 
 const mapShareLink = "https://maps.app.goo.gl/JXqEvXVa89a72gCA6";
 
-// Paste the Google Maps iframe src here once they provide it.
-// Example: const mapEmbedSrc = "https://www.google.com/maps/embed?pb=...";
 const mapEmbedSrc =
   "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3330.013934367121!2d35.944325!3d-0.242157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTQnMzEuOCJTIDM1wrA1NiczOS42IkU!5e1!3m2!1sen!2ske!4v1778530532120!5m2!1sen!2ske";
 
@@ -666,7 +664,10 @@ async function openSelectedImageFullscreen() {
         </div>
       </section>
 
-      <ContactSection />
+      <ContactSection
+  whatsappNumber={whatsappNumber}
+  phoneNumber={whatsappNumber}
+/>
 
       {/* VIDEO MODAL */}
       {videoOpen && (

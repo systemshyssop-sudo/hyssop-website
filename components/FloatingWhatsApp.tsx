@@ -1,11 +1,21 @@
 "use client";
 
 import { FaWhatsapp } from "react-icons/fa";
+import { usePathname } from "next/navigation";
+
+const DEFAULT_WHATSAPP_NUMBER = "254707666000";
+const NGATA_WHATSAPP_NUMBER = "254723032522";
 
 export default function FloatingWhatsApp() {
+  const pathname = usePathname();
+
+  const whatsappNumber = pathname.includes("ngata")
+    ? NGATA_WHATSAPP_NUMBER
+    : DEFAULT_WHATSAPP_NUMBER;
+
   return (
     <a
-      href="https://wa.me/254707666000"
+      href={`https://wa.me/${whatsappNumber}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
