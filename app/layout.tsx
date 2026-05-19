@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 const GA_MEASUREMENT_ID = "G-BZYP447964";
+const GOOGLE_ADS_ID = "AW-18162006780";
 
 export const metadata: Metadata = {
   title: "Hyssop Properties",
@@ -53,8 +54,12 @@ export default function RootLayout({
                 wait_for_update: 500
               });
 
+              gtag('set', 'ads_data_redaction', true);
+
               gtag('js', new Date());
+
               gtag('config', '${GA_MEASUREMENT_ID}');
+              gtag('config', '${GOOGLE_ADS_ID}');
             `,
           }}
         />

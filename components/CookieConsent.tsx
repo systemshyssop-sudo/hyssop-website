@@ -36,7 +36,7 @@ export default function CookieConsent() {
 
   const [analytics, setAnalytics] = useState(true);
 
-  const [marketing, setMarketing] = useState(false);
+  const [marketing, setMarketing] = useState(true);
 
 
 
