@@ -45,7 +45,7 @@ type Award = {
 
 const properties: Property[] = [
   {
-    name: "Ngata Commercial Center",
+    name: "NCC Commercial Center",
     location: "10 minutes from Nakuru CBD",
     price: "Prime commercial & residential plots",
     description:
