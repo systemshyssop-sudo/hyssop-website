@@ -6,7 +6,7 @@ import Link from "next/link";
 import Navbar from "@/components/navbar";
 import ContactSection from "@/components/ContactSection";
 
-const projectName = "NCC Commercial Center";
+const projectName = "NCC Commercial Plots";
 const whatsappNumber = "254723032522";
 
 const heroSrc = "/hyssop/ncc/1.png";
@@ -131,7 +131,7 @@ Message: ${
 
             <h1 className="text-[2rem] font-bold leading-[1.15] text-white sm:text-[2.35rem]">
               Own the Gateway to Nakuru: Prime Commercial &amp; Residential
-              Plots at NCC Commercial Center
+              Plots at NCC Commercial Plots
             </h1>
 
             <p className="mt-5 text-base leading-7 text-white/85">
@@ -159,7 +159,7 @@ Message: ${
           <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
             <Image
               src={heroSrc}
-              alt="NCC Commercial Center"
+              alt="NCC Commercial Plots"
               fill
               priority
               quality={90}
@@ -180,7 +180,7 @@ Message: ${
         >
           <Image
             src={heroSrc}
-            alt="NCC Commercial Center"
+            alt="NCC Commercial Plots"
             fill
             priority
             quality={90}
@@ -271,35 +271,36 @@ Message: ${
       </section>
 
       {/* STRATEGIC INVESTMENT */}
-<section className="bg-gradient-to-b from-[#f8fafc] via-[#f5f8fb] to-[#f8fafc] px-6 py-20 lg:px-12">
-  <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-    <div>
-      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
-        Strategic Investment Meets Unmatched Growth
-      </p>
+      <section className="bg-gradient-to-b from-[#f8fafc] via-[#f5f8fb] to-[#f8fafc] px-6 py-20 lg:px-12">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+              Strategic Investment Meets Unmatched Growth
+            </p>
 
-      <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
-        Why just buy land when you can own a piece of Nakuru’s future?
-      </h2>
-    </div>
+            <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
+              Why just buy land when you can own a piece of Nakuru’s future?
+            </h2>
+          </div>
 
-    <div className="space-y-4 border-l-0 border-[#dfe8f1] text-base leading-8 text-gray-600 lg:border-l lg:pl-10">
-      <p>
-        Located along the growing Nakuru-Eldoret Highway corridor and directly
-        touching the Sobea-Mangu tarmac, NCC Commercial Center offer a strategic
-        position for business, residential development, and long-term
-        investment.
-      </p>
+          <div className="space-y-4 border-l-0 border-[#dfe8f1] text-base leading-8 text-gray-600 lg:border-l lg:pl-10">
+            <p>
+              Located along the growing Nakuru-Eldoret Highway corridor and
+              directly touching the Sobea-Mangu tarmac, NCC Commercial Plots
+              offer a strategic position for business, residential development,
+              and long-term investment.
+            </p>
 
-      <p>
-        Whether you are looking to tap into road access for a business premise
-        or seeking a well-positioned location for rental units, residential
-        development, or future appreciation, NCC Commercial Center offer a
-        practical balance of access, ownership clarity, and growth potential.
-      </p>
-    </div>
-  </div>
-</section>
+            <p>
+              Whether you are looking to tap into road access for a business
+              premise or seeking a well-positioned location for rental units,
+              residential development, or future appreciation, NCC Commercial
+              Plots offer a practical balance of access, ownership clarity, and
+              growth potential.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* WHY NCC + VIDEO */}
       <section className="bg-gradient-to-b from-[#f8fafc] via-[#f6f9fc] to-[#f8fafc] px-6 py-20 lg:px-12">
@@ -325,7 +326,7 @@ Message: ${
                 <span className="font-bold text-[#0b1f52]">
                   Prime Road Access:
                 </span>{" "}
-                NCC Commercial Center are directly touching the Sobea-Mangu
+                NCC Commercial Plots are directly touching the Sobea-Mangu
                 tarmac and positioned near the Nakuru-Eldoret Highway, giving
                 buyers convenient access for movement, visibility, and future
                 development.
@@ -382,7 +383,7 @@ Message: ${
             </p>
 
             <h3 className="text-3xl font-bold sm:text-4xl">
-              See NCC Commercial Center from above
+              See NCC Commercial Plots from above
             </h3>
 
             <p className="mt-6 text-base leading-8 text-gray-600">
@@ -394,12 +395,12 @@ Message: ${
               type="button"
               onClick={() => setVideoOpen(true)}
               className="group relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-white text-left shadow-[0_24px_70px_rgba(11,31,82,0.12)]"
-              aria-label="Play NCC Commercial Center video"
+              aria-label="Play NCC Commercial Plots video"
             >
               <Image
                 src={videoPosterSrc}
                 quality={90}
-                alt="NCC Commercial Center video preview"
+                alt="NCC Commercial Plots video preview"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transition duration-700 group-hover:scale-105"
@@ -452,159 +453,9 @@ Message: ${
         </div>
       </section>
 
-      {/* GALLERY */}
-      <section id="gallery" className="scroll-mt-24 bg-white px-6 py-20 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
-              Project Gallery
-            </p>
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              Explore NCC Commercial Center
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {galleryImages.map((src, index) => (
-              <button
-                type="button"
-                key={src}
-                onClick={() => setSelectedImageIndex(index)}
-                className="group relative aspect-[4/3] w-full overflow-hidden rounded-[1.5rem] bg-[#eef2f7] text-left shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-xl"
-                aria-label={`Open NCC Commercial Center gallery image ${index + 1}`}
-              >
-                <Image
-                  src={src}
-                  quality={90}
-                  alt={`NCC Commercial Center ${index + 1}`}
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition duration-700 ease-in-out group-hover:scale-110"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f52]/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                <div className="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] opacity-0 shadow-sm transition group-hover:opacity-100">
-                  Click to enlarge
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* INVESTMENT TABLE */}
-      <section className="bg-[#0b1f52] px-6 py-20 text-white lg:px-12">
+      {/* SITE VISIT FORM */}
+      <section className="bg-white px-6 pb-20 lg:px-12">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
-            An Investment That Fits Your Pace
-          </p>
-
-          <h2 className="text-3xl font-bold sm:text-4xl">
-            We’ve made it easier than ever to secure your place at NCC
-            Commercial Plots.
-          </h2>
-
-          <p className="mt-5 max-w-3xl text-base leading-8 text-white/80">
-            Choose the plan that works for your financial goals.
-          </p>
-
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            <div className="rounded-[1.5rem] border border-white/15 bg-white/[0.07] p-6 shadow-[0_18px_45px_rgba(0,0,0,0.16)]">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8cc63f]">
-                Plot Size
-              </p>
-              <p className="text-xl font-bold text-white">Standard 50 x 100</p>
-              <p className="mt-2 text-sm text-white/70">(1/8 Acre)</p>
-            </div>
-
-            <div className="rounded-[1.5rem] border border-[#8cc63f]/35 bg-[#8cc63f]/10 p-6 shadow-[0_18px_45px_rgba(0,0,0,0.16)]">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8cc63f]">
-                Cash Offer
-              </p>
-              <p className="text-3xl font-bold text-white">KES 2,000,000</p>
-              <p className="mt-2 text-sm text-white/75">
-                Price for a standard 50 x 100 plot
-              </p>
-            </div>
-
-            <div className="rounded-[1.5rem] border border-white/15 bg-white/[0.07] p-6 shadow-[0_18px_45px_rgba(0,0,0,0.16)]">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8cc63f]">
-                Lipa Polepole
-              </p>
-              <p className="text-base font-semibold leading-7 text-white">
-                Flexible installment plans available. Own your land while you
-                pay!
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* URGENCY + MAP + FORM */}
-      <section className="bg-white px-6 py-20 lg:px-12">
-        <div className="mx-auto flex max-w-5xl flex-col gap-10">
-          <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
-              Ready to take the next step?
-            </p>
-
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              The Best Time to Buy Was Yesterday. The Second Best Time is NOW.
-            </h2>
-
-            <p className="mt-6 text-base leading-8 text-gray-600">
-              Whether your goal is a business premise, rental income, residential
-              development, or a long-term land investment, NCC Commercial Center
-              give you the title, utilities, access, and location to move with
-              confidence.
-            </p>
-
-            <p className="mt-4 text-base leading-8 text-gray-600">
-              A limited number of plots remain available. Contact Hyssop
-              Properties today for viewing and booking.
-            </p>
-
-            <div className="mt-8 overflow-hidden rounded-[2rem] border border-[#e8eef5] bg-[#f8fafc] shadow-sm">
-              <div className="p-5">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7ab62f]">
-                  Interactive Map
-                </p>
-                <h3 className="mt-2 text-2xl font-bold text-[#0b1f52]">
-                  See exactly where you’ll be building
-                </h3>
-              </div>
-
-              <div className="relative h-[320px] w-full bg-[#e9edf3]">
-                {mapEmbedSrc ? (
-                  <iframe
-                    src={mapEmbedSrc}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="absolute inset-0 h-full w-full border-0"
-                    allowFullScreen
-                  />
-                ) : (
-                  <div className="flex h-full flex-col items-center justify-center px-6 text-center">
-                    <p className="max-w-md text-sm leading-7 text-gray-600">
-                      The interactive map embed will appear here once the Google
-                      Maps embed link is added.
-                    </p>
-
-                    <a
-                      href={mapShareLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-5 rounded-full bg-[#0b1f52] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#8cc63f] hover:text-[#0b1f52]"
-                    >
-                      Open Location on Google Maps
-                    </a>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-
           <form
             id="site-visit"
             onSubmit={handleSubmit}
@@ -620,7 +471,7 @@ Message: ${
 
             <p className="mt-4 text-base leading-8 text-gray-600">
               Send your details directly to our team on WhatsApp. The project of
-              interest is already set to NCC Commercial Center.
+              interest is already set to NCC Commercial Plots.
             </p>
 
             <div className="mt-7 grid gap-4 sm:grid-cols-2">
@@ -704,6 +555,161 @@ Message: ${
         </div>
       </section>
 
+      {/* GALLERY */}
+      <section id="gallery" className="scroll-mt-24 bg-white px-6 py-20 lg:px-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+              Project Gallery
+            </p>
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Explore NCC Commercial Plots
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {galleryImages.map((src, index) => (
+              <button
+                type="button"
+                key={src}
+                onClick={() => setSelectedImageIndex(index)}
+                className="group relative aspect-[4/3] w-full overflow-hidden rounded-[1.5rem] bg-[#eef2f7] text-left shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-xl"
+                aria-label={`Open NCC Commercial Plots gallery image ${index + 1}`}
+              >
+                <Image
+                  src={src}
+                  quality={90}
+                  alt={`NCC Commercial Plots ${index + 1}`}
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition duration-700 ease-in-out group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f52]/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div className="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] opacity-0 shadow-sm transition group-hover:opacity-100">
+                  Click to enlarge
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INVESTMENT TABLE */}
+      <section className="bg-[#0b1f52] px-6 py-20 text-white lg:px-12">
+        <div className="mx-auto max-w-5xl">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
+            An Investment That Fits Your Pace
+          </p>
+
+          <h2 className="text-3xl font-bold sm:text-4xl">
+            We’ve made it easier than ever to secure your place at NCC
+            Commercial Plots.
+          </h2>
+
+          <p className="mt-5 max-w-3xl text-base leading-8 text-white/80">
+            Choose the plan that works for your financial goals.
+          </p>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            <div className="rounded-[1.5rem] border border-white/15 bg-white/[0.07] p-6 shadow-[0_18px_45px_rgba(0,0,0,0.16)]">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8cc63f]">
+                Plot Size
+              </p>
+              <p className="text-xl font-bold text-white">Standard 50 x 100</p>
+              <p className="mt-2 text-sm text-white/70">(1/8 Acre)</p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-[#8cc63f]/35 bg-[#8cc63f]/10 p-6 shadow-[0_18px_45px_rgba(0,0,0,0.16)]">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8cc63f]">
+                Cash Offer
+              </p>
+              <p className="text-3xl font-bold text-white">KES 2,000,000</p>
+              <p className="mt-2 text-sm text-white/75">
+                Price for a standard 50 x 100 plot
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-white/15 bg-white/[0.07] p-6 shadow-[0_18px_45px_rgba(0,0,0,0.16)]">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#8cc63f]">
+                Lipa Polepole
+              </p>
+              <p className="text-base font-semibold leading-7 text-white">
+                Flexible installment plans available. Own your land while you
+                pay!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* URGENCY + MAP */}
+      <section className="bg-white px-6 py-20 lg:px-12">
+        <div className="mx-auto flex max-w-5xl flex-col gap-10">
+          <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+              Ready to take the next step?
+            </p>
+
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              The Best Time to Buy Was Yesterday. The Second Best Time is NOW.
+            </h2>
+
+            <p className="mt-6 text-base leading-8 text-gray-600">
+              Whether your goal is a business premise, rental income, residential
+              development, or a long-term land investment, NCC Commercial Plots
+              give you the title, utilities, access, and location to move with
+              confidence.
+            </p>
+
+            <p className="mt-4 text-base leading-8 text-gray-600">
+              A limited number of plots remain available. Contact Hyssop
+              Properties today for viewing and booking.
+            </p>
+
+            <div className="mt-8 overflow-hidden rounded-[2rem] border border-[#e8eef5] bg-[#f8fafc] shadow-sm">
+              <div className="p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7ab62f]">
+                  Interactive Map
+                </p>
+                <h3 className="mt-2 text-2xl font-bold text-[#0b1f52]">
+                  See exactly where you’ll be building
+                </h3>
+              </div>
+
+              <div className="relative h-[320px] w-full bg-[#e9edf3]">
+                {mapEmbedSrc ? (
+                  <iframe
+                    src={mapEmbedSrc}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="absolute inset-0 h-full w-full border-0"
+                    allowFullScreen
+                  />
+                ) : (
+                  <div className="flex h-full flex-col items-center justify-center px-6 text-center">
+                    <p className="max-w-md text-sm leading-7 text-gray-600">
+                      The interactive map embed will appear here once the Google
+                      Maps embed link is added.
+                    </p>
+
+                    <a
+                      href={mapShareLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 rounded-full bg-[#0b1f52] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#8cc63f] hover:text-[#0b1f52]"
+                    >
+                      Open Location on Google Maps
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ContactSection
         whatsappNumber={whatsappNumber}
         phoneNumber={whatsappNumber}
@@ -775,7 +781,7 @@ Message: ${
             >
               <Image
                 src={galleryImages[selectedImageIndex]}
-                alt={`NCC Commercial Center enlarged image ${
+                alt={`NCC Commercial Plots enlarged image ${
                   selectedImageIndex + 1
                 }`}
                 fill

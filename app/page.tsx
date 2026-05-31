@@ -155,7 +155,7 @@ const heroSlides: Slide[] = [
     eyebrow: "Featured Location",
     title: "Prime land. Clear process.",
     subtitle: "Premium land for sale in Kenya with verified title deeds and transparent ownership.",
-    label: "Ngata Commercial Center",
+    label: "NCC Commercial Plots",
   },
 ];
 

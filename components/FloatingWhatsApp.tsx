@@ -4,13 +4,20 @@ import { FaWhatsapp } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 
 const DEFAULT_WHATSAPP_NUMBER = "254707666000";
-const NGATA_WHATSAPP_NUMBER = "254723032522";
+const NCC_WHATSAPP_NUMBER = "254723032522";
+
+const NCC_PATHS = [
+  "/plots-for-sale-in-nakuru",
+  "/plots-for-sale-in-ngata-nakuru",
+];
 
 export default function FloatingWhatsApp() {
   const pathname = usePathname();
 
-  const whatsappNumber = pathname.includes("ngata")
-    ? NGATA_WHATSAPP_NUMBER
+  const isNccPage = NCC_PATHS.some((path) => pathname.startsWith(path));
+
+  const whatsappNumber = isNccPage
+    ? NCC_WHATSAPP_NUMBER
     : DEFAULT_WHATSAPP_NUMBER;
 
   return (
