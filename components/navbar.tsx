@@ -25,7 +25,7 @@ const dropdownItems: Record<Exclude<DropdownKey, null>, DropdownItem[]> = {
   ],
 
   properties: [
-    { label: "Plots for Sale in Nakuru", href: "/plots-for-sale-in-nakuru" },
+    { label: "Plots for Sale in Nakuru", href: "/plots-for-sale-in-nakuru-county" },
     { label: "Plots for Sale in Machakos", href: "/properties/konza" },
     { label: "Plots for Sale in Kitengela", href: "/properties/lush4" },
     { label: "Plots for Sale in Malindi", href: "/properties/malindi" },
@@ -177,10 +177,10 @@ export default function Navbar() {
             </div>
 
             <Link
-              href="/plots-for-sale-in-ngata-nakuru"
+              href="/plots-for-sale-in-nakuru"
               className="flex h-full items-center transition-colors hover:text-[#7ab62f]"
             >
-              Ngata Commercial Center
+              NCC Commercial Center
             </Link>
 
             <Link
@@ -338,7 +338,7 @@ export default function Navbar() {
                 {mobileDropdown === "mobile-properties" && (
                   <div className="flex flex-col gap-4 border-l border-white/20 pl-4">
                     <button
-                      onClick={() => goToMobileLink("/plots-for-sale-in-nakuru")}
+                      onClick={() => goToMobileLink("/plots-for-sale-in-nakuru-county")}
                       className="text-left text-white/80 hover:text-[#8cc63f]"
                     >
                       ↳ Plots for Sale in Nakuru
@@ -371,10 +371,10 @@ export default function Navbar() {
               {/* PRIORITY PROJECT MOBILE */}
               <button
                 type="button"
-                onClick={() => goToMobileLink("/plots-for-sale-in-ngata-nakuru")}
+                onClick={() => goToMobileLink("/plots-for-sale-in-nakuru")}
                 className="w-full text-left text-lg font-medium hover:text-[#8cc63f]"
               >
-                Ngata Commercial Center
+                NCC Commercial Center
               </button>
 
               <Link

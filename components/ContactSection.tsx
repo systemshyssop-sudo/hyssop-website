@@ -114,7 +114,7 @@ export default function ContactSection({
                   { label: "About Us", href: "/about?tab=about" },
                   { label: "Properties", href: "/properties" },
                   { label: "Diaspora", href: "/diaspora" },
-                  { label: "Investment Co-operative", href: "/investments" },
+                  { label: "NCC Commercial Center", href: "/plots-for-sale-in-nakuru" },
                 ].map((item) => (
                   <li key={item.href}>
                     <Link

@@ -51,7 +51,7 @@ const properties: Property[] = [
     description:
       "The perfect intersection of high-traffic business and serene modern living, located at the gateway to Nakuru.",
     image: "/hyssop/ncc/3.png",
-    href: "/plots-for-sale-in-ngata-nakuru",
+    href: "/plots-for-sale-in-nakuru",
   },
   {
     name: "Tumaini Estate",
