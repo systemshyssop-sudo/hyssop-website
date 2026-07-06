@@ -1,20 +1,9 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ChatbotWidget from "@/components/ChatbotWidget";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const GTM_ID = "GTM-W35TGCCQ";
 const GA_MEASUREMENT_ID = "G-BZYP447964";
@@ -32,8 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <body className={`${geistSans.className} antialiased min-h-screen`}>
-        {/* Consent defaults must be available before Google tags run */}
+      <body className="min-h-screen antialiased">
         <Script
           id="google-consent-default"
           strategy="beforeInteractive"
@@ -56,7 +44,6 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Tag Manager */}
         <Script
           id="google-tag-manager"
           strategy="afterInteractive"
@@ -76,7 +63,6 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google tag for GA4 + Google Ads */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
@@ -88,14 +74,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               gtag('js', new Date());
-
               gtag('config', '${GA_MEASUREMENT_ID}');
               gtag('config', '${GOOGLE_ADS_ID}');
             `,
           }}
         />
 
-        {/* GTM noscript fallback */}
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
