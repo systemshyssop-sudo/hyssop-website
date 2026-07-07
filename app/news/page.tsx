@@ -82,7 +82,7 @@ function NewsPageContent() {
             </div>
 
             <h1 className="text-3xl font-bold leading-tight text-white">
-              Events, insights, and ownership stories from Hyssop.
+              Events, insights, and land ownership stories from Hyssop.
             </h1>
 
             <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
@@ -93,7 +93,7 @@ function NewsPageContent() {
           <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
             <Image
               src={eventHeroImage}
-              alt="Hyssop events and news"
+              alt="Hyssop Properties events and real estate news"
               fill
               priority
               quality={90}
@@ -115,7 +115,7 @@ function NewsPageContent() {
         >
           <Image
             src={eventHeroImage}
-            alt="Hyssop events and news"
+            alt="Hyssop Properties events and real estate news"
             fill
             priority
             quality={90}
@@ -154,7 +154,7 @@ function NewsPageContent() {
                 textShadow: "0 4px 24px rgba(0,0,0,0.7)",
               }}
             >
-              Events, insights, and ownership stories from Hyssop.
+              Events, insights, and land ownership stories from Hyssop.
             </h1>
 
             <p
@@ -217,16 +217,16 @@ function NewsPageContent() {
 
                 <p className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-[#61708a]">
                   A look inside Hyssop Properties&apos; title deed issuance and
-                  investor event at Tumaini Estate, Nakuru. Real people,
-                  verified ownership.
+                  investor event at Tumaini Estate, Nakuru. Real clients,
+                  verified ownership, and a completed land buying journey.
                 </p>
               </div>
 
               <div className="mx-auto flex w-full flex-col items-center pt-16">
                 <p className="mb-12 max-w-xl text-center text-[15px] leading-8 text-[#4f6384]">
-                  Check out highlights from our recent title deed issuance event
-                  and see the trust, transparency, and client confidence behind
-                  every Hyssop investment.
+                  Watch highlights from our recent title deed issuance event and
+                  see the trust, transparency, and client confidence behind every
+                  Hyssop land investment.
                 </p>
 
                 <button
@@ -236,7 +236,7 @@ function NewsPageContent() {
                 >
                   <Image
                     src="/hyssop/thumbnail.jpg"
-                    alt="Hyssop title deed issuance event"
+                    alt="Hyssop Properties title deed issuance event"
                     fill
                     quality={90}
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -275,20 +275,21 @@ function NewsPageContent() {
                 </span>
 
                 <h2 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
-                  More than an event - proof of a completed journey.
+                  More than an event — proof of a completed journey.
                 </h2>
 
                 <p className="mt-5 text-base leading-8 text-[#61708a]">
-                  From site visits to documentation and title deed issuance,
-                  this milestone reflects Hyssop&apos;s commitment to walking
-                  with clients until ownership is clear, verified, and
+                  From site visits to documentation and title deed issuance, this
+                  milestone reflects Hyssop&apos;s commitment to walking with
+                  clients until land ownership is clear, verified, and
                   confidently secured.
                 </p>
 
                 <p className="mt-4 text-base leading-8 text-[#61708a]">
                   The event gave clients a chance to celebrate real progress,
                   meet the Hyssop team, and experience the confidence that comes
-                  with investing through a transparent real estate process.
+                  with investing through a transparent real estate process in
+                  Kenya.
                 </p>
               </div>
 
@@ -322,6 +323,11 @@ function NewsPageContent() {
                 <h2 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
                   Moments from the day.
                 </h2>
+
+                <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-[#61708a]">
+                  A glimpse into the people, conversations, and title deed
+                  handovers that brought the ownership journey to life.
+                </p>
               </div>
 
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -333,7 +339,9 @@ function NewsPageContent() {
                     <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] bg-[#eef3f8]">
                       <Image
                         src={src}
-                        alt={`Hyssop event moment ${index + 1}`}
+                        alt={`Hyssop Properties title deed event moment ${
+                          index + 1
+                        }`}
                         fill
                         quality={90}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -354,7 +362,7 @@ function NewsPageContent() {
           <div className="mx-auto max-w-5xl">
             <div className="mb-8 text-center">
               <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#8cc63f]">
-                Insights
+                Real Estate Insights
               </span>
 
               <h1 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
@@ -362,8 +370,8 @@ function NewsPageContent() {
               </h1>
 
               <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-[#61708a] sm:text-base">
-                Practical insights on land ownership, real estate in Kenya, and
-                smarter property investment decisions.
+                Practical insights on buying land in Kenya, title deed checks,
+                verified ownership, and smarter property investment decisions.
               </p>
             </div>
 
@@ -419,42 +427,43 @@ function NewsPageContent() {
 
               <div className="mt-8 space-y-6 text-base leading-8 text-[#5b6880] sm:text-lg">
                 <p>
-                  Buying land is one of the most important financial decisions a
-                  person can make. Yet many buyers lose money because they move
-                  too quickly, trust the wrong people, or fail to verify key
-                  details before making payment.
+                  Buying land in Kenya is one of the most important financial
+                  decisions many families and investors will make. Yet buyers
+                  can lose money when they move too quickly, trust the wrong
+                  people, or fail to verify key details before making payment.
                 </p>
 
                 <p>
                   The first step is to confirm that the land exists, that the
-                  seller has the right to sell it, and that the title details
-                  match the actual property on the ground. A site visit, proper
-                  documentation, and a trusted process can protect you from many
-                  common risks.
+                  seller has the right to sell it, and that the title deed
+                  details match the actual property on the ground. A physical
+                  site visit, proper documentation, and a trusted process can
+                  protect you from many common land scams in Kenya.
                 </p>
 
                 <p>
                   Always check the title deed details, confirm ownership records,
                   review payment terms clearly, and avoid sending money based
-                  only on verbal promises. A legitimate transaction should leave
-                  a clear trail: official documents, receipts, agreements, and a
-                  transparent transfer process.
+                  only on verbal promises. A legitimate land transaction should
+                  leave a clear trail: official documents, receipts, agreements,
+                  and a transparent transfer process.
                 </p>
 
                 <p>
                   You should also be cautious of prices that sound too good to be
-                  true. While affordable opportunities exist, unusually low
-                  pricing without clear documentation can be a warning sign.
-                  Take time to ask questions, involve professionals where
-                  necessary, and work with companies that can explain the process
-                  from inquiry to ownership.
+                  true. While affordable land opportunities exist, unusually low
+                  pricing without clear documentation can be a warning sign. Take
+                  time to ask questions, involve professionals where necessary,
+                  and work with a real estate company that can explain the
+                  process from inquiry to ownership.
                 </p>
 
                 <p>
-                  At Hyssop, we believe land ownership should be built on trust,
-                  clarity, and confidence. Our role is to help buyers understand
-                  what they are purchasing, where the land is located, how the
-                  documentation works, and what steps lead to secure ownership.
+                  At Hyssop Properties, we believe land ownership should be
+                  built on trust, clarity, and confidence. Our role is to help
+                  buyers understand what they are purchasing, where the land is
+                  located, how the documentation works, and what steps lead to
+                  secure ownership.
                 </p>
               </div>
 
@@ -474,39 +483,39 @@ function NewsPageContent() {
       )}
 
       {/* VIDEO MODAL */}
-{videoOpen && (
-  <div
-    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
-    onClick={() => setVideoOpen(false)}
-  >
-    <div
-      className="relative w-full max-w-4xl"
-      onClick={(event) => event.stopPropagation()}
-    >
-      <button
-        type="button"
-        onClick={() => setVideoOpen(false)}
-        className="absolute -top-12 right-0 text-white text-lg font-medium hover:text-[#8cc63f]"
-        aria-label="Close video"
-      >
-        Close ×
-      </button>
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-12 right-0 text-lg font-medium text-white hover:text-[#8cc63f]"
+              aria-label="Close video"
+            >
+              Close ×
+            </button>
 
-      <video
-        key={eventVideo}
-        controls
-        autoPlay
-        playsInline
-        preload="metadata"
-        poster={eventHeroImage}
-        className="w-full max-h-[80vh] rounded-xl shadow-2xl bg-black"
-      >
-        <source src={eventVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-)}
+            <video
+              key={eventVideo}
+              controls
+              autoPlay
+              playsInline
+              preload="metadata"
+              poster={eventHeroImage}
+              className="max-h-[80vh] w-full rounded-xl bg-black shadow-2xl"
+            >
+              <source src={eventVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
 
       <div id="contact" className="scroll-mt-[100px]">
         <ContactSection />

@@ -7,17 +7,17 @@ import ContactSection from "@/components/ContactSection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ChatbotWidget from "@/components/ChatbotWidget";
 
-const base = "/hyssop/project/tumaini";
+const base = "/hyssop/project/kitengela";
 
 const galleryImages = [
-  `${base}/gallery1.png`,
-  `${base}/gallery2.png`,
-  `${base}/gallery3.png`,
-  `${base}/gallery04.png`,
-  `${base}/gallery05.png`,
+  `${base}/gallery-1.png`,
+  `${base}/gallery-2.png`,
+  `${base}/gallery-3.png`,
+  `${base}/gallery-4.png`,
+  `${base}/gallery-5.png`,
 ];
 
-export default function TumainiPage() {
+export default function Lush4Page() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [videoOpen, setVideoOpen] = useState(false);
 
@@ -28,10 +28,10 @@ export default function TumainiPage() {
     message: "",
   });
 
-  const projectName = "Tumaini Estate – Nakuru";
-  const heroSrc = `${base}/tumainihero.jpg`;
-  const droneThumbSrc = `${base}/tumaini-drone-thumbnail.jpg`;
-  const droneVideoSrc = `${base}/tumaini.mp4`;
+  const projectName = "Lush 4 – Kitengela";
+  const heroSrc = `${base}/kitengela-hero.png`;
+  const droneThumbSrc = `${base}/kitengela-drone-thumb.png`;
+  const droneVideoSrc = `${base}/drone.mp4`;
 
   useEffect(() => {
     function closeOnEscape(event: KeyboardEvent) {
@@ -54,7 +54,10 @@ Name: ${formData.name}
 Phone: ${formData.phone}
 Preferred Day: ${formData.preferredDay || "Not specified"}
 Project of Interest: ${projectName}
-Message: ${formData.message || "I would like more information and site visit assistance."}`;
+Message: ${
+      formData.message ||
+      "I would like more information and site visit assistance."
+    }`;
 
     window.open(
       `https://wa.me/254707666000?text=${encodeURIComponent(text)}`,
@@ -66,206 +69,204 @@ Message: ${formData.message || "I would like more information and site visit ass
     <main className="min-h-screen bg-white text-[#0b1f52]">
       <Navbar />
 
-{/* HERO */}
-<>
-  {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
-  <section className="bg-[#0b1f52] text-white lg:hidden">
-    <div className="px-6 pt-8 pb-7">
-      <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
-        Ready Title Deeds
-      </div>
+      {/* HERO */}
+      <>
+        {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
+        <section className="bg-[#0b1f52] text-white lg:hidden">
+          <div className="px-6 pt-8 pb-7">
+            <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
+              Ready Title Deeds
+            </div>
 
-      <p
-        className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
-        style={{
-          textShadow: "0 2px 12px rgba(0,0,0,0.35)",
-        }}
-      >
-        Tumaini Estate · Nakuru
-      </p>
+            <h1 className="text-3xl font-bold leading-tight text-white">
+              50 x 100 residential plots in Kitengela
+            </h1>
 
-      <h1 className="text-3xl font-bold leading-tight text-white">
-        Premium gated land investment near Nakuru CBD
-      </h1>
-    </div>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
+              Lush 4 · Kitengela
+            </p>
+          </div>
 
-    <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
-      <Image
-        src={heroSrc}
-        alt="Tumaini Estate Nakuru"
-        fill
-        priority
-        quality={90}
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+          <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
+            <Image
+              src={heroSrc}
+              alt="Lush 4 Kitengela residential plots"
+              fill
+              priority
+              quality={90}
+              sizes="100vw"
+              className="object-cover object-center"
+            />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-    </div>
-  </section>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+          </div>
+        </section>
 
-  {/* DESKTOP HERO - SAME PROPERTY HERO STYLE */}
-  <section
-    className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
-    style={{
-      height: "46vh",
-      minHeight: "360px",
-    }}
-  >
-    <Image
-      src={heroSrc}
-      alt="Tumaini Estate Nakuru"
-      fill
-      priority
-      quality={90}
-      sizes="100vw"
-      className="object-cover object-center lg:object-[center_45%]"
-    />
-
-    {/* Image readability overlay - no blue text card */}
-    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-
-    <div
-      className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
-      style={{
-        position: "absolute",
-        top: "24px",
-        left: "24px",
-        zIndex: 10,
-      }}
-    >
-      Ready Title Deeds
-    </div>
-
-    <div
-      style={{
-        position: "absolute",
-        left: "24px",
-        right: "24px",
-        bottom: "28px",
-        zIndex: 10,
-        maxWidth: "760px",
-      }}
-    >
-      <p
-        className="mb-4 hidden text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f] sm:block"
-        style={{
-          textShadow: "0 2px 12px rgba(0,0,0,0.55)",
-        }}
-      >
-        Tumaini Estate · Nakuru
-      </p>
-
-      <h1
-        className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
-        style={{
-          textShadow: "0 4px 24px rgba(0,0,0,0.7)",
-        }}
-      >
-        Premium gated land investment near Nakuru CBD
-      </h1>
-    </div>
-  </section>
-</>
-
-{/* FEATURED PROJECT */}
-<section className="px-6 py-20 lg:px-12">
-  <div className="mx-auto max-w-7xl">
-    <div className="rounded-[2rem] border border-[#e8eef5] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
-      <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
-        Featured Project
-      </p>
-
-      <h2 className="text-3xl font-bold sm:text-4xl">
-        Tumaini Estate – Nakuru
-      </h2>
-
-      <div className="mt-6 rounded-[1.5rem] bg-[#0b1f52] p-6 text-white">
-        <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#8cc63f]">
-          Starting Price
-        </p>
-        <p className="text-4xl font-bold">KSh 949,000</p>
-        <p className="mt-1 text-sm text-white/75">Per 50 x 100 plot</p>
-      </div>
-
-      <p className="mt-6 text-base leading-8 text-gray-600">
-        A premium, near-urban gated investment designed for lifestyle
-        living, secure ownership, and capital appreciation — located
-        approximately 10 minutes from Nakuru CBD.
-      </p>
-
-      <div className="mt-7 grid grid-cols-2 gap-3">
-        <Fact label="Plot Size" value="50 x 100" />
-        <Fact label="Location" value="Nakuru" />
-        <Fact label="Distance" value="10 mins to CBD" />
-        <Fact label="Payment" value="Flexible Plans" />
-      </div>
-
-      <div className="mt-8 flex flex-wrap gap-4">
-        <a
-          href="#site-visit"
-          className="rounded-full bg-[#7ab62f] px-7 py-3 font-semibold text-[#0b1f52] transition hover:scale-105"
+        {/* DESKTOP HERO - IMAGE WITH OVERLAY TEXT */}
+        <section
+          className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
+          style={{
+            height: "46vh",
+            minHeight: "360px",
+          }}
         >
-          Book Site Visit
-        </a>
+          <Image
+            src={heroSrc}
+            alt="Lush 4 Kitengela residential plots"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-center lg:object-[center_45%]"
+          />
 
-        <a
-          href="#gallery"
-          className="rounded-full border border-[#0b1f52] px-7 py-3 font-semibold text-[#0b1f52] transition hover:bg-[#0b1f52] hover:text-white"
-        >
-          View Gallery
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+          {/* Image readability overlay - no blue text card */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+          <div
+            className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
+            style={{
+              position: "absolute",
+              top: "24px",
+              left: "24px",
+              zIndex: 10,
+            }}
+          >
+            Ready Title Deeds
+          </div>
+
+          <div
+            style={{
+              position: "absolute",
+              left: "24px",
+              right: "24px",
+              bottom: "28px",
+              zIndex: 10,
+              maxWidth: "760px",
+            }}
+          >
+            <h1
+              className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
+              style={{
+                textShadow: "0 4px 24px rgba(0,0,0,0.7)",
+              }}
+            >
+              50 x 100 residential plots in Kitengela
+            </h1>
+
+            <p
+              className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
+              style={{
+                textShadow: "0 2px 12px rgba(0,0,0,0.55)",
+              }}
+            >
+              Lush 4 · Kitengela
+            </p>
+          </div>
+        </section>
+      </>
+
+      {/* FEATURED PROJECT */}
+      <section className="px-6 py-20 lg:px-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="rounded-[2rem] border border-[#e8eef5] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+              Featured Project
+            </p>
+
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Lush 4 – Kitengela
+            </h2>
+
+            <div className="mt-6 rounded-[1.5rem] bg-[#0b1f52] p-6 text-white">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#8cc63f]">
+                Starting Price
+              </p>
+              <p className="text-4xl font-bold">KSh 899,000</p>
+              <p className="mt-1 text-sm text-white/75">Per 50 x 100 plot</p>
+            </div>
+
+            <p className="mt-6 text-base leading-8 text-gray-600">
+              Lush 4 offers affordable residential plots in Kitengela for buyers
+              who want land near Nairobi without stretching to city prices. The
+              project is designed for people planning to build gradually, settle
+              in a growing neighbourhood, or hold a 50 x 100 plot as a long-term
+              residential land investment.
+            </p>
+
+            <div className="mt-7 grid grid-cols-2 gap-3">
+              <Fact label="Plot Size" value="50 x 100" />
+              <Fact label="Location" value="Kitengela" />
+              <Fact label="Distance" value="10 mins to town" />
+              <Fact label="Deposit" value="From KSh 150K" />
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#site-visit"
+                className="rounded-full bg-[#7ab62f] px-7 py-3 font-semibold text-[#0b1f52] transition hover:scale-105"
+              >
+                Book Site Visit
+              </a>
+
+              <a
+                href="#gallery"
+                className="rounded-full border border-[#0b1f52] px-7 py-3 font-semibold text-[#0b1f52] transition hover:bg-[#0b1f52] hover:text-white"
+              >
+                View Gallery
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* SUMMARY */}
       <section className="px-6 pb-20 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
           <InfoCard
             title="Location Intelligence"
-            text="Located in Nakuru, approximately 10 minutes from Nakuru CBD, near Tumaini Resort, RVIST College, and the Nakuru–Njoro corridor."
+            text="Located in Kitengela, approximately 10 minutes from Kitengela Town, with access through the Namanga Road corridor and proximity to Nairobi’s commuter belt."
           />
           <InfoCard
             title="Investment Position"
-            text="Designed for buyers seeking a near-urban gated estate with lifestyle appeal and long-term capital appreciation potential."
+            text="A practical option for first-time buyers, young families, commuters, and investors looking for affordable land near Nairobi."
           />
           <InfoCard
             title="Ownership Confidence"
-            text="50 x 100 plots with ready title deeds and flexible installment options for buyers planning to build or invest."
+            text="50 x 100 plots with ready title deeds, flexible installment options, clean documentation, and practical build-ready access."
           />
         </div>
       </section>
 
-      {/* WHY TUMAINI */}
+      {/* WHY LUSH 4 */}
       <section className="bg-[#f8fafc] px-6 py-20 lg:px-12">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
-              Why Tumaini
+              Why Lush 4
             </p>
 
             <h2 className="text-3xl font-bold sm:text-4xl">
-              Live close, grow faster, and secure value within Nakuru’s
-              expansion zone.
+              Affordable residential entry within Nairobi’s fast-expanding
+              commuter belt.
             </h2>
 
             <p className="mt-6 text-base leading-8 text-gray-600">
-              Tumaini Estate is ideal for homeowners and investors seeking
-              proximity, security, and long-term value. It combines urban access
-              with the comfort of a controlled, gated environment.
-              With its proximity to Nakuru CBD and surrounding infrastructure, 
-              it sits directly within a high-demand residential corridor.
+              Lush 4 is built for buyers who want practical access,
+              affordability, and real residential usability without stretching
+              to Nairobi prices. Located in Kitengela, one of Kenya’s
+              fastest-growing satellite towns, the project gives buyers an
+              opportunity to secure land in a developing neighbourhood where
+              settlement and construction are already realistic.
             </p>
 
-            <p className="mt-6 text-base leading-8 text-gray-600">
-              This gem is positioned for buyers who want more than just land. 
-              Whether you’re building a home or securing an appreciating asset, 
-              Tumaini offers the flexibility to start now and grow over time 
-              through accessible installment options and ready title deeds.
-              Live close. Grow faster. Secure your place within Nakuru’s expansion zone.
+            <p className="mt-4 text-base leading-8 text-gray-600">
+              For buyers comparing plots for sale in Kitengela, Lush 4 offers a
+              useful balance of price, location, documentation, and flexible
+              payment terms. It is suitable for first-time land buyers, young
+              families planning ahead, and investors looking for residential land
+              near Nairobi with long-term demand.
             </p>
           </div>
 
@@ -273,12 +274,12 @@ Message: ${formData.message || "I would like more information and site visit ass
             type="button"
             onClick={() => setVideoOpen(true)}
             className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-white text-left shadow-[0_24px_70px_rgba(11,31,82,0.12)]"
-            aria-label="Play Tumaini Estate aerial video"
+            aria-label="Play Lush 4 Kitengela aerial video"
           >
             <Image
               src={droneThumbSrc}
               quality={90}
-              alt="Tumaini Estate aerial video preview"
+              alt="Lush 4 Kitengela aerial video preview"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition duration-700 group-hover:scale-105"
@@ -307,34 +308,38 @@ Message: ${formData.message || "I would like more information and site visit ass
               Key Features
             </p>
             <h2 className="text-3xl font-bold sm:text-4xl">
-              Built for confidence, usability, and future appreciation
+              Positioned for low-risk entry and practical residential use
             </h2>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            <FeatureCard text="Premium gated community concept" />
-            <FeatureCard text="Approximately 10 minutes from Nakuru CBD" />
-            <FeatureCard text="Near Tumaini Resort and RVIST College" />
-            <FeatureCard text="Accessible through the Nakuru–Njoro corridor" />
-            <FeatureCard text="Ideal for residential development" />
-            <FeatureCard text="Ready title deeds with flexible payments" />
+            <FeatureCard text="50 x 100 plots in a growing Kitengela neighbourhood" />
+            <FeatureCard text="Road access already in place" />
+            <FeatureCard text="Ideal for immediate construction or future settlement" />
+            <FeatureCard text="Flexible installment plans for easier entry" />
+            <FeatureCard text="Clean documentation for lower-risk acquisition" />
+            <FeatureCard text="Ready title deeds for confident ownership" />
           </div>
         </div>
       </section>
 
-{/* SITE VISIT FORM */}
+      {/* SITE VISIT FORM */}
       <section id="site-visit" className="bg-white px-6 py-20 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
               Book a Site Visit
             </p>
+
             <h2 className="text-3xl font-bold sm:text-4xl">
               Interested in this property?
             </h2>
+
             <p className="mt-5 text-base leading-8 text-gray-600">
-              Send your details directly to our team on WhatsApp. The project
-              of interest is already set to Tumaini Estate – Nakuru.
+              Send your details directly to our team on WhatsApp. The project of
+              interest is already set to Lush 4 – Kitengela, and our team can
+              guide you on location, price, payment plans, site visits, and title
+              deed verification.
             </p>
           </div>
 
@@ -426,15 +431,24 @@ Message: ${formData.message || "I would like more information and site visit ass
       </section>
 
       {/* GALLERY */}
-      <section id="gallery" className="scroll-mt-24 bg-[#f8fafc] px-6 py-20 lg:px-12">
+      <section
+        id="gallery"
+        className="scroll-mt-24 bg-[#f8fafc] px-6 py-20 lg:px-12"
+      >
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
               Project Gallery
             </p>
+
             <h2 className="text-3xl font-bold sm:text-4xl">
               Explore the project visually
             </h2>
+
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-600">
+              View the project environment, road access, and surrounding
+              residential character of Lush 4 more closely.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
@@ -447,13 +461,13 @@ Message: ${formData.message || "I would like more information and site visit ass
               >
                 <div className="relative aspect-[4/3]">
                   <Image
-  src={src}
-  quality={90}
-  alt={`Tumaini Estate gallery image ${index + 1}`}
-  fill
-  sizes="(max-width: 768px) 50vw, 33vw"
-  className="object-cover"
-/>
+                    src={src}
+                    quality={90}
+                    alt={`Lush 4 Kitengela gallery image ${index + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                  />
                 </div>
               </button>
             ))}
@@ -466,38 +480,38 @@ Message: ${formData.message || "I would like more information and site visit ass
       <ChatbotWidget />
 
       {videoOpen && (
-  <div
-    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
-    onClick={() => setVideoOpen(false)}
-  >
-    <div
-      className="relative w-full max-w-4xl"
-      onClick={(event) => event.stopPropagation()}
-    >
-      <button
-        type="button"
-        onClick={() => setVideoOpen(false)}
-        className="absolute -top-12 right-0 text-white text-lg font-medium hover:text-[#8cc63f]"
-        aria-label="Close video"
-      >
-        Close ×
-      </button>
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-12 right-0 text-lg font-medium text-white hover:text-[#8cc63f]"
+              aria-label="Close video"
+            >
+              Close ×
+            </button>
 
-      <video
-        key={droneVideoSrc}
-        controls
-        autoPlay
-        playsInline
-        preload="metadata"
-        poster={droneThumbSrc}
-        className="w-full max-h-[80vh] rounded-xl shadow-2xl bg-black"
-      >
-        <source src={droneVideoSrc} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-)}
+            <video
+              key={droneVideoSrc}
+              controls
+              autoPlay
+              playsInline
+              preload="metadata"
+              poster={droneThumbSrc}
+              className="max-h-[80vh] w-full rounded-xl bg-black shadow-2xl"
+            >
+              <source src={droneVideoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
 
       {selectedImage && (
         <div
@@ -520,7 +534,7 @@ Message: ${formData.message || "I would like more information and site visit ass
             <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-black">
               <img
                 src={selectedImage}
-                alt="Tumaini Estate enlarged view"
+                alt="Lush 4 Kitengela enlarged view"
                 className="absolute inset-0 h-full w-full object-contain"
               />
             </div>

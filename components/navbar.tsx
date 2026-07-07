@@ -15,6 +15,7 @@ type DropdownPosition = {
 type DropdownItem = {
   label: string;
   href: string;
+  isChild?: boolean;
 };
 
 const dropdownItems: Record<Exclude<DropdownKey, null>, DropdownItem[]> = {
@@ -26,9 +27,11 @@ const dropdownItems: Record<Exclude<DropdownKey, null>, DropdownItem[]> = {
 
   properties: [
     { label: "Plots for Sale in Nakuru", href: "/plots-for-sale-in-nakuru-county" },
-    { label: "Plots for Sale in Machakos", href: "/properties/konza" },
-    { label: "Plots for Sale in Kitengela", href: "/properties/lush4" },
-    { label: "Plots for Sale in Malindi", href: "/properties/malindi" },
+    { label: "Tumaini Estate, Nakuru", href: "/properties/plots-for-sale-in-tumaini-nakuru", isChild: true },
+    { label: "Bahati Plots, Nakuru", href: "/properties/plots-for-sale-in-bahati-nakuru", isChild: true },
+    { label: "Plots for Sale in Kitengela", href: "/properties/plots-for-sale-in-kitengela" },
+    { label: "Plots for Sale in Machakos", href: "/properties/plots-for-sale-in-machakos" },
+    { label: "Plots for Sale in Malindi", href: "/properties/plots-for-sale-in-malindi" },
   ],
 
   news: [
@@ -116,124 +119,77 @@ export default function Navbar() {
           className="flex h-[80px] w-full items-center justify-between overflow-visible border-b border-[#e8eef5] bg-white/95 px-6 text-[#0b1f52] shadow-sm backdrop-blur-md lg:px-10 xl:px-16"
           style={{ overflow: "visible" }}
         >
-          {/* LOGO */}
           <Link href="/" aria-label="Hyssop Properties Home">
             <img
               src="/logo1.png"
-              alt="Hyssop"
+              alt="Hyssop Properties"
               className="h-[80px] cursor-pointer"
             />
           </Link>
 
-          {/* DESKTOP NAV */}
           <div className="hidden h-full items-center gap-5 text-sm font-medium lg:flex xl:gap-6">
-            <Link
-              href="/"
-              className="flex h-full items-center transition-colors hover:text-[#7ab62f]"
-            >
+            <Link href="/" className="flex h-full items-center transition-colors hover:text-[#7ab62f]">
               Home
             </Link>
 
-            {/* ABOUT */}
             <div
               className="flex h-full items-center"
               onMouseEnter={(event) => openDesktopDropdown("about", event)}
               onMouseLeave={scheduleCloseDropdown}
             >
-              <button
-                type="button"
-                className="flex h-full items-center gap-1 transition-colors hover:text-[#7ab62f]"
-              >
+              <button type="button" className="flex h-full items-center gap-1 transition-colors hover:text-[#7ab62f]">
                 About
-                <span
-                  className={`text-xs transition-transform ${
-                    openDropdown === "about" ? "rotate-180" : ""
-                  }`}
-                >
+                <span className={`text-xs transition-transform ${openDropdown === "about" ? "rotate-180" : ""}`}>
                   ▾
                 </span>
               </button>
             </div>
 
-            {/* PROPERTIES */}
             <div
               className="flex h-full items-center"
               onMouseEnter={(event) => openDesktopDropdown("properties", event)}
               onMouseLeave={scheduleCloseDropdown}
             >
-              <button
-                type="button"
-                className="flex h-full items-center gap-1 transition-colors hover:text-[#7ab62f]"
-              >
+              <button type="button" className="flex h-full items-center gap-1 transition-colors hover:text-[#7ab62f]">
                 Properties
-                <span
-                  className={`text-xs transition-transform ${
-                    openDropdown === "properties" ? "rotate-180" : ""
-                  }`}
-                >
+                <span className={`text-xs transition-transform ${openDropdown === "properties" ? "rotate-180" : ""}`}>
                   ▾
                 </span>
               </button>
             </div>
 
-            <Link
-              href="/plots-for-sale-in-nakuru"
-              className="flex h-full items-center transition-colors hover:text-[#7ab62f]"
-            >
+            <Link href="/plots-for-sale-in-nakuru" className="flex h-full items-center transition-colors hover:text-[#7ab62f]">
               NCC Commercial Center
             </Link>
 
-            <Link
-              href="/diaspora"
-              className="flex h-full items-center transition-colors hover:text-[#7ab62f]"
-            >
+            <Link href="/diaspora" className="flex h-full items-center transition-colors hover:text-[#7ab62f]">
               Diaspora
             </Link>
 
-            <Link
-              href="/investments"
-              className="flex h-full items-center transition-colors hover:text-[#7ab62f]"
-            >
+            <Link href="/investments" className="flex h-full items-center transition-colors hover:text-[#7ab62f]">
               Investments
             </Link>
 
-            <Link
-              href="/foundation"
-              className="flex h-full items-center transition-colors hover:text-[#7ab62f]"
-            >
+            <Link href="/foundation" className="flex h-full items-center transition-colors hover:text-[#7ab62f]">
               Foundation
             </Link>
 
-            <Link
-              href="/testimonials"
-              className="flex h-full items-center transition-colors hover:text-[#7ab62f]"
-            >
+            <Link href="/testimonials" className="flex h-full items-center transition-colors hover:text-[#7ab62f]">
               Testimonials
             </Link>
 
-            <Link
-              href="/awards"
-              className="flex h-full items-center transition-colors hover:text-[#7ab62f]"
-            >
+            <Link href="/awards" className="flex h-full items-center transition-colors hover:text-[#7ab62f]">
               Awards
             </Link>
 
-            {/* NEWS */}
             <div
               className="flex h-full items-center"
               onMouseEnter={(event) => openDesktopDropdown("news", event)}
               onMouseLeave={scheduleCloseDropdown}
             >
-              <button
-                type="button"
-                className="flex h-full items-center gap-1 transition-colors hover:text-[#7ab62f]"
-              >
+              <button type="button" className="flex h-full items-center gap-1 transition-colors hover:text-[#7ab62f]">
                 News
-                <span
-                  className={`text-xs transition-transform ${
-                    openDropdown === "news" ? "rotate-180" : ""
-                  }`}
-                >
+                <span className={`text-xs transition-transform ${openDropdown === "news" ? "rotate-180" : ""}`}>
                   ▾
                 </span>
               </button>
@@ -249,7 +205,6 @@ export default function Navbar() {
               Contact
             </button>
 
-            {/* MOBILE TOGGLE */}
             <button
               type="button"
               className="relative z-[10001] p-2 text-3xl leading-none text-[#0b1f52] lg:hidden"
@@ -261,114 +216,95 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* MOBILE MENU */}
         {mobileOpen && (
           <div className="relative z-[9998] w-full border-b border-white/10 bg-[#0b1f52] text-white shadow-lg lg:hidden">
             <div className="flex flex-col gap-6 px-6 py-10">
-              <Link
-                href="/"
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium hover:text-[#8cc63f]"
-              >
+              <Link href="/" onClick={() => setMobileOpen(false)} className="text-lg font-medium hover:text-[#8cc63f]">
                 Home
               </Link>
 
-              {/* ABOUT MOBILE */}
               <div className="flex flex-col gap-4">
                 <button
                   type="button"
-                  onClick={() =>
-                    setMobileDropdown((prev) =>
-                      prev === "mobile-about" ? null : "mobile-about"
-                    )
-                  }
+                  onClick={() => setMobileDropdown((prev) => prev === "mobile-about" ? null : "mobile-about")}
                   className="flex items-center justify-between text-lg font-medium hover:text-[#8cc63f]"
                 >
                   <span>About</span>
-                  <span className="text-sm">
-                    {mobileDropdown === "mobile-about" ? "▴" : "▾"}
-                  </span>
+                  <span className="text-sm">{mobileDropdown === "mobile-about" ? "▴" : "▾"}</span>
                 </button>
 
                 {mobileDropdown === "mobile-about" && (
                   <div className="flex flex-col gap-4 border-l border-white/20 pl-4">
-                    <button
-                      onClick={() => goToMobileLink("/about?tab=about")}
-                      className="text-left text-white/80 hover:text-[#8cc63f]"
-                    >
+                    <button onClick={() => goToMobileLink("/about?tab=about")} className="text-left text-white/80 hover:text-[#8cc63f]">
                       ↳ About Us
                     </button>
-
-                    <button
-                      onClick={() => goToMobileLink("/about?tab=team")}
-                      className="text-left text-white/80 hover:text-[#8cc63f]"
-                    >
+                    <button onClick={() => goToMobileLink("/about?tab=team")} className="text-left text-white/80 hover:text-[#8cc63f]">
                       ↳ Our Team
                     </button>
-
-                    <button
-                      onClick={() => goToMobileLink("/about?tab=careers")}
-                      className="text-left text-white/80 hover:text-[#8cc63f]"
-                    >
+                    <button onClick={() => goToMobileLink("/about?tab=careers")} className="text-left text-white/80 hover:text-[#8cc63f]">
                       ↳ Careers
                     </button>
                   </div>
                 )}
               </div>
 
-              {/* PROPERTIES MOBILE */}
               <div className="flex flex-col gap-4">
                 <button
                   type="button"
-                  onClick={() =>
-                    setMobileDropdown((prev) =>
-                      prev === "mobile-properties"
-                        ? null
-                        : "mobile-properties"
-                    )
-                  }
+                  onClick={() => setMobileDropdown((prev) => prev === "mobile-properties" ? null : "mobile-properties")}
                   className="flex items-center justify-between text-lg font-medium hover:text-[#8cc63f]"
                 >
                   <span>Properties</span>
-                  <span className="text-sm">
-                    {mobileDropdown === "mobile-properties" ? "▴" : "▾"}
-                  </span>
+                  <span className="text-sm">{mobileDropdown === "mobile-properties" ? "▴" : "▾"}</span>
                 </button>
 
                 {mobileDropdown === "mobile-properties" && (
                   <div className="flex flex-col gap-4 border-l border-white/20 pl-4">
                     <button
-                      onClick={() => goToMobileLink("/plots-for-sale-in-nakuru-county")}
-                      className="text-left text-white/80 hover:text-[#8cc63f]"
-                    >
-                      ↳ Plots for Sale in Nakuru
-                    </button>
+  onClick={() => goToMobileLink("/plots-for-sale-in-nakuru-county")}
+  className="text-left text-white/80 hover:text-[#8cc63f]"
+>
+  ↳ Plots for Sale in Nakuru
+</button>
 
-                    <button
-                      onClick={() => goToMobileLink("/properties/konza")}
-                      className="text-left text-white/80 hover:text-[#8cc63f]"
-                    >
-                      ↳ Plots for Sale in Machakos
-                    </button>
+<button
+  onClick={() => goToMobileLink("/properties/plots-for-sale-in-tumaini-nakuru")}
+  className="ml-4 text-left text-white/70 hover:text-[#8cc63f]"
+>
+  ↳ Tumaini Estate, Nakuru
+</button>
 
-                    <button
-                      onClick={() => goToMobileLink("/properties/lush4")}
-                      className="text-left text-white/80 hover:text-[#8cc63f]"
-                    >
-                      ↳ Plots for Sale in Kitengela
-                    </button>
+<button
+  onClick={() => goToMobileLink("/properties/plots-for-sale-in-bahati-nakuru")}
+  className="ml-4 text-left text-white/70 hover:text-[#8cc63f]"
+>
+  ↳ Bahati Plots, Nakuru
+</button>
 
-                    <button
-                      onClick={() => goToMobileLink("/properties/malindi")}
-                      className="text-left text-white/80 hover:text-[#8cc63f]"
-                    >
-                      ↳ Plots for Sale in Malindi
-                    </button>
+<button
+  onClick={() => goToMobileLink("/properties/plots-for-sale-in-kitengela")}
+  className="text-left text-white/80 hover:text-[#8cc63f]"
+>
+  ↳ Plots for Sale in Kitengela
+</button>
+
+<button
+  onClick={() => goToMobileLink("/properties/plots-for-sale-in-machakos")}
+  className="text-left text-white/80 hover:text-[#8cc63f]"
+>
+  ↳ Plots for Sale in Machakos
+</button>
+
+<button
+  onClick={() => goToMobileLink("/properties/plots-for-sale-in-malindi")}
+  className="text-left text-white/80 hover:text-[#8cc63f]"
+>
+  ↳ Plots for Sale in Malindi
+</button>
                   </div>
                 )}
               </div>
 
-              {/* PRIORITY PROJECT MOBILE */}
               <button
                 type="button"
                 onClick={() => goToMobileLink("/plots-for-sale-in-nakuru")}
@@ -377,76 +313,42 @@ export default function Navbar() {
                 NCC Commercial Center
               </button>
 
-              <Link
-                href="/diaspora"
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium hover:text-[#8cc63f]"
-              >
+              <Link href="/diaspora" onClick={() => setMobileOpen(false)} className="text-lg font-medium hover:text-[#8cc63f]">
                 Diaspora
               </Link>
 
-              <Link
-                href="/investments"
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium hover:text-[#8cc63f]"
-              >
+              <Link href="/investments" onClick={() => setMobileOpen(false)} className="text-lg font-medium hover:text-[#8cc63f]">
                 Investments
               </Link>
 
-              <Link
-                href="/foundation"
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium hover:text-[#8cc63f]"
-              >
+              <Link href="/foundation" onClick={() => setMobileOpen(false)} className="text-lg font-medium hover:text-[#8cc63f]">
                 Foundation
               </Link>
 
-              <Link
-                href="/testimonials"
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium hover:text-[#8cc63f]"
-              >
+              <Link href="/testimonials" onClick={() => setMobileOpen(false)} className="text-lg font-medium hover:text-[#8cc63f]">
                 Testimonials
               </Link>
 
-              <Link
-                href="/awards"
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium hover:text-[#8cc63f]"
-              >
+              <Link href="/awards" onClick={() => setMobileOpen(false)} className="text-lg font-medium hover:text-[#8cc63f]">
                 Awards
               </Link>
 
-              {/* NEWS MOBILE */}
               <div className="flex flex-col gap-4">
                 <button
                   type="button"
-                  onClick={() =>
-                    setMobileDropdown((prev) =>
-                      prev === "mobile-news" ? null : "mobile-news"
-                    )
-                  }
+                  onClick={() => setMobileDropdown((prev) => prev === "mobile-news" ? null : "mobile-news")}
                   className="flex items-center justify-between text-lg font-medium hover:text-[#8cc63f]"
                 >
                   <span>News</span>
-                  <span className="text-sm">
-                    {mobileDropdown === "mobile-news" ? "▴" : "▾"}
-                  </span>
+                  <span className="text-sm">{mobileDropdown === "mobile-news" ? "▴" : "▾"}</span>
                 </button>
 
                 {mobileDropdown === "mobile-news" && (
                   <div className="flex flex-col gap-4 border-l border-white/20 pl-4">
-                    <button
-                      onClick={() => goToMobileLink("/news?tab=events")}
-                      className="text-left text-white/80 hover:text-[#8cc63f]"
-                    >
+                    <button onClick={() => goToMobileLink("/news?tab=events")} className="text-left text-white/80 hover:text-[#8cc63f]">
                       ↳ Events
                     </button>
-
-                    <button
-                      onClick={() => goToMobileLink("/news?tab=blogs")}
-                      className="text-left text-white/80 hover:text-[#8cc63f]"
-                    >
+                    <button onClick={() => goToMobileLink("/news?tab=blogs")} className="text-left text-white/80 hover:text-[#8cc63f]">
                       ↳ Blogs
                     </button>
                   </div>
@@ -465,7 +367,6 @@ export default function Navbar() {
         )}
       </header>
 
-      {/* DESKTOP DROPDOWN PORTAL */}
       {openDropdown && (
         <div
           onMouseEnter={clearCloseTimer}
@@ -475,7 +376,7 @@ export default function Navbar() {
             position: "fixed",
             top: dropdownPosition.top,
             left: dropdownPosition.left,
-            width: openDropdown === "properties" ? 288 : 224,
+            width: openDropdown === "properties" ? 320 : 224,
             zIndex: 2147483001,
           }}
         >
@@ -483,9 +384,12 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="px-4 py-3 hover:bg-gray-50 hover:text-[#7ab62f]"
+              className={`px-4 py-3 hover:bg-gray-50 hover:text-[#7ab62f] ${
+                item.isChild ? "pl-8 text-[#0b1f52]/75" : ""
+              }`}
               onClick={() => setOpenDropdown(null)}
             >
+              {item.isChild ? "↳ " : ""}
               {item.label}
             </Link>
           ))}

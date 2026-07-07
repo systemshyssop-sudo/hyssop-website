@@ -135,8 +135,8 @@ Message: ${
             </h1>
 
             <p className="mt-5 text-base leading-7 text-white/85">
-              Secure your space in a strategic location ideal for business,
-              residential development, and future investment.
+              Secure land in Nakuru in a strategic location suited for business,
+              residential development, rental units, and long-term investment.
             </p>
 
             <div className="mt-6 grid grid-cols-2 gap-2.5">
@@ -159,7 +159,7 @@ Message: ${
           <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
             <Image
               src={heroSrc}
-              alt="NCC Commercial Plots"
+              alt="NCC Commercial Plots land for sale in Nakuru"
               fill
               priority
               quality={90}
@@ -180,7 +180,7 @@ Message: ${
         >
           <Image
             src={heroSrc}
-            alt="NCC Commercial Plots"
+            alt="NCC Commercial Plots land for sale in Nakuru"
             fill
             priority
             quality={90}
@@ -224,8 +224,9 @@ Message: ${
             </h1>
 
             <p className="mt-5 max-w-3xl text-base leading-8 text-white/85">
-              Secure your space in a strategic location ideal for business,
-              residential development, and future investment.
+              A strategic land investment in Nakuru for buyers planning business
+              premises, rental units, residential development, or future resale
+              value.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3.5">
@@ -253,8 +254,8 @@ Message: ${
           <div className="rounded-[2rem] border border-[#e8eef5] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
             <div className="mb-8 text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
-                The Perfect Intersection of High-Traffic Business and Serene
-                Modern Living.
+                The perfect intersection of high-traffic business potential and
+                peaceful modern living.
               </p>
             </div>
 
@@ -287,16 +288,15 @@ Message: ${
             <p>
               Located along the growing Nakuru-Eldoret Highway corridor and
               directly touching the Sobea-Mangu tarmac, NCC Commercial Plots
-              offer a strategic position for business, residential development,
-              and long-term investment.
+              offer a strong position for buyers searching for land for sale in
+              Nakuru with practical access and development potential.
             </p>
 
             <p>
-              Whether you are looking to tap into road access for a business
-              premise or seeking a well-positioned location for rental units,
-              residential development, or future appreciation, NCC Commercial
-              Plots offer a practical balance of access, ownership clarity, and
-              growth potential.
+              Whether you want road visibility for a business premise, a
+              well-positioned site for rental units, or a 50 x 100 plot to hold
+              for future appreciation, NCC Commercial Plots offer a useful
+              balance of access, ownership clarity, and growth potential.
             </p>
           </div>
         </div>
@@ -316,9 +316,9 @@ Message: ${
             </h2>
 
             <p className="mt-6 text-base leading-8 text-gray-600">
-              We provide the infrastructure; you provide the vision. These plots
-              give you a ready foundation to plan, build, invest, or secure land
-              in a growing Nakuru corridor.
+              NCC Commercial Plots give you a ready foundation to plan, build,
+              invest, or secure land in a growing Nakuru corridor with clear
+              title deed support.
             </p>
 
             <div className="mt-7 space-y-5 text-base leading-8 text-gray-600">
@@ -400,7 +400,7 @@ Message: ${
               <Image
                 src={videoPosterSrc}
                 quality={90}
-                alt="NCC Commercial Plots video preview"
+                alt="NCC Commercial Plots aerial video preview"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transition duration-700 group-hover:scale-105"
@@ -431,7 +431,7 @@ Message: ${
             </p>
 
             <h2 className="text-3xl font-bold sm:text-4xl">
-              You aren’t just buying a 50x100 plot; you are joining a growing
+              You aren’t just buying a 50 x 100 plot; you are joining a growing
               investment corridor.
             </h2>
           </div>
@@ -439,11 +439,11 @@ Message: ${
           <div className="grid gap-5 md:grid-cols-3">
             <FeatureCard
               title="Education & Faith"
-              text="Minutes away from top-tier schools and established churches."
+              text="Minutes away from schools, churches, and everyday amenities that make the area practical for families and future tenants."
             />
             <FeatureCard
               title="Future Growth"
-              text="Located near an upcoming multi-million shilling business complex, positioning the area for increased activity and long-term value."
+              text="Located near an upcoming business complex, positioning the area for increased activity, demand, and long-term value."
             />
             <FeatureCard
               title="City Access"
@@ -579,7 +579,7 @@ Message: ${
                 <Image
                   src={src}
                   quality={90}
-                  alt={`NCC Commercial Plots ${index + 1}`}
+                  alt={`NCC Commercial Plots in Nakuru image ${index + 1}`}
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover transition duration-700 ease-in-out group-hover:scale-110"
@@ -637,7 +637,7 @@ Message: ${
               </p>
               <p className="text-base font-semibold leading-7 text-white">
                 Flexible installment plans available. Own your land while you
-                pay!
+                pay.
               </p>
             </div>
           </div>
@@ -658,9 +658,9 @@ Message: ${
 
             <p className="mt-6 text-base leading-8 text-gray-600">
               Whether your goal is a business premise, rental income, residential
-              development, or a long-term land investment, NCC Commercial Plots
-              give you the title, utilities, access, and location to move with
-              confidence.
+              development, or a long-term land investment in Nakuru, NCC
+              Commercial Plots give you the title, utilities, access, and
+              location to move with confidence.
             </p>
 
             <p className="mt-4 text-base leading-8 text-gray-600">

@@ -7,17 +7,17 @@ import ContactSection from "@/components/ContactSection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ChatbotWidget from "@/components/ChatbotWidget";
 
-const base = "/hyssop/project/kitengela";
+const base = "/hyssop/project/malindi";
 
 const galleryImages = [
-  `${base}/gallery-1.png`,
+  `${base}/gallery-1.jpg`,
   `${base}/gallery-2.png`,
-  `${base}/gallery-3.png`,
+  `${base}/gallery-3.JPG`,
   `${base}/gallery-4.png`,
   `${base}/gallery-5.png`,
 ];
 
-export default function Lush4Page() {
+export default function MalindiPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [videoOpen, setVideoOpen] = useState(false);
 
@@ -28,10 +28,10 @@ export default function Lush4Page() {
     message: "",
   });
 
-  const projectName = "Lush 4 – Kitengela";
-  const heroSrc = `${base}/kitengela-hero.png`;
-  const droneThumbSrc = `${base}/kitengela-drone-thumb.png`;
-  const droneVideoSrc = `${base}/drone.mp4`;
+  const projectName = "Hyssop Acres – Malindi";
+  const heroSrc = `${base}/malindi-hero.jpg`;
+  const droneThumbSrc = `${base}/location.jpg`;
+  const droneVideoSrc = `${base}/Drone2.mp4`;
 
   useEffect(() => {
     function closeOnEscape(event: KeyboardEvent) {
@@ -70,102 +70,102 @@ Message: ${
       <Navbar />
 
       {/* HERO */}
-<>
-  {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
-  <section className="bg-[#0b1f52] text-white lg:hidden">
-    <div className="px-6 pt-8 pb-7">
-      <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
-        Ready Title Deeds
-      </div>
+      <>
+        {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
+        <section className="bg-[#0b1f52] text-white lg:hidden">
+          <div className="px-6 pt-8 pb-7">
+            <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
+              Ready Title Deeds
+            </div>
 
-      <h1 className="text-3xl font-bold leading-tight text-white">
-        Own near the city, build at your pace
-      </h1>
+            <h1 className="text-3xl font-bold leading-tight text-white">
+              Acreage for sale in Malindi with long-term value
+            </h1>
 
-      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
-        Lush 4 · Kitengela
-      </p>
-    </div>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
+              Hyssop Acres · Malindi
+            </p>
+          </div>
 
-    <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
-      <Image
-        src={heroSrc}
-        alt="Lush 4 – Kitengela"
-        fill
-        priority
-        quality={90}
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+          <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
+            <Image
+              src={heroSrc}
+              alt="Hyssop Acres land for sale in Malindi"
+              fill
+              priority
+              quality={90}
+              sizes="100vw"
+              className="object-cover object-center"
+            />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-    </div>
-  </section>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+          </div>
+        </section>
 
-  {/* DESKTOP HERO - IMAGE WITH OVERLAY TEXT */}
-  <section
-    className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
-    style={{
-      height: "46vh",
-      minHeight: "360px",
-    }}
-  >
-    <Image
-      src={heroSrc}
-      alt="Lush 4 – Kitengela"
-      fill
-      priority
-      quality={90}
-      sizes="100vw"
-      className="object-cover object-center lg:object-[center_45%]"
-    />
+        {/* DESKTOP HERO - IMAGE WITH OVERLAY TEXT */}
+        <section
+          className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
+          style={{
+            height: "46vh",
+            minHeight: "360px",
+          }}
+        >
+          <Image
+            src={heroSrc}
+            alt="Hyssop Acres land for sale in Malindi"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-center lg:object-[center_45%]"
+          />
 
-    {/* Image readability overlay - no blue text card */}
-    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          {/* Image readability overlay - no blue text card */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-    <div
-      className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
-      style={{
-        position: "absolute",
-        top: "24px",
-        left: "24px",
-        zIndex: 10,
-      }}
-    >
-      Ready Title Deeds
-    </div>
+          <div
+            className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
+            style={{
+              position: "absolute",
+              top: "24px",
+              left: "24px",
+              zIndex: 10,
+            }}
+          >
+            Ready Title Deeds
+          </div>
 
-    <div
-      style={{
-        position: "absolute",
-        left: "24px",
-        right: "24px",
-        bottom: "28px",
-        zIndex: 10,
-        maxWidth: "760px",
-      }}
-    >
-      <h1
-        className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
-        style={{
-          textShadow: "0 4px 24px rgba(0,0,0,0.7)",
-        }}
-      >
-        Own near the city, build at your pace
-      </h1>
+          <div
+            style={{
+              position: "absolute",
+              left: "24px",
+              right: "24px",
+              bottom: "28px",
+              zIndex: 10,
+              maxWidth: "760px",
+            }}
+          >
+            <h1
+              className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
+              style={{
+                textShadow: "0 4px 24px rgba(0,0,0,0.7)",
+              }}
+            >
+              Acreage for sale in Malindi with long-term value
+            </h1>
 
-      <p
-        className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
-        style={{
-          textShadow: "0 2px 12px rgba(0,0,0,0.55)",
-        }}
-      >
-        Lush 4 · Kitengela
-      </p>
-    </div>
-  </section>
-</>
+            <p
+              className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
+              style={{
+                textShadow: "0 2px 12px rgba(0,0,0,0.55)",
+              }}
+            >
+              Hyssop Acres · Malindi
+            </p>
+          </div>
+        </section>
+      </>
 
       {/* FEATURED PROJECT */}
       <section className="px-6 py-20 lg:px-12">
@@ -176,29 +176,29 @@ Message: ${
             </p>
 
             <h2 className="text-3xl font-bold sm:text-4xl">
-              Lush 4 – Kitengela
+              Hyssop Acres – Malindi
             </h2>
 
             <div className="mt-6 rounded-[1.5rem] bg-[#0b1f52] p-6 text-white">
               <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#8cc63f]">
                 Starting Price
               </p>
-              <p className="text-4xl font-bold">KSh 899,000</p>
-              <p className="mt-1 text-sm text-white/75">Per 50 x 100 plot</p>
+              <p className="text-4xl font-bold">KSh 400,000</p>
+              <p className="mt-1 text-sm text-white/75">Per acre</p>
             </div>
 
             <p className="mt-6 text-base leading-8 text-gray-600">
-              Lush 4 offers affordable, ready-to-own residential plots in
-              Kitengela for buyers who want proximity to Nairobi, clean
-              documentation, and the flexibility to build over time in a
-              fast-growing satellite town.
+              Hyssop Acres offers well-positioned acreage in Malindi for buyers
+              looking for more than a standard plot. The project is suitable for
+              long-term land banking, agribusiness, farming, family legacy
+              ownership, and coastal land investment in Kilifi County.
             </p>
 
             <div className="mt-7 grid grid-cols-2 gap-3">
-              <Fact label="Plot Size" value="50 x 100" />
-              <Fact label="Location" value="Kitengela" />
-              <Fact label="Distance" value="10 mins to town" />
-              <Fact label="Deposit" value="From KSh 150K" />
+              <Fact label="Land Size" value="1 Acre" />
+              <Fact label="Location" value="Malindi" />
+              <Fact label="Distance" value="30 mins to town" />
+              <Fact label="Payment" value="Flexible Plans" />
             </div>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -225,46 +225,45 @@ Message: ${
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
           <InfoCard
             title="Location Intelligence"
-            text="Located in Kitengela, approximately 10 minutes from Kitengela Town, with access through the Namanga Road corridor and proximity to Nairobi’s commuter belt."
+            text="Located in Malindi, Kilifi County, approximately 30 minutes from Malindi Town, along Salagate Bypass on the A2 Malindi to Voi road."
           />
           <InfoCard
             title="Investment Position"
-            text="Designed for first-time buyers, young families, commuters, and investors seeking affordable residential land near Nairobi."
+            text="A strong option for buyers looking for land for sale in Malindi, coastal acreage, agribusiness land, or long-term land banking."
           />
           <InfoCard
             title="Ownership Confidence"
-            text="50 x 100 plots with ready title deeds, flexible installment options, clean documentation, and practical build-ready access."
+            text="Large 1 acre ownership units with ready title deeds, flexible installment options, fencing, and internal access roads."
           />
         </div>
       </section>
 
-      {/* WHY LUSH 4 */}
+      {/* WHY MALINDI */}
       <section className="bg-[#f8fafc] px-6 py-20 lg:px-12">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
-              Why Lush 4
+              Why Malindi
             </p>
 
             <h2 className="text-3xl font-bold sm:text-4xl">
-              Affordable residential entry within Nairobi’s fast-expanding
-              commuter belt.
+              Acreage ownership with real agricultural potential and long-term
+              coastal upside.
             </h2>
 
             <p className="mt-6 text-base leading-8 text-gray-600">
-              Lush 4 is built for buyers who want practical access,
-              affordability, and real residential usability without stretching
-              to Nairobi prices. Located in Kitengela, one of Kenya’s
-              fastest-growing satellite towns, the project gives buyers an
-              opportunity to secure land in a developed neighborhood where
-              settlement and construction are already realistic.
+              Hyssop Acres – Malindi is designed for buyers who want more land,
+              more utility, and more room for wealth creation over time. Set
+              within Malindi’s wider growth corridor, the project offers
+              fertile, arable acreage that can support both strategic holding
+              and productive use.
             </p>
 
             <p className="mt-4 text-base leading-8 text-gray-600">
-              With road access already in place, flexible payment terms, and
-              ready title deeds, Lush 4 is designed to convert interest into
-              confident ownership for first-time buyers, young families, and
-              investors looking for high-demand residential plots.
+              For buyers comparing plots for sale in Malindi or larger acreage
+              opportunities at the Coast, this project offers a different kind
+              of value: space, access, ready title deeds, and the flexibility to
+              farm, hold, develop gradually, or build a family land asset.
             </p>
           </div>
 
@@ -272,12 +271,12 @@ Message: ${
             type="button"
             onClick={() => setVideoOpen(true)}
             className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-white text-left shadow-[0_24px_70px_rgba(11,31,82,0.12)]"
-            aria-label="Play Lush 4 Kitengela aerial video"
+            aria-label="Play Hyssop Acres Malindi aerial video"
           >
             <Image
               src={droneThumbSrc}
               quality={90}
-              alt="Lush 4 Kitengela aerial video preview"
+              alt="Hyssop Acres Malindi aerial video preview"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition duration-700 group-hover:scale-105"
@@ -306,17 +305,17 @@ Message: ${
               Key Features
             </p>
             <h2 className="text-3xl font-bold sm:text-4xl">
-              Positioned for low-risk entry and practical residential use
+              Built for scale, usability, and confident long-term ownership
             </h2>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            <FeatureCard text="Developed neighborhood, not speculative bush land" />
-            <FeatureCard text="Road access already in place" />
-            <FeatureCard text="Ideal for immediate construction or settlement" />
-            <FeatureCard text="Flexible installment plans for easier entry" />
-            <FeatureCard text="Clean documentation for lower-risk acquisition" />
-            <FeatureCard text="Ready title deeds for confident ownership" />
+            <FeatureCard text="Large 1 acre ownership units in Malindi" />
+            <FeatureCard text="Fertile, arable land ideal for farming and agribusiness" />
+            <FeatureCard text="Only 400 meters from tarmac access" />
+            <FeatureCard text="Fully fenced project with internal access roads" />
+            <FeatureCard text="Already subdivided and structured for ownership" />
+            <FeatureCard text="Ready title deeds with flexible installment options" />
           </div>
         </div>
       </section>
@@ -334,8 +333,10 @@ Message: ${
             </h2>
 
             <p className="mt-5 text-base leading-8 text-gray-600">
-              Send your details directly to our team on WhatsApp. The project
-              of interest is already set to Lush 4 – Kitengela.
+              Send your details directly to our team on WhatsApp. The project of
+              interest is already set to Hyssop Acres – Malindi, and our team can
+              guide you on location, pricing, payment plans, site visits, and
+              title deed verification.
             </p>
           </div>
 
@@ -442,8 +443,8 @@ Message: ${
             </h2>
 
             <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-600">
-              View the project environment, road access, and surrounding
-              residential character of Lush 4 more closely.
+              View the land scale, surrounding environment, and access profile
+              of Hyssop Acres – Malindi more closely.
             </p>
           </div>
 
@@ -459,7 +460,7 @@ Message: ${
                   <Image
                     src={src}
                     quality={90}
-                    alt={`Lush 4 Kitengela gallery image ${index + 1}`}
+                    alt={`Hyssop Acres Malindi gallery image ${index + 1}`}
                     fill
                     sizes="(max-width: 768px) 50vw, 33vw"
                     className="object-cover transition duration-700 group-hover:scale-105"
@@ -476,38 +477,38 @@ Message: ${
       <ChatbotWidget />
 
       {videoOpen && (
-  <div
-    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
-    onClick={() => setVideoOpen(false)}
-  >
-    <div
-      className="relative w-full max-w-4xl"
-      onClick={(event) => event.stopPropagation()}
-    >
-      <button
-        type="button"
-        onClick={() => setVideoOpen(false)}
-        className="absolute -top-12 right-0 text-white text-lg font-medium hover:text-[#8cc63f]"
-        aria-label="Close video"
-      >
-        Close ×
-      </button>
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-12 right-0 text-lg font-medium text-white hover:text-[#8cc63f]"
+              aria-label="Close video"
+            >
+              Close ×
+            </button>
 
-      <video
-        key={droneVideoSrc}
-        controls
-        autoPlay
-        playsInline
-        preload="metadata"
-        poster={droneThumbSrc}
-        className="w-full max-h-[80vh] rounded-xl shadow-2xl bg-black"
-      >
-        <source src={droneVideoSrc} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-)}
+            <video
+              key={droneVideoSrc}
+              controls
+              autoPlay
+              playsInline
+              preload="metadata"
+              poster={droneThumbSrc}
+              className="max-h-[80vh] w-full rounded-xl bg-black shadow-2xl"
+            >
+              <source src={droneVideoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
 
       {selectedImage && (
         <div
@@ -530,7 +531,7 @@ Message: ${
             <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-black">
               <img
                 src={selectedImage}
-                alt="Lush 4 Kitengela enlarged view"
+                alt="Hyssop Acres Malindi enlarged view"
                 className="absolute inset-0 h-full w-full object-contain"
               />
             </div>

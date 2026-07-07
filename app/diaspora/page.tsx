@@ -32,113 +32,112 @@ export default function DiasporaPage() {
       <Navbar />
 
       {/* HERO */}
-<>
-  {/* MOBILE HERO: text before image */}
-  <section className="bg-white lg:hidden">
-    <div className="px-6 pt-[104px] pb-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="rounded-full bg-[#0b1f52]/5 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm inline-flex">
-          Diaspora Support
-        </div>
+      <>
+        {/* MOBILE HERO */}
+        <section className="bg-white lg:hidden">
+          <div className="px-6 pt-[104px] pb-8">
+            <div className="mx-auto max-w-7xl">
+              <div className="inline-flex rounded-full bg-[#0b1f52]/5 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
+                Diaspora Support
+              </div>
 
-        <div className="mt-6 max-w-3xl">
-          <h1 className="text-3xl font-bold leading-tight text-[#0b1f52]">
-            Building Home, From Anywhere.
-          </h1>
+              <div className="mt-6 max-w-3xl">
+                <h1 className="text-3xl font-bold leading-tight text-[#0b1f52]">
+                  Buy land in Kenya from abroad with confidence.
+                </h1>
 
-          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
-            Diaspora Property Support
-          </p>
-        </div>
-      </div>
-    </div>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
+                  Diaspora Property Support
+                </p>
+              </div>
+            </div>
+          </div>
 
-    <div
-      className="relative w-full overflow-hidden bg-[#e9edf3]"
-      style={{
-        height: "38vh",
-        minHeight: "280px",
-      }}
-    >
-      <Image
-        src={heroImage}
-        alt="Hyssop diaspora services"
-        fill
-        priority
-        quality={90}
-        sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
-        className="object-cover object-center"
-      />
+          <div
+            className="relative w-full overflow-hidden bg-[#e9edf3]"
+            style={{
+              height: "38vh",
+              minHeight: "280px",
+            }}
+          >
+            <Image
+              src={heroImage}
+              alt="Hyssop diaspora property support for Kenyans abroad"
+              fill
+              priority
+              quality={90}
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
+              className="object-cover object-center"
+            />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-black/10 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-    </div>
-  </section>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+          </div>
+        </section>
 
-  {/* DESKTOP HERO: image with overlay text */}
-  <section
-    className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
-    style={{
-      height: "46vh",
-      minHeight: "360px",
-    }}
-  >
-    <Image
-      src={heroImage}
-      alt="Hyssop diaspora services"
-      fill
-      priority
-      quality={90}
-      sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
-      className="object-cover object-top lg:object-[center_45%]"
-    />
+        {/* DESKTOP HERO */}
+        <section
+          className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
+          style={{
+            height: "46vh",
+            minHeight: "360px",
+          }}
+        >
+          <Image
+            src={heroImage}
+            alt="Hyssop diaspora property support for Kenyans abroad"
+            fill
+            priority
+            quality={90}
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
+            className="object-cover object-top lg:object-[center_45%]"
+          />
 
-    {/* Image readability overlay - no blue text card */}
-    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-    <div
-      className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
-      style={{
-        position: "absolute",
-        top: "24px",
-        left: "24px",
-        zIndex: 10,
-      }}
-    >
-      Diaspora Support
-    </div>
+          <div
+            className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
+            style={{
+              position: "absolute",
+              top: "24px",
+              left: "24px",
+              zIndex: 10,
+            }}
+          >
+            Diaspora Support
+          </div>
 
-    <div
-      style={{
-        position: "absolute",
-        left: "24px",
-        right: "24px",
-        bottom: "28px",
-        zIndex: 10,
-        maxWidth: "760px",
-      }}
-    >
-      <p
-        className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
-        style={{
-          textShadow: "0 2px 12px rgba(0,0,0,0.55)",
-        }}
-      >
-        Diaspora Property Support
-      </p>
+          <div
+            style={{
+              position: "absolute",
+              left: "24px",
+              right: "24px",
+              bottom: "28px",
+              zIndex: 10,
+              maxWidth: "760px",
+            }}
+          >
+            <p
+              className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
+              style={{
+                textShadow: "0 2px 12px rgba(0,0,0,0.55)",
+              }}
+            >
+              Diaspora Property Support
+            </p>
 
-      <h1
-        className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
-        style={{
-          textShadow: "0 4px 24px rgba(0,0,0,0.7)",
-        }}
-      >
-        Building Home, From Anywhere.
-      </h1>
-    </div>
-  </section>
-</>
+            <h1
+              className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
+              style={{
+                textShadow: "0 4px 24px rgba(0,0,0,0.7)",
+              }}
+            >
+              Buy land in Kenya from abroad with confidence.
+            </h1>
+          </div>
+        </section>
+      </>
 
       {/* INTRO */}
       <section className="px-6 py-20 lg:px-12">
@@ -148,19 +147,19 @@ export default function DiasporaPage() {
           </p>
 
           <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-            A trusted partner for diaspora clients
+            A trusted partner for diaspora land buyers
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#42557a]">
-            Over the years, Hyssop Properties has worked with thousands of
-            diaspora clients, helping them acquire land, develop property, and
-            build homes back in Kenya with confidence.
+            Hyssop Properties works with Kenyans abroad who want to buy land,
+            invest in property, or build a home back in Kenya without feeling
+            disconnected from the process.
           </p>
 
           <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#42557a]">
-            From initial inquiry to receiving title deeds, our process is
-            designed to be seamless, transparent, and fully supported no matter
-            where you are in the world.
+            From the first inquiry to title deed delivery, our diaspora support
+            process is designed to be clear, transparent, and fully guided — no
+            matter where you are in the world.
           </p>
         </div>
       </section>
@@ -170,7 +169,7 @@ export default function DiasporaPage() {
         <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
           <TrustCard
             title="Global Client Reach"
-            text="We have served Kenyans across South Africa, other African countries, Gulf countries, the United States, the United Kingdom, Europe, and Asia."
+            text="We have served Kenyans across South Africa, other African countries, the Gulf, the United States, the United Kingdom, Europe, and Asia."
           />
           <TrustCard
             title="Structured Guidance"
@@ -183,43 +182,45 @@ export default function DiasporaPage() {
         </div>
       </section>
 
-      {/* IMAGE STRIP / SOCIAL PROOF */}
+      {/* IMAGE STRIP */}
       <section id="diaspora-gallery" className="px-6 pb-24 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
               Diaspora Moments
             </p>
+
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
               Visible trust, real engagement, global presence
             </h2>
+
             <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#42557a]">
-              These moments help communicate something important: diaspora trust
-              is built through real presence, direct engagement, and consistent
-              follow-through.
+              Diaspora trust is built through real presence, direct engagement,
+              consistent communication, and follow-through after the land
+              purchase is complete.
             </p>
           </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-  {diasporaPhotos.slice(0, 8).map((src, index) => (
-    <button
-      key={src}
-      type="button"
-      onClick={() => setSelectedImage(src)}
-      className="group relative overflow-hidden rounded-[18px] bg-white shadow-[0_14px_35px_rgba(11,31,82,0.08)]"
-    >
-      <div className="relative aspect-[4/5] overflow-hidden">
-        <img
-  src={src}
-  alt={`Hyssop diaspora event image ${index + 1}`}
-  loading="eager"
-  className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
-/>
-        <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/10" />
-      </div>
-    </button>
-  ))}
-</div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {diasporaPhotos.slice(0, 8).map((src, index) => (
+              <button
+                key={src}
+                type="button"
+                onClick={() => setSelectedImage(src)}
+                className="group relative overflow-hidden rounded-[18px] bg-white shadow-[0_14px_35px_rgba(11,31,82,0.08)]"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <img
+                    src={src}
+                    alt={`Hyssop diaspora property event image ${index + 1}`}
+                    loading="eager"
+                    className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                  />
+                  <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/10" />
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -230,7 +231,7 @@ export default function DiasporaPage() {
             <div className="relative aspect-[4/3]">
               <Image
                 src={authorityImage}
-                alt="Hyssop leadership at a diaspora event"
+                alt="Hyssop leadership at a diaspora property event"
                 fill
                 quality={90}
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -271,9 +272,16 @@ export default function DiasporaPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
               How We Support You
             </p>
+
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
               A guided process from first inquiry to final ownership
             </h2>
+
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#42557a]">
+              Buying land in Kenya from abroad requires trust, clarity, and
+              documentation. Our process is built to keep you informed at each
+              step.
+            </p>
           </div>
 
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -313,8 +321,9 @@ export default function DiasporaPage() {
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-white/88">
-            Through the Hyssop Investment Co-operative, we make property
-            ownership even more accessible for diaspora clients.
+            Through the Hyssop Investment Co-operative, property ownership
+            becomes even more accessible for diaspora clients who want to save,
+            invest, and grow towards land ownership in Kenya.
           </p>
 
           <p className="mt-4 text-lg leading-8 text-white/88">
@@ -344,9 +353,9 @@ export default function DiasporaPage() {
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-[#42557a]">
-            Whether you're planning to invest, build, or secure land for the
-            future, Hyssop Properties is your trusted partner every step of the
-            way.
+            Whether you are planning to invest, build, or secure land for the
+            future, Hyssop Properties can guide you from abroad with clarity,
+            documentation support, and a trusted local team.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -398,7 +407,7 @@ export default function DiasporaPage() {
             <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] bg-black">
               <img
                 src={selectedImage}
-                alt="Diaspora event enlarged"
+                alt="Hyssop diaspora event enlarged"
                 className="absolute inset-0 h-full w-full object-contain"
               />
             </div>
@@ -406,43 +415,6 @@ export default function DiasporaPage() {
         </div>
       )}
     </main>
-  );
-}
-
-function DiasporaImage({
-  src,
-  alt,
-  fallbackLabel,
-  className,
-  ...props
-}: {
-  src: string;
-  alt: string;
-  fallbackLabel: string;
-  className?: string;
-  [key: string]: any;
-}) {
-  const [failed, setFailed] = useState(false);
-
-  if (failed) {
-    return (
-      <div className="absolute inset-0 flex items-center justify-center bg-[#e9edf3] px-4 text-center">
-        <div>
-          <p className="text-sm font-semibold text-[#0b1f52]">{fallbackLabel}</p>
-          <p className="mt-1 break-all text-xs text-gray-500">{src}</p>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <Image
-      {...props}
-      src={src}
-      alt={alt}
-      className={className}
-      onError={() => setFailed(true)}
-    />
   );
 }
 

@@ -49,7 +49,7 @@ const properties: Property[] = [
     location: "10 minutes from Nakuru CBD",
     price: "Prime commercial & residential plots",
     description:
-      "The perfect intersection of high-traffic business and serene modern living, located at the gateway to Nakuru.",
+      "Strategic land for sale in Nakuru for business, residential growth, and long-term investment, located at the gateway to Nakuru.",
     image: "/hyssop/ncc/3.png",
     href: "/plots-for-sale-in-nakuru",
   },
@@ -58,9 +58,9 @@ const properties: Property[] = [
     location: "10 minutes from Nakuru CBD",
     price: "Prime gated plots",
     description:
-      "A calm, strategic development positioned for secure family ownership and long-term value growth.",
+      "A calm Nakuru development positioned for secure family ownership, verified title deed transfer, and long-term value growth.",
     image: "/hyssop/1.png",
-    href: "/properties/tumaini",
+    href: "/properties/plots-for-sale-in-tumaini-nakuru",
   },
 ];
 
@@ -78,7 +78,7 @@ const approach: ApproachItem[] = [
   {
     title: "Growth",
     description:
-      "Every opportunity is selected with tomorrow in mind, giving your investment room to appreciate and strengthen over time.",
+      "Every opportunity is selected with tomorrow in mind, giving your land investment room to appreciate and strengthen over time.",
   },
   {
     title: "Investment",
@@ -147,7 +147,7 @@ const heroSlides: Slide[] = [
     image: "/hyssop/diaspora/2.jpg",
     eyebrow: "Diaspora Support",
     title: "Invest from anywhere.",
-    subtitle: "Invest from anywhere with confidence and transparency.",
+    subtitle: "Secure land investment in Kenya with confidence, transparency, and guided support.",
     label: "Diaspora",
   },
   {
@@ -193,6 +193,9 @@ function Hero() {
           <h1 className="mt-5 text-4xl font-black leading-tight">
             A Culture of <span className="text-[#8cc63f]">Trust</span>
           </h1>
+          <p className="mx-auto mt-4 max-w-md text-sm leading-7 text-white/75">
+            Verified land for sale in Kenya, guided by a clear and transparent process.
+          </p>
           <div className="mt-7 flex flex-col gap-3">
             <Link
               href="/properties"
@@ -201,10 +204,10 @@ function Hero() {
               View Properties
             </Link>
             <Link
-              href="/investments"
+              href="/plots-for-sale-in-nakuru-county"
               className="inline-flex items-center justify-center rounded-full border border-white/70 px-8 py-3.5 text-sm font-bold text-white"
             >
-              Explore Investments
+              Explore Nakuru Plots
             </Link>
           </div>
         </div>
@@ -273,6 +276,12 @@ function Hero() {
             >
               A Culture of <span className="text-[#8cc63f]">Trust</span>
             </p>
+            <p
+              className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/80"
+              style={{ textShadow: "0 3px 18px rgba(0,0,0,0.65)" }}
+            >
+              Verified land ownership opportunities in Kenya, supported by clear documentation, site visits, and title deed guidance.
+            </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/properties"
@@ -281,10 +290,10 @@ function Hero() {
                 View Properties
               </Link>
               <Link
-                href="/investments"
+                href="/plots-for-sale-in-nakuru-county"
                 className="inline-flex w-full items-center justify-center rounded-full border border-white/60 px-8 py-3.5 text-sm font-bold text-white transition hover:bg-white hover:text-[#0b1f52] sm:w-auto"
               >
-                Explore Investments
+                Explore Nakuru Plots
               </Link>
             </div>
           </div>
@@ -353,7 +362,7 @@ function FeaturedProperties() {
             Featured Properties
           </span>
           <h2 className="text-3xl font-semibold tracking-tight text-[#0b1f52] sm:text-4xl">
-            Premium opportunities, presented with clarity.
+            Premium land opportunities, presented with clarity.
           </h2>
           <p className="mt-7 max-w-xl text-base leading-8 text-[#61708a]">
             Explore selected Hyssop projects with clear location advantages,
@@ -440,7 +449,7 @@ function OurApproach() {
           </h2>
           <p className="mt-5 text-base leading-8 text-[#61708a]">
             From site visits to title deed issuance, Hyssop supports clients
-            through a clear, documented, and confidence-led ownership journey.
+            through a clear, documented, and confidence-led ownership journey for land buyers in Kenya.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {approach.map((item) => (
@@ -488,7 +497,6 @@ function OurApproach() {
         </div>
       </div>
 
-      {/* SURGICAL UPDATE: Modal behavior matched strictly to Testimonials */}
       {videoOpen && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 p-6" onClick={() => setVideoOpen(false)}>
           <div className="relative w-full max-w-3xl" onClick={(e) => e.stopPropagation()}>

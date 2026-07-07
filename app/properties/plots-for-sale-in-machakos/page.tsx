@@ -70,102 +70,102 @@ Message: ${
       <Navbar />
 
       {/* HERO */}
-<>
-  {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
-  <section className="bg-[#0b1f52] text-white lg:hidden">
-    <div className="px-6 pt-8 pb-7">
-      <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
-        Ready Title Deeds
-      </div>
+      <>
+        {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
+        <section className="bg-[#0b1f52] text-white lg:hidden">
+          <div className="px-6 pt-8 pb-7">
+            <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
+              Ready Title Deeds
+            </div>
 
-      <h1 className="text-3xl font-bold leading-tight text-white">
-        Invest where Kenya’s future city is being built
-      </h1>
+            <h1 className="text-3xl font-bold leading-tight text-white">
+              Affordable land near Konza and Mombasa Road
+            </h1>
 
-      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
-        Konza Ridge · Malili
-      </p>
-    </div>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
+              Konza Ridge · Malili
+            </p>
+          </div>
 
-    <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
-      <Image
-        src={heroSrc}
-        alt="Konza Ridge – Malili"
-        fill
-        priority
-        quality={90}
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+          <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
+            <Image
+              src={heroSrc}
+              alt="Konza Ridge plots for sale near Konza in Machakos"
+              fill
+              priority
+              quality={90}
+              sizes="100vw"
+              className="object-cover object-center"
+            />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-    </div>
-  </section>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+          </div>
+        </section>
 
-  {/* DESKTOP HERO - IMAGE WITH OVERLAY TEXT */}
-  <section
-    className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
-    style={{
-      height: "46vh",
-      minHeight: "360px",
-    }}
-  >
-    <Image
-      src={heroSrc}
-      alt="Konza Ridge – Malili"
-      fill
-      priority
-      quality={90}
-      sizes="100vw"
-      className="object-cover object-center lg:object-[center_45%]"
-    />
+        {/* DESKTOP HERO - IMAGE WITH OVERLAY TEXT */}
+        <section
+          className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
+          style={{
+            height: "46vh",
+            minHeight: "360px",
+          }}
+        >
+          <Image
+            src={heroSrc}
+            alt="Konza Ridge plots for sale near Konza in Machakos"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-center lg:object-[center_45%]"
+          />
 
-    {/* Image readability overlay - no blue text card */}
-    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          {/* Image readability overlay - no blue text card */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-    <div
-      className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
-      style={{
-        position: "absolute",
-        top: "24px",
-        left: "24px",
-        zIndex: 10,
-      }}
-    >
-      Ready Title Deeds
-    </div>
+          <div
+            className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
+            style={{
+              position: "absolute",
+              top: "24px",
+              left: "24px",
+              zIndex: 10,
+            }}
+          >
+            Ready Title Deeds
+          </div>
 
-    <div
-      style={{
-        position: "absolute",
-        left: "24px",
-        right: "24px",
-        bottom: "28px",
-        zIndex: 10,
-        maxWidth: "760px",
-      }}
-    >
-      <h1
-        className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
-        style={{
-          textShadow: "0 4px 24px rgba(0,0,0,0.7)",
-        }}
-      >
-        Invest where Kenya’s future city is being built
-      </h1>
+          <div
+            style={{
+              position: "absolute",
+              left: "24px",
+              right: "24px",
+              bottom: "28px",
+              zIndex: 10,
+              maxWidth: "760px",
+            }}
+          >
+            <h1
+              className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
+              style={{
+                textShadow: "0 4px 24px rgba(0,0,0,0.7)",
+              }}
+            >
+              Affordable land near Konza and Mombasa Road
+            </h1>
 
-      <p
-        className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
-        style={{
-          textShadow: "0 2px 12px rgba(0,0,0,0.55)",
-        }}
-      >
-        Konza Ridge · Malili
-      </p>
-    </div>
-  </section>
-</>
+            <p
+              className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
+              style={{
+                textShadow: "0 2px 12px rgba(0,0,0,0.55)",
+              }}
+            >
+              Konza Ridge · Malili
+            </p>
+          </div>
+        </section>
+      </>
 
       {/* FEATURED PROJECT */}
       <section className="px-6 py-20 lg:px-12">
@@ -188,10 +188,11 @@ Message: ${
             </div>
 
             <p className="mt-6 text-base leading-8 text-gray-600">
-              Konza Ridge offers affordable 1/8 acre plots just minutes from
-              Konza Techno City, giving buyers early access to one of Kenya’s
-              most ambitious growth corridors with ready title deeds and
-              flexible payment options.
+              Konza Ridge offers affordable 50 x 100 plots in Malili for buyers
+              looking for land near Konza Techno City and the Nairobi–Mombasa
+              corridor. It is a practical option for early land investment, land
+              banking, and future residential plans in a growth area with ready
+              title deeds and flexible payment options.
             </p>
 
             <div className="mt-7 grid grid-cols-2 gap-3">
@@ -229,7 +230,7 @@ Message: ${
           />
           <InfoCard
             title="Investment Position"
-            text="Designed for buyers seeking affordable early entry into one of Kenya’s most visible future growth zones with strong long-term appreciation potential."
+            text="A good fit for buyers looking for affordable plots in Machakos County, land near Konza, or early entry into a future-facing growth corridor."
           />
           <InfoCard
             title="Ownership Confidence"
@@ -260,10 +261,11 @@ Message: ${
             </p>
 
             <p className="mt-4 text-base leading-8 text-gray-600">
-              With ready title deeds, clearly demarcated plots, and flexible
-              payment options, Konza Ridge makes it easier to enter a
-              future-facing location at an accessible price point while the area
-              is still building momentum.
+              For buyers comparing plots for sale in Machakos, Konza Ridge
+              offers a useful balance of affordability, access, documentation,
+              and future potential. With ready title deeds, clearly demarcated
+              plots, and flexible payment options, it makes it easier to enter a
+              future-facing location while the area is still building momentum.
             </p>
           </div>
 
@@ -276,7 +278,7 @@ Message: ${
             <Image
               src={droneThumbSrc}
               quality={90}
-              alt="Konza Ridge aerial video preview"
+              alt="Konza Ridge Malili aerial video preview"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition duration-700 group-hover:scale-105"
@@ -310,7 +312,7 @@ Message: ${
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            <FeatureCard text="Affordable 1/8 acre plots near Konza Techno City" />
+            <FeatureCard text="Affordable 50 x 100 plots near Konza Techno City" />
             <FeatureCard text="Approximately 2.5 to 3 km from Mombasa Road" />
             <FeatureCard text="Ready title deeds for confident ownership" />
             <FeatureCard text="Clearly demarcated plots with numbered beacons" />
@@ -331,8 +333,10 @@ Message: ${
               Interested in this property?
             </h2>
             <p className="mt-5 text-base leading-8 text-gray-600">
-              Send your details directly to our team on WhatsApp. The project
-              of interest is already set to Konza Ridge – Malili.
+              Send your details directly to our team on WhatsApp. The project of
+              interest is already set to Konza Ridge – Malili, and our team can
+              guide you on location, pricing, payment plans, site visits, and
+              title deed verification.
             </p>
           </div>
 
@@ -454,7 +458,7 @@ Message: ${
                   <Image
                     src={src}
                     quality={90}
-                    alt={`Konza Ridge gallery image ${index + 1}`}
+                    alt={`Konza Ridge Malili gallery image ${index + 1}`}
                     fill
                     sizes="(max-width: 768px) 50vw, 33vw"
                     className="object-cover transition duration-700 group-hover:scale-105"
@@ -471,38 +475,38 @@ Message: ${
       <ChatbotWidget />
 
       {videoOpen && (
-  <div
-    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
-    onClick={() => setVideoOpen(false)}
-  >
-    <div
-      className="relative w-full max-w-4xl"
-      onClick={(event) => event.stopPropagation()}
-    >
-      <button
-        type="button"
-        onClick={() => setVideoOpen(false)}
-        className="absolute -top-12 right-0 text-white text-lg font-medium hover:text-[#8cc63f]"
-        aria-label="Close video"
-      >
-        Close ×
-      </button>
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-12 right-0 text-lg font-medium text-white hover:text-[#8cc63f]"
+              aria-label="Close video"
+            >
+              Close ×
+            </button>
 
-      <video
-        key={droneVideoSrc}
-        controls
-        autoPlay
-        playsInline
-        preload="metadata"
-        poster={droneThumbSrc}
-        className="w-full max-h-[80vh] rounded-xl shadow-2xl bg-black"
-      >
-        <source src={droneVideoSrc} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-)}
+            <video
+              key={droneVideoSrc}
+              controls
+              autoPlay
+              playsInline
+              preload="metadata"
+              poster={droneThumbSrc}
+              className="max-h-[80vh] w-full rounded-xl bg-black shadow-2xl"
+            >
+              <source src={droneVideoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
 
       {selectedImage && (
         <div

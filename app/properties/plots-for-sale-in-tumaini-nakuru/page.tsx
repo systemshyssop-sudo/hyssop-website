@@ -7,17 +7,17 @@ import ContactSection from "@/components/ContactSection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ChatbotWidget from "@/components/ChatbotWidget";
 
-const base = "/hyssop/project/bahati";
+const base = "/hyssop/project/tumaini";
 
 const galleryImages = [
-  `${base}/gallery-1.png`,
-  `${base}/gallery-2.jpg`,
-  `${base}/gallery-3.jpg`,
-  `${base}/gallery-4.jpg`,
-  `${base}/gallery-5.png`,
+  `${base}/gallery1.png`,
+  `${base}/gallery2.png`,
+  `${base}/gallery3.png`,
+  `${base}/gallery04.png`,
+  `${base}/gallery05.png`,
 ];
 
-export default function BahatiPage() {
+export default function TumainiPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [videoOpen, setVideoOpen] = useState(false);
 
@@ -28,10 +28,10 @@ export default function BahatiPage() {
     message: "",
   });
 
-  const projectName = "Bahati Greens – Nakuru";
-  const heroSrc = `${base}/bahati-hero.png`;
-  const droneThumbSrc = `${base}/bahati-drone-thumb.png`;
-  const droneVideoSrc = `${base}/drone.mp4`;
+  const projectName = "Tumaini Estate – Nakuru";
+  const heroSrc = `${base}/tumainihero.jpg`;
+  const droneThumbSrc = `${base}/tumaini-drone-thumbnail.jpg`;
+  const droneVideoSrc = `${base}/tumaini.mp4`;
 
   useEffect(() => {
     function closeOnEscape(event: KeyboardEvent) {
@@ -70,102 +70,107 @@ Message: ${
       <Navbar />
 
       {/* HERO */}
-<>
-  {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
-  <section className="bg-[#0b1f52] text-white lg:hidden">
-    <div className="px-6 pt-8 pb-7">
-      <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
-        Ready Title Deeds
-      </div>
+      <>
+        {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
+        <section className="bg-[#0b1f52] text-white lg:hidden">
+          <div className="px-6 pt-8 pb-7">
+            <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
+              Ready Title Deeds
+            </div>
 
-      <h1 className="text-3xl font-bold leading-tight text-white">
-        Green living meets smart investment
-      </h1>
+            <p
+              className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
+              style={{
+                textShadow: "0 2px 12px rgba(0,0,0,0.35)",
+              }}
+            >
+              Tumaini Estate · Nakuru
+            </p>
 
-      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
-        Bahati Greens · Nakuru
-      </p>
-    </div>
+            <h1 className="text-3xl font-bold leading-tight text-white">
+              Gated 50 x 100 plots near Nakuru CBD
+            </h1>
+          </div>
 
-    <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
-      <Image
-        src={heroSrc}
-        alt="Bahati Greens – Nakuru"
-        fill
-        priority
-        quality={90}
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+          <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
+            <Image
+              src={heroSrc}
+              alt="Tumaini Estate gated plots in Nakuru"
+              fill
+              priority
+              quality={90}
+              sizes="100vw"
+              className="object-cover object-center"
+            />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-    </div>
-  </section>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+          </div>
+        </section>
 
-  {/* DESKTOP HERO - IMAGE WITH OVERLAY TEXT */}
-  <section
-    className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
-    style={{
-      height: "46vh",
-      minHeight: "360px",
-    }}
-  >
-    <Image
-      src={heroSrc}
-      alt="Bahati Greens – Nakuru"
-      fill
-      priority
-      quality={90}
-      sizes="100vw"
-      className="object-cover object-center lg:object-[center_45%]"
-    />
+        {/* DESKTOP HERO - SAME PROPERTY HERO STYLE */}
+        <section
+          className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
+          style={{
+            height: "46vh",
+            minHeight: "360px",
+          }}
+        >
+          <Image
+            src={heroSrc}
+            alt="Tumaini Estate gated plots in Nakuru"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-center lg:object-[center_45%]"
+          />
 
-    {/* Image readability overlay - no blue text card */}
-    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          {/* Image readability overlay - no blue text card */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-    <div
-      className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
-      style={{
-        position: "absolute",
-        top: "24px",
-        left: "24px",
-        zIndex: 10,
-      }}
-    >
-      Ready Title Deeds
-    </div>
+          <div
+            className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
+            style={{
+              position: "absolute",
+              top: "24px",
+              left: "24px",
+              zIndex: 10,
+            }}
+          >
+            Ready Title Deeds
+          </div>
 
-    <div
-      style={{
-        position: "absolute",
-        left: "24px",
-        right: "24px",
-        bottom: "28px",
-        zIndex: 10,
-        maxWidth: "760px",
-      }}
-    >
-      <h1
-        className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
-        style={{
-          textShadow: "0 4px 24px rgba(0,0,0,0.7)",
-        }}
-      >
-        Green living meets smart investment
-      </h1>
+          <div
+            style={{
+              position: "absolute",
+              left: "24px",
+              right: "24px",
+              bottom: "28px",
+              zIndex: 10,
+              maxWidth: "760px",
+            }}
+          >
+            <p
+              className="mb-4 hidden text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f] sm:block"
+              style={{
+                textShadow: "0 2px 12px rgba(0,0,0,0.55)",
+              }}
+            >
+              Tumaini Estate · Nakuru
+            </p>
 
-      <p
-        className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
-        style={{
-          textShadow: "0 2px 12px rgba(0,0,0,0.55)",
-        }}
-      >
-        Bahati Greens · Nakuru
-      </p>
-    </div>
-  </section>
-</>
+            <h1
+              className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
+              style={{
+                textShadow: "0 4px 24px rgba(0,0,0,0.7)",
+              }}
+            >
+              Gated 50 x 100 plots near Nakuru CBD
+            </h1>
+          </div>
+        </section>
+      </>
 
       {/* FEATURED PROJECT */}
       <section className="px-6 py-20 lg:px-12">
@@ -176,27 +181,29 @@ Message: ${
             </p>
 
             <h2 className="text-3xl font-bold sm:text-4xl">
-              Bahati Greens – Nakuru
+              Tumaini Estate – Nakuru
             </h2>
 
             <div className="mt-6 rounded-[1.5rem] bg-[#0b1f52] p-6 text-white">
               <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#8cc63f]">
                 Starting Price
               </p>
-              <p className="text-4xl font-bold">KSh 399,000</p>
+              <p className="text-4xl font-bold">KSh 949,000</p>
               <p className="mt-1 text-sm text-white/75">Per 50 x 100 plot</p>
             </div>
 
             <p className="mt-6 text-base leading-8 text-gray-600">
-              Bahati Greens offers a blend of peaceful living and agribusiness
-              opportunity within Nakuru’s green belt — ideal for buyers seeking
-              productivity, lifestyle, and long-term value.
+              Tumaini Estate is a near-urban gated project in Nakuru for buyers
+              who want a quiet place to build, invest, or secure land close to
+              town. The estate offers 50 x 100 plots with ready title deeds,
+              guided ownership support, and a location approximately 10 minutes
+              from Nakuru CBD.
             </p>
 
             <div className="mt-7 grid grid-cols-2 gap-3">
               <Fact label="Plot Size" value="50 x 100" />
-              <Fact label="Location" value="Bahati, Nakuru" />
-              <Fact label="Environment" value="Green Zone" />
+              <Fact label="Location" value="Nakuru" />
+              <Fact label="Distance" value="10 mins to CBD" />
               <Fact label="Payment" value="Flexible Plans" />
             </div>
 
@@ -224,41 +231,46 @@ Message: ${
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
           <InfoCard
             title="Location Intelligence"
-            text="Located in Bahati, Nakuru within a fertile agricultural belt known for productivity and serene living conditions."
+            text="Located approximately 10 minutes from Nakuru CBD, near Tumaini Resort, RVIST College, and the Nakuru–Njoro corridor."
           />
           <InfoCard
             title="Investment Position"
-            text="Designed for buyers seeking both residential comfort and agricultural potential in a green environment."
+            text="A practical choice for buyers looking for gated plots in Nakuru with lifestyle appeal and long-term capital appreciation potential."
           />
           <InfoCard
             title="Ownership Confidence"
-            text="50 x 100 plots with ready title deeds, water availability, electricity access, and flexible payment options."
+            text="50 x 100 plots with ready title deeds and flexible installment options for buyers planning to build, invest, or land bank."
           />
         </div>
       </section>
 
-      {/* WHY BAHATI */}
+      {/* WHY TUMAINI */}
       <section className="bg-[#f8fafc] px-6 py-20 lg:px-12">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
-              Why Bahati Greens
+              Why Tumaini
             </p>
 
             <h2 className="text-3xl font-bold sm:text-4xl">
-              Live greener, farm smarter, and invest with confidence
+              Live close, grow faster, and secure value within Nakuru’s
+              expansion zone.
             </h2>
 
             <p className="mt-6 text-base leading-8 text-gray-600">
-              Bahati Greens is ideal for buyers who want more than just land. It
-              offers a setting where you can live, farm, and build value over
-              time in a peaceful and productive environment.
+              Tumaini Estate is ideal for homeowners and investors who want land
+              near Nakuru CBD without losing the comfort of a calm, controlled
+              environment. It combines urban access with the appeal of a gated
+              estate, making it suitable for a future home, rental plan, or
+              long-term property investment.
             </p>
 
-            <p className="mt-4 text-base leading-8 text-gray-600">
-              With reliable access, strong agricultural potential, and ready
-              title deeds, the project supports both immediate use and long-term
-              appreciation.
+            <p className="mt-6 text-base leading-8 text-gray-600">
+              The project sits within a high-demand residential corridor near
+              Tumaini Resort, RVIST College, and the Nakuru–Njoro route. For
+              buyers comparing plots for sale in Nakuru, Tumaini offers a strong
+              balance of location, ready title deeds, flexible payments, and room
+              for future appreciation.
             </p>
           </div>
 
@@ -266,12 +278,12 @@ Message: ${
             type="button"
             onClick={() => setVideoOpen(true)}
             className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-white text-left shadow-[0_24px_70px_rgba(11,31,82,0.12)]"
-            aria-label="Play Bahati Greens aerial video"
+            aria-label="Play Tumaini Estate aerial video"
           >
             <Image
               src={droneThumbSrc}
               quality={90}
-              alt="Bahati Greens aerial video preview"
+              alt="Tumaini Estate aerial video preview"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition duration-700 group-hover:scale-105"
@@ -300,17 +312,17 @@ Message: ${
               Key Features
             </p>
             <h2 className="text-3xl font-bold sm:text-4xl">
-              Built for productive use, peaceful living, and long-term value
+              Built for confidence, usability, and future appreciation
             </h2>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            <FeatureCard text="50 x 100 plots in a green agricultural zone" />
-            <FeatureCard text="Ideal for residential living and agribusiness" />
-            <FeatureCard text="Water availability within the project area" />
-            <FeatureCard text="Electricity access for practical development" />
-            <FeatureCard text="Peaceful environment with long-term usability" />
-            <FeatureCard text="Ready title deeds with flexible payment options" />
+            <FeatureCard text="Premium gated community concept" />
+            <FeatureCard text="Approximately 10 minutes from Nakuru CBD" />
+            <FeatureCard text="Near Tumaini Resort and RVIST College" />
+            <FeatureCard text="Accessible through the Nakuru–Njoro corridor" />
+            <FeatureCard text="Ideal for residential development" />
+            <FeatureCard text="Ready title deeds with flexible payments" />
           </div>
         </div>
       </section>
@@ -322,14 +334,14 @@ Message: ${
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
               Book a Site Visit
             </p>
-
             <h2 className="text-3xl font-bold sm:text-4xl">
               Interested in this property?
             </h2>
-
             <p className="mt-5 text-base leading-8 text-gray-600">
-              Send your details directly to our team on WhatsApp. The project
-              of interest is already set to Bahati Greens – Nakuru.
+              Send your details directly to our team on WhatsApp. The project of
+              interest is already set to Tumaini Estate – Nakuru, and our team
+              can guide you on location, pricing, payment plans, and title deed
+              verification.
             </p>
           </div>
 
@@ -430,15 +442,9 @@ Message: ${
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
               Project Gallery
             </p>
-
             <h2 className="text-3xl font-bold sm:text-4xl">
               Explore the project visually
             </h2>
-
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-600">
-              View the environment, green setting, and surrounding character of
-              Bahati Greens more closely.
-            </p>
           </div>
 
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
@@ -453,10 +459,10 @@ Message: ${
                   <Image
                     src={src}
                     quality={90}
-                    alt={`Bahati Greens gallery image ${index + 1}`}
+                    alt={`Tumaini Estate Nakuru gallery image ${index + 1}`}
                     fill
                     sizes="(max-width: 768px) 50vw, 33vw"
-                    className="object-cover transition duration-700 group-hover:scale-105"
+                    className="object-cover"
                   />
                 </div>
               </button>
@@ -470,38 +476,38 @@ Message: ${
       <ChatbotWidget />
 
       {videoOpen && (
-  <div
-    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
-    onClick={() => setVideoOpen(false)}
-  >
-    <div
-      className="relative w-full max-w-4xl"
-      onClick={(event) => event.stopPropagation()}
-    >
-      <button
-        type="button"
-        onClick={() => setVideoOpen(false)}
-        className="absolute -top-12 right-0 text-white text-lg font-medium hover:text-[#8cc63f]"
-        aria-label="Close video"
-      >
-        Close ×
-      </button>
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setVideoOpen(false)}
+              className="absolute -top-12 right-0 text-lg font-medium text-white hover:text-[#8cc63f]"
+              aria-label="Close video"
+            >
+              Close ×
+            </button>
 
-      <video
-        key={droneVideoSrc}
-        controls
-        autoPlay
-        playsInline
-        preload="metadata"
-        poster={droneThumbSrc}
-        className="w-full max-h-[80vh] rounded-xl shadow-2xl bg-black"
-      >
-        <source src={droneVideoSrc} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-)}
+            <video
+              key={droneVideoSrc}
+              controls
+              autoPlay
+              playsInline
+              preload="metadata"
+              poster={droneThumbSrc}
+              className="max-h-[80vh] w-full rounded-xl bg-black shadow-2xl"
+            >
+              <source src={droneVideoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
 
       {selectedImage && (
         <div
@@ -524,7 +530,7 @@ Message: ${
             <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-black">
               <img
                 src={selectedImage}
-                alt="Bahati Greens enlarged view"
+                alt="Tumaini Estate enlarged view"
                 className="absolute inset-0 h-full w-full object-contain"
               />
             </div>

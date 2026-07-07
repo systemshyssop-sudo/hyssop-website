@@ -15,9 +15,9 @@ const nakuruProjects = [
     priceLabel: "Per 50 x 100 plot",
     tag: "Premium Gated Investment",
     badge: "Ready Title Deeds",
-    desc: "A premium, near-urban gated investment designed for lifestyle living, secure ownership, and capital appreciation — located approximately 10 minutes from Nakuru CBD.",
-    note: "Strategically near Tumaini Resort, RVIST College, and the Nakuru–Njoro corridor.",
-    link: "/properties/tumaini",
+    desc: "A near-urban gated estate for buyers who want a quiet place to build, invest, or secure land close to Nakuru town. Tumaini Estate offers 50 x 100 plots in a location with strong lifestyle and long-term value potential.",
+    note: "The project sits near Tumaini Resort, RVIST College, and the Nakuru–Njoro corridor, about 10 minutes from Nakuru CBD.",
+    link: "/properties/plots-for-sale-in-tumaini-nakuru",
   },
   {
     title: "Bahati Greens – Nakuru",
@@ -28,9 +28,9 @@ const nakuruProjects = [
     priceLabel: "Per 50 x 100 plot",
     tag: "Lifestyle + Agribusiness",
     badge: "Affordable Land Investment",
-    desc: "Affordable land that works for you — combining lifestyle, farming potential, and long-term value in one of Nakuru’s promising growth locations.",
-    note: "Designed for buyers looking for accessible ownership, future development potential, and practical land banking.",
-    link: "/properties/bahati",
+    desc: "Affordable land in Nakuru for buyers looking for a practical entry into Nakuru property ownership. The project is ideal for land banking, future home plans, small-scale farming, or long-term investment.",
+    note: "A good fit for buyers looking for accessible 50 x 100 plots in Nakuru County with room for future growth.",
+    link: "/properties/plots-for-sale-in-bahati-nakuru",
   },
 ];
 
@@ -49,7 +49,7 @@ export default function PlotsForSaleInNakuruPage() {
       >
         <Image
           src="/hyssop/nakuru-hero.jpg"
-          alt="Plots for sale in Nakuru by Hyssop Properties"
+          alt="Hyssop Properties land projects in Nakuru"
           fill
           priority
           quality={90}
@@ -63,7 +63,7 @@ export default function PlotsForSaleInNakuruPage() {
       {/* INTRO */}
       <section className="bg-gradient-to-b from-[#f8fbff] to-white px-6 pb-16 pt-20 text-center lg:px-12">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#7ab62f]">
-          Land Investment Opportunities
+          Affordable Land for Sale in
         </p>
 
         <h1 className="mb-5 text-4xl font-bold sm:text-5xl lg:text-6xl">
@@ -71,9 +71,10 @@ export default function PlotsForSaleInNakuruPage() {
         </h1>
 
         <p className="mx-auto max-w-2xl leading-7 text-gray-600">
-          Verified land for sale in one of Kenya’s highest-growth locations -
-          with clear pricing, trusted ownership support, and projects designed
-          for both lifestyle and long-term value.
+          Nakuru continues to attract families, investors, and land buyers looking
+          for space, accessibility, and long-term value. Explore Hyssop projects
+          with clear pricing, guided ownership support, and a straightforward path
+          from site visit to title deed.
         </p>
       </section>
 
@@ -127,7 +128,8 @@ export default function PlotsForSaleInNakuruPage() {
         <h2 className="mb-4 text-3xl font-bold">Ready to invest in Nakuru?</h2>
 
         <p className="mb-6 text-gray-600">
-          Speak to our team and secure your plot today.
+          Talk to our team, book a site visit, and get guidance on the right plot
+          for your plans.
         </p>
 
         <a
@@ -191,10 +193,10 @@ function FeaturedProject({
       </div>
 
       <Link href={link} className="block">
-       <div className="relative h-[420px] w-full cursor-pointer overflow-hidden rounded-[1.5rem] bg-[#f3f6f9] sm:h-[500px]">
+        <div className="relative h-[420px] w-full cursor-pointer overflow-hidden rounded-[1.5rem] bg-[#f3f6f9] sm:h-[500px]">
           <Image
             src={image}
-            alt={title}
+            alt={`${title} by Hyssop Properties`}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             quality={95}
@@ -269,7 +271,7 @@ function SoldCard({ title, image }: { title: string; image: string }) {
       <div className="relative h-[220px]">
         <Image
           src={image}
-          alt={title}
+          alt={`${title} by Hyssop Properties`}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           quality={95}

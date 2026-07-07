@@ -19,102 +19,102 @@ function AboutPageContent() {
       <Navbar />
 
       {/* HERO */}
-<>
-  {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
-  <section className="bg-[#0b1f52] text-white lg:hidden">
-    <div className="px-6 pt-8 pb-7">
-      <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
-        About Hyssop
-      </div>
+      <>
+        {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
+        <section className="bg-[#0b1f52] text-white lg:hidden">
+          <div className="px-6 pt-8 pb-7">
+            <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
+              About Hyssop
+            </div>
 
-      <h1 className="text-3xl font-bold leading-tight text-white">
-        A culture of trust.
-      </h1>
+            <h1 className="text-3xl font-bold leading-tight text-white">
+              A culture of trust.
+            </h1>
 
-      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
-        Built over a decade
-      </p>
-    </div>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]">
+              Built over a decade
+            </p>
+          </div>
 
-    <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
-      <Image
-        src="/hyssop/about-hero.png"
-        alt="About Hyssop"
-        fill
-        priority
-        quality={90}
-        sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
-        className="object-cover object-center"
-      />
+          <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
+            <Image
+              src="/hyssop/about-hero.png"
+              alt="Hyssop Properties real estate company in Kenya"
+              fill
+              priority
+              quality={90}
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
+              className="object-cover object-center"
+            />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-    </div>
-  </section>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+          </div>
+        </section>
 
-  {/* DESKTOP HERO - SAME PROPERTY HERO STYLE */}
-  <section
-    className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
-    style={{
-      height: "46vh",
-      minHeight: "360px",
-    }}
-  >
-    <Image
-      src="/hyssop/about-hero.png"
-      alt="About Hyssop"
-      fill
-      priority
-      quality={90}
-      sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
-      className="object-cover object-center lg:object-[center_45%]"
-    />
+        {/* DESKTOP HERO - SAME PROPERTY HERO STYLE */}
+        <section
+          className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
+          style={{
+            height: "46vh",
+            minHeight: "360px",
+          }}
+        >
+          <Image
+            src="/hyssop/about-hero.png"
+            alt="Hyssop Properties real estate company in Kenya"
+            fill
+            priority
+            quality={90}
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 48px), 1280px"
+            className="object-cover object-center lg:object-[center_45%]"
+          />
 
-    {/* Image readability overlay - no blue text card */}
-    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          {/* Image readability overlay - no blue text card */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-    <div
-      className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
-      style={{
-        position: "absolute",
-        top: "24px",
-        left: "24px",
-        zIndex: 10,
-      }}
-    >
-      About Hyssop
-    </div>
+          <div
+            className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
+            style={{
+              position: "absolute",
+              top: "24px",
+              left: "24px",
+              zIndex: 10,
+            }}
+          >
+            About Hyssop
+          </div>
 
-    <div
-      style={{
-        position: "absolute",
-        left: "24px",
-        right: "24px",
-        bottom: "28px",
-        zIndex: 10,
-        maxWidth: "760px",
-      }}
-    >
-      <h1
-        className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
-        style={{
-          textShadow: "0 4px 24px rgba(0,0,0,0.7)",
-        }}
-      >
-        A culture of trust.
-      </h1>
+          <div
+            style={{
+              position: "absolute",
+              left: "24px",
+              right: "24px",
+              bottom: "28px",
+              zIndex: 10,
+              maxWidth: "760px",
+            }}
+          >
+            <h1
+              className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
+              style={{
+                textShadow: "0 4px 24px rgba(0,0,0,0.7)",
+              }}
+            >
+              A culture of trust.
+            </h1>
 
-      <p
-        className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
-        style={{
-          textShadow: "0 2px 12px rgba(0,0,0,0.55)",
-        }}
-      >
-        Built over a decade
-      </p>
-    </div>
-  </section>
-</>
+            <p
+              className="mt-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
+              style={{
+                textShadow: "0 2px 12px rgba(0,0,0,0.55)",
+              }}
+            >
+              Built over a decade
+            </p>
+          </div>
+        </section>
+      </>
 
       {/* TABS */}
       <div className="relative z-20 px-6 -mt-20">
@@ -147,29 +147,29 @@ function AboutPageContent() {
             <div className="space-y-16">
               <section className="bg-white rounded-3xl shadow-xl p-10 md:p-16 text-center">
                 <p className="text-lg md:text-xl leading-relaxed">
-                  We are an{" "}
+                  Hyssop Properties is an{" "}
                   <span className="font-semibold">
                     award-winning real estate company in Kenya
                   </span>
-                  , helping local and diaspora investors build wealth through
-                  secure, high-growth property investments backed by over a
-                  decade of experience.
+                  , helping local and diaspora clients buy land, secure title
+                  deeds, and build long-term value through verified property
+                  investments.
                 </p>
 
                 <p className="opacity-80 leading-relaxed mt-4">
-                  Hyssop Properties is committed to delivering secure, high-value
-                  property investment opportunities. With{" "}
-                  <span className="font-semibold">over 10 years of experience</span>,
-                  we have built a trusted reputation for transparency,
-                  professionalism, and consistent results.
+                  For more than{" "}
+                  <span className="font-semibold">10 years</span>, we have
+                  supported buyers through a clear land ownership journey —
+                  from inquiry and site visits to documentation, payment
+                  guidance, title deed processing, and after-sale support.
                 </p>
 
                 <p className="opacity-80 leading-relaxed mt-4">
-                  We specialize in helping both local and{" "}
-                  <span className="font-semibold">diaspora investors</span> access
-                  prime land and real estate opportunities across Kenya —
-                  ensuring every investment is positioned for long-term growth
-                  and stability.
+                  Our projects are selected with practical growth in mind, giving
+                  buyers access to land investment opportunities in Kenya across
+                  locations such as Nakuru, Kitengela, Malili, and Malindi. Every
+                  client is guided with transparency, professionalism, and a
+                  strong commitment to verified ownership.
                 </p>
 
                 <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -178,11 +178,15 @@ function AboutPageContent() {
                     <p>Projects</p>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-[#4a8c2f]">50,000+</h3>
+                    <h3 className="text-2xl font-bold text-[#4a8c2f]">
+                      50,000+
+                    </h3>
                     <p>Titles Issued</p>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-[#4a8c2f]">10,000+</h3>
+                    <h3 className="text-2xl font-bold text-[#4a8c2f]">
+                      10,000+
+                    </h3>
                     <p>Clients</p>
                   </div>
                   <div>
@@ -200,9 +204,10 @@ function AboutPageContent() {
                       Our Mission
                     </h3>
                     <p>
-                      To deliver exceptional real estate solutions that empower
-                      individuals, families, and investors to achieve long-term
-                      value, security, and growth.
+                      To deliver transparent real estate solutions that help
+                      individuals, families, and investors own land with
+                      confidence, build long-term value, and create lasting
+                      financial security.
                     </p>
                   </div>
 
@@ -212,8 +217,8 @@ function AboutPageContent() {
                     </h3>
                     <p>
                       To become Africa’s most trusted real estate brand by
-                      consistently providing innovative, transparent, and
-                      high-quality property investments.
+                      consistently offering verified land opportunities, clear
+                      documentation, and high-quality property investments.
                     </p>
                   </div>
                 </div>
@@ -221,10 +226,10 @@ function AboutPageContent() {
                 <div className="grid md:grid-cols-3 gap-6">
                   {[
                     "Award-winning real estate expertise in Kenya",
-                    "Trusted by diaspora investors worldwide",
+                    "Trusted by local and diaspora land buyers",
                     "Over 10 years of industry experience",
-                    "Prime, high-growth investment locations",
-                    "Opportunities to grow and leverage your investment",
+                    "Verified land projects in high-growth locations",
+                    "Ready title deeds and guided ownership support",
                     "End-to-end support from inquiry to ownership",
                   ].map((item, i) => (
                     <div
@@ -257,7 +262,7 @@ function AboutPageContent() {
                     >
                       <Image
                         src={`/hyssop/testimonials/${img}`}
-                        alt="Client"
+                        alt="Hyssop Properties client receiving title deed"
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover"
@@ -282,9 +287,10 @@ function AboutPageContent() {
                 </h2>
 
                 <p className="text-gray-600 max-w-2xl mx-auto mb-6">
-                  Your property is more than ownership — it’s a financial asset.
-                  With the right strategy, it can generate income, unlock
-                  financing, and accelerate your wealth-building journey.
+                  Land is more than ownership — it can become a financial asset.
+                  With the right strategy, your property can support income,
+                  unlock financing, and strengthen your long-term
+                  wealth-building journey.
                 </p>
 
                 <p className="text-gray-600 max-w-2xl mx-auto mb-6">
@@ -313,7 +319,7 @@ function AboutPageContent() {
                 <div className="relative w-full h-[300px] md:h-[400px] rounded-2xl overflow-hidden mb-8">
                   <Image
                     src="/hyssop/team.png"
-                    alt="Team"
+                    alt="Hyssop Properties team"
                     fill
                     sizes="100vw"
                     className="object-cover object-top"
@@ -328,8 +334,8 @@ function AboutPageContent() {
                   <span className="font-semibold text-[#0b1f52]">
                     Client Success Partner
                   </span>{" "}
-                  - ensuring a seamless, transparent, and rewarding journey at
-                  every step.
+                  who helps make your land buying journey clear, transparent, and
+                  rewarding at every step.
                 </p>
               </div>
 
