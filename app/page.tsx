@@ -71,9 +71,9 @@ const approach: ApproachItem[] = [
       "Clarity at every stage. No hidden costs. No uncertainty. Just a transparent path from inquiry to title deed.",
   },
   {
-    title: "Ownership",
+    title: "Financing",
     description:
-      "We stay with you until your investment is fully yours - verified, documented, and confidently secured.",
+      "Start your land ownership journey with flexible payment plans through our partner banks, with monthly payments from as low as KSh 22,000.",
   },
   {
     title: "Growth",
@@ -280,7 +280,7 @@ function Hero() {
               className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/80"
               style={{ textShadow: "0 3px 18px rgba(0,0,0,0.65)" }}
             >
-              Verified land ownership opportunities in Kenya, supported by clear documentation, site visits, and title deed guidance.
+              Prime land for sale in Kenya, with available financing options and ready title deeds.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
@@ -365,8 +365,8 @@ function FeaturedProperties() {
             Premium land opportunities, presented with clarity.
           </h2>
           <p className="mt-7 max-w-xl text-base leading-8 text-[#61708a]">
-            Explore selected Hyssop projects with clear location advantages,
-            verified ownership support, and a guided path to title transfer.
+            Explore selected Hyssop projects in prime locations, 
+            with available financing options and ready title deeds.
           </p>
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
