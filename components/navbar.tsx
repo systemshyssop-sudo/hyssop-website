@@ -125,8 +125,7 @@ export default function Navbar() {
   ) => {
     clearCloseTimer();
 
-    const rect =
-      event.currentTarget.getBoundingClientRect();
+    const rect = event.currentTarget.getBoundingClientRect();
 
     setDropdownPosition({
       left: rect.left,
@@ -171,9 +170,14 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky left-0 top-0 z-[9999] w-full overflow-visible">
+      {/* =========================================================
+          NAVBAR
+          Mobile: sticky
+          Desktop: fixed
+      ========================================================== */}
+      <header className="sticky left-0 top-0 z-[9999] w-full overflow-visible lg:fixed lg:right-0">
         <nav
-          className="flex h-[80px] w-full items-center justify-between overflow-visible border-b border-[#e8eef5] bg-white/95 px-6 text-[#0b1f52] shadow-sm backdrop-blur-md lg:px-10 xl:px-16"
+          className="flex h-[80px] w-full items-center justify-between overflow-visible border-b border-[#e8eef5] bg-white/95 px-6 text-[#0b1f52] shadow-[0_2px_16px_rgba(11,31,82,0.06)] backdrop-blur-md lg:px-10 xl:px-16"
           style={{
             overflow: "visible",
           }}
@@ -195,7 +199,9 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* DESKTOP NAVIGATION */}
+          {/* =====================================================
+              DESKTOP NAVIGATION
+          ====================================================== */}
           <div className="hidden h-full items-center gap-5 text-sm font-medium lg:flex xl:gap-6">
             <Link
               href="/"
@@ -216,9 +222,7 @@ export default function Navbar() {
               <button
                 type="button"
                 className="flex h-full items-center gap-1 transition-colors hover:text-[#7ab62f]"
-                aria-expanded={
-                  openDropdown === "about"
-                }
+                aria-expanded={openDropdown === "about"}
               >
                 About
 
@@ -238,10 +242,7 @@ export default function Navbar() {
             <div
               className="flex h-full items-center"
               onMouseEnter={(event) =>
-                openDesktopDropdown(
-                  "properties",
-                  event
-                )
+                openDesktopDropdown("properties", event)
               }
               onMouseLeave={scheduleCloseDropdown}
             >
@@ -331,9 +332,7 @@ export default function Navbar() {
               <button
                 type="button"
                 className="flex h-full items-center gap-1 transition-colors hover:text-[#7ab62f]"
-                aria-expanded={
-                  openDropdown === "news"
-                }
+                aria-expanded={openDropdown === "news"}
               >
                 News
 
@@ -350,14 +349,14 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* DESKTOP CONTACT + MOBILE MENU BUTTON */}
+          {/* =====================================================
+              CONTACT + MOBILE MENU
+          ====================================================== */}
           <div className="flex items-center gap-4">
             <button
               type="button"
               onClick={() =>
-                scrollToContact(
-                  "navbar_desktop"
-                )
+                scrollToContact("navbar_desktop")
               }
               className="hidden rounded-full bg-[#7ab62f] px-6 py-2 text-sm font-bold text-[#0b1f52] transition-all hover:bg-[#8cc63f] lg:block"
             >
@@ -370,6 +369,7 @@ export default function Navbar() {
               onClick={() => {
                 setOpenDropdown(null);
                 setMobileDropdown(null);
+
                 setMobileOpen(
                   (previous) => !previous
                 );
@@ -386,10 +386,12 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* MOBILE MENU */}
+        {/* =====================================================
+            MOBILE MENU
+        ====================================================== */}
         {mobileOpen && (
           <div className="relative z-[9998] w-full border-b border-white/10 bg-[#0b1f52] text-white shadow-lg lg:hidden">
-            <div className="flex flex-col gap-6 px-6 py-10">
+            <div className="flex max-h-[calc(100vh-80px)] flex-col gap-6 overflow-y-auto px-6 py-8">
               <Link
                 href="/"
                 onClick={closeAllMenus}
@@ -405,30 +407,26 @@ export default function Navbar() {
                   onClick={() =>
                     setMobileDropdown(
                       (previous) =>
-                        previous ===
-                        "mobile-about"
+                        previous === "mobile-about"
                           ? null
                           : "mobile-about"
                     )
                   }
                   className="flex items-center justify-between text-lg font-medium hover:text-[#8cc63f]"
                   aria-expanded={
-                    mobileDropdown ===
-                    "mobile-about"
+                    mobileDropdown === "mobile-about"
                   }
                 >
                   <span>About</span>
 
                   <span className="text-sm">
-                    {mobileDropdown ===
-                    "mobile-about"
+                    {mobileDropdown === "mobile-about"
                       ? "▴"
                       : "▾"}
                   </span>
                 </button>
 
-                {mobileDropdown ===
-                  "mobile-about" && (
+                {mobileDropdown === "mobile-about" && (
                   <div className="flex flex-col gap-4 border-l border-white/20 pl-4">
                     <button
                       type="button"
@@ -498,8 +496,7 @@ export default function Navbar() {
                       }
                       className="text-left text-white/80 hover:text-[#8cc63f]"
                     >
-                      ↳ Plots for Sale in
-                      Nakuru
+                      ↳ Plots for Sale in Nakuru
                     </button>
 
                     <button
@@ -511,8 +508,7 @@ export default function Navbar() {
                       }
                       className="ml-4 text-left text-white/70 hover:text-[#8cc63f]"
                     >
-                      ↳ Tumaini Estate,
-                      Nakuru
+                      ↳ Tumaini Estate, Nakuru
                     </button>
 
                     <button
@@ -524,8 +520,7 @@ export default function Navbar() {
                       }
                       className="ml-4 text-left text-white/70 hover:text-[#8cc63f]"
                     >
-                      ↳ Bahati Plots,
-                      Nakuru
+                      ↳ Bahati Plots, Nakuru
                     </button>
 
                     <button
@@ -537,8 +532,7 @@ export default function Navbar() {
                       }
                       className="text-left text-white/80 hover:text-[#8cc63f]"
                     >
-                      ↳ Plots for Sale in
-                      Kitengela
+                      ↳ Plots for Sale in Kitengela
                     </button>
 
                     <button
@@ -550,8 +544,7 @@ export default function Navbar() {
                       }
                       className="text-left text-white/80 hover:text-[#8cc63f]"
                     >
-                      ↳ Plots for Sale in
-                      Machakos
+                      ↳ Plots for Sale in Machakos
                     </button>
 
                     <button
@@ -563,8 +556,7 @@ export default function Navbar() {
                       }
                       className="text-left text-white/80 hover:text-[#8cc63f]"
                     >
-                      ↳ Plots for Sale in
-                      Malindi
+                      ↳ Plots for Sale in Malindi
                     </button>
                   </div>
                 )}
@@ -635,30 +627,26 @@ export default function Navbar() {
                   onClick={() =>
                     setMobileDropdown(
                       (previous) =>
-                        previous ===
-                        "mobile-news"
+                        previous === "mobile-news"
                           ? null
                           : "mobile-news"
                     )
                   }
                   className="flex items-center justify-between text-lg font-medium hover:text-[#8cc63f]"
                   aria-expanded={
-                    mobileDropdown ===
-                    "mobile-news"
+                    mobileDropdown === "mobile-news"
                   }
                 >
                   <span>News</span>
 
                   <span className="text-sm">
-                    {mobileDropdown ===
-                    "mobile-news"
+                    {mobileDropdown === "mobile-news"
                       ? "▴"
                       : "▾"}
                   </span>
                 </button>
 
-                {mobileDropdown ===
-                  "mobile-news" && (
+                {mobileDropdown === "mobile-news" && (
                   <div className="flex flex-col gap-4 border-l border-white/20 pl-4">
                     <button
                       type="button"
@@ -691,9 +679,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() =>
-                  scrollToContact(
-                    "navbar_mobile"
-                  )
+                  scrollToContact("navbar_mobile")
                 }
                 className="mt-4 rounded-full bg-[#8cc63f] px-6 py-4 text-center text-base font-bold text-[#0b1f52]"
               >
@@ -704,7 +690,18 @@ export default function Navbar() {
         )}
       </header>
 
-      {/* DESKTOP DROPDOWN PORTAL-LIKE LAYER */}
+      {/* =========================================================
+          DESKTOP NAVBAR SPACER
+          Prevents page content sitting behind fixed navbar.
+      ========================================================== */}
+      <div
+        className="hidden h-[80px] lg:block"
+        aria-hidden="true"
+      />
+
+      {/* =========================================================
+          DESKTOP DROPDOWN LAYER
+      ========================================================== */}
       {openDropdown && (
         <div
           onMouseEnter={clearCloseTimer}
@@ -721,9 +718,7 @@ export default function Navbar() {
             zIndex: 2147483001,
           }}
         >
-          {dropdownItems[
-            openDropdown
-          ].map((item) => (
+          {dropdownItems[openDropdown].map((item) => (
             <Link
               key={item.href}
               href={item.href}
