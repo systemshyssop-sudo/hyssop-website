@@ -21,73 +21,96 @@ declare global {
 
 const STORAGE_KEY = "hyssop_cookie_consent";
 
-function getStoredConsent(): StoredConsent | null {
+function readStoredConsent(): StoredConsent | null {
   if (typeof window === "undefined") {
     return null;
   }
 
-  const savedConsent = localStorage.getItem(STORAGE_KEY);
-
-  if (!savedConsent) {
-    return null;
-  }
-
   try {
+    const savedConsent = window.localStorage.getItem(STORAGE_KEY);
+
+    if (!savedConsent) {
+      return null;
+    }
+
     return JSON.parse(savedConsent) as StoredConsent;
   } catch {
     return null;
   }
 }
 
-function updateGoogleConsent({
+function updateTrackingConsent({
   analyticsGranted,
   marketingGranted,
 }: {
   analyticsGranted: boolean;
   marketingGranted: boolean;
 }) {
-  window.gtag?.("consent", "update", {
-    analytics_storage: analyticsGranted ? "granted" : "denied",
-    ad_storage: marketingGranted ? "granted" : "denied",
-    ad_user_data: marketingGranted ? "granted" : "denied",
-    ad_personalization: marketingGranted ? "granted" : "denied",
-  });
+  /*
+   * Tracking integrations must never be allowed
+   * to break the cookie consent interface.
+   */
+  try {
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", {
+        analytics_storage: analyticsGranted ? "granted" : "denied",
+        ad_storage: marketingGranted ? "granted" : "denied",
+        ad_user_data: marketingGranted ? "granted" : "denied",
+        ad_personalization: marketingGranted ? "granted" : "denied",
+      });
+    }
+  } catch (error) {
+    console.error("Unable to update Google consent:", error);
+  }
 
-  if (window.clarity) {
-    window.clarity("consent", analyticsGranted);
+  try {
+    if (typeof window.clarity === "function") {
+      window.clarity("consent", analyticsGranted);
+    }
+  } catch (error) {
+    console.error("Unable to update Clarity consent:", error);
   }
 }
 
 export default function CookieConsent() {
-  const initialConsent = getStoredConsent();
+  const [visible, setVisible] = useState(false);
+  const [initialized, setInitialized] = useState(false);
 
-  const [visible, setVisible] = useState(() => initialConsent === null);
   const [showCustomize, setShowCustomize] = useState(false);
-
-  const [analytics, setAnalytics] = useState(
-    () => initialConsent?.analytics ?? true
-  );
-
-  const [marketing, setMarketing] = useState(
-    () => initialConsent?.marketing ?? true
-  );
+  const [analytics, setAnalytics] = useState(true);
+  const [marketing, setMarketing] = useState(true);
 
   useEffect(() => {
-    if (!initialConsent) {
-      return;
+    const storedConsent = readStoredConsent();
+
+    if (storedConsent) {
+      updateTrackingConsent({
+        analyticsGranted: Boolean(storedConsent.analytics),
+        marketingGranted: Boolean(storedConsent.marketing),
+      });
     }
 
-    updateGoogleConsent({
-      analyticsGranted: Boolean(initialConsent.analytics),
-      marketingGranted: Boolean(initialConsent.marketing),
-    });
-  }, [initialConsent]);
+    /*
+     * Queue the local UI initialization rather than synchronously
+     * changing state inside the effect body.
+     */
+    const timer = window.setTimeout(() => {
+      setAnalytics(storedConsent?.analytics ?? true);
+      setMarketing(storedConsent?.marketing ?? true);
+      setVisible(!storedConsent);
+      setInitialized(true);
+    }, 0);
 
-  const saveConsent = (
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
+
+  function saveConsent(
     choice: ConsentChoice,
     analyticsValue: boolean,
     marketingValue: boolean
-  ) => {
+  ) {
     const consent: StoredConsent = {
       choice,
       necessary: true,
@@ -96,18 +119,35 @@ export default function CookieConsent() {
       updatedAt: new Date().toISOString(),
     };
 
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+    /*
+     * Save locally first.
+     */
+    try {
+      window.localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(consent)
+      );
+    } catch (error) {
+      console.error("Unable to save cookie consent:", error);
+    }
 
-    updateGoogleConsent({
+    /*
+     * Close the interface immediately.
+     * Tracking scripts must not control whether the banner closes.
+     */
+    setVisible(false);
+    setShowCustomize(false);
+
+    /*
+     * Update external tracking only after the local UI has been handled.
+     */
+    updateTrackingConsent({
       analyticsGranted: analyticsValue,
       marketingGranted: marketingValue,
     });
+  }
 
-    setVisible(false);
-    setShowCustomize(false);
-  };
-
-  if (!visible) {
+  if (!initialized || !visible) {
     return null;
   }
 
@@ -171,7 +211,11 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={() =>
-                  saveConsent("custom", analytics, marketing)
+                  saveConsent(
+                    "custom",
+                    analytics,
+                    marketing
+                  )
                 }
                 className="rounded-full bg-[#8cc63f] px-5 py-2.5 text-sm font-semibold text-[#0b1f52] transition hover:bg-[#9bd84a]"
               >
@@ -181,7 +225,11 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={() =>
-                  saveConsent("accepted", true, true)
+                  saveConsent(
+                    "accepted",
+                    true,
+                    true
+                  )
                 }
                 className="rounded-full bg-[#8cc63f] px-5 py-2.5 text-sm font-semibold text-[#0b1f52] transition hover:bg-[#9bd84a]"
               >
@@ -192,7 +240,11 @@ export default function CookieConsent() {
             <button
               type="button"
               onClick={() =>
-                saveConsent("rejected", false, false)
+                saveConsent(
+                  "rejected",
+                  false,
+                  false
+                )
               }
               className="rounded-full border border-white/25 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
             >
@@ -206,7 +258,9 @@ export default function CookieConsent() {
               }
               className="rounded-full px-5 py-2.5 text-sm font-semibold text-white/80 underline underline-offset-2 transition hover:text-white"
             >
-              {showCustomize ? "Hide options" : "Customize"}
+              {showCustomize
+                ? "Hide options"
+                : "Customize"}
             </button>
           </div>
         </div>
