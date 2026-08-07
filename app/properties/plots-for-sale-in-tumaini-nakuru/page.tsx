@@ -42,7 +42,10 @@ export default function TumainiPage() {
     }
 
     window.addEventListener("keydown", closeOnEscape);
-    return () => window.removeEventListener("keydown", closeOnEscape);
+
+    return () => {
+      window.removeEventListener("keydown", closeOnEscape);
+    };
   }, []);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -54,6 +57,8 @@ Name: ${formData.name}
 Phone: ${formData.phone}
 Preferred Day: ${formData.preferredDay || "Not specified"}
 Project of Interest: ${projectName}
+Price: KSh 999,000
+Payment Plan: Installments from KSh 25,000 per month
 Message: ${
       formData.message ||
       "I would like more information and site visit assistance."
@@ -69,30 +74,54 @@ Message: ${
     <main className="min-h-screen bg-white text-[#0b1f52]">
       <Navbar />
 
-      {/* HERO */}
+      {/* =========================================================
+          HERO
+      ========================================================== */}
       <>
-        {/* MOBILE HERO - TEXT FIRST, IMAGE SECOND */}
+        {/* MOBILE HERO */}
         <section className="bg-[#0b1f52] text-white lg:hidden">
-          <div className="px-6 pt-8 pb-7">
-            <div className="mb-5 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
+          <div className="px-6 pb-6 pt-7">
+            <div className="mb-4 inline-flex rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
               Ready Title Deeds
             </div>
 
-            <p
-              className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
-              style={{
-                textShadow: "0 2px 12px rgba(0,0,0,0.35)",
-              }}
-            >
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.26em] text-[#8cc63f]">
               Tumaini Estate · Nakuru
             </p>
 
-            <h1 className="text-3xl font-bold leading-tight text-white">
+            <h1 className="max-w-md text-3xl font-bold leading-tight text-white">
               Gated 50 x 100 plots near Nakuru CBD
             </h1>
+
+            {/* PRIMARY MOBILE OFFER */}
+            <div className="mt-5 flex items-center justify-between gap-4 rounded-[18px] border border-white/15 bg-white/[0.08] px-4 py-4">
+              <div>
+                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#8cc63f]">
+                  Plot Price
+                </p>
+
+                <p className="mt-1 text-2xl font-bold text-white">
+                  KSh 999,000
+                </p>
+              </div>
+
+              <div className="min-w-[112px] rounded-xl bg-[#8cc63f] px-3 py-2.5 text-center text-[#0b1f52]">
+                <p className="text-[8px] font-black uppercase tracking-[0.13em]">
+                  Installments
+                </p>
+
+                <p className="mt-0.5 text-xl font-black">
+                  25K
+                </p>
+
+                <p className="text-[9px] font-bold">
+                  per month
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="relative h-[320px] w-full overflow-hidden bg-[#e9edf3]">
+          <div className="relative h-[310px] w-full overflow-hidden bg-[#e9edf3]">
             <Image
               src={heroSrc}
               alt="Tumaini Estate gated plots in Nakuru"
@@ -103,16 +132,17 @@ Message: ${
               className="object-cover object-center"
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           </div>
         </section>
 
-        {/* DESKTOP HERO - SAME PROPERTY HERO STYLE */}
+        {/* DESKTOP HERO */}
         <section
           className="relative hidden w-full overflow-hidden bg-[#e9edf3] lg:block"
           style={{
-            height: "46vh",
-            minHeight: "360px",
+            height: "50vh",
+            minHeight: "410px",
+            maxHeight: "540px",
           }}
         >
           <Image
@@ -125,34 +155,16 @@ Message: ${
             className="object-cover object-center lg:object-[center_45%]"
           />
 
-          {/* Image readability overlay - no blue text card */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-          <div
-            className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm"
-            style={{
-              position: "absolute",
-              top: "24px",
-              left: "24px",
-              zIndex: 10,
-            }}
-          >
+          <div className="absolute left-6 top-6 z-10 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
             Ready Title Deeds
           </div>
 
-          <div
-            style={{
-              position: "absolute",
-              left: "24px",
-              right: "24px",
-              bottom: "28px",
-              zIndex: 10,
-              maxWidth: "760px",
-            }}
-          >
+          <div className="absolute bottom-7 left-6 right-6 z-10 max-w-[840px]">
             <p
-              className="mb-4 hidden text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f] sm:block"
+              className="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-[#8cc63f]"
               style={{
                 textShadow: "0 2px 12px rgba(0,0,0,0.55)",
               }}
@@ -161,63 +173,105 @@ Message: ${
             </p>
 
             <h1
-              className="max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl"
+              className="max-w-3xl text-4xl font-bold leading-tight text-white xl:text-5xl"
               style={{
                 textShadow: "0 4px 24px rgba(0,0,0,0.7)",
               }}
             >
               Gated 50 x 100 plots near Nakuru CBD
             </h1>
+
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <div className="rounded-xl border border-white/20 bg-[#0b1f52]/90 px-5 py-3 backdrop-blur-sm">
+                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#8cc63f]">
+                  Plot Price
+                </p>
+
+                <p className="mt-1 text-xl font-bold text-white">
+                  KSh 999,000
+                </p>
+              </div>
+
+              <div className="rounded-xl bg-[#8cc63f] px-5 py-3 text-[#0b1f52] shadow-[0_12px_30px_rgba(0,0,0,0.16)]">
+                <p className="text-[9px] font-black uppercase tracking-[0.16em]">
+                  Flexible Installments
+                </p>
+
+                <p className="mt-1 text-lg font-black">
+                  From KSh 25,000 / month
+                </p>
+              </div>
+            </div>
           </div>
         </section>
       </>
 
-      {/* FEATURED PROJECT */}
-      <section className="px-6 py-20 lg:px-12">
+      {/* =========================================================
+          PROJECT OVERVIEW
+      ========================================================== */}
+      <section className="px-6 py-14 lg:px-12 lg:py-16">
         <div className="mx-auto max-w-7xl">
-          <div className="rounded-[2rem] border border-[#e8eef5] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
-              Featured Project
-            </p>
+          <div className="border-b border-[#e8eef5] pb-10">
+            <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-end">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+                  Featured Project
+                </p>
 
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              Tumaini Estate – Nakuru
-            </h2>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                  Tumaini Estate – Nakuru
+                </h2>
 
-            <div className="mt-6 rounded-[1.5rem] bg-[#0b1f52] p-6 text-white">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#8cc63f]">
-                Starting Price
-              </p>
-              <p className="text-4xl font-bold">KSh 949,000</p>
-              <p className="mt-1 text-sm text-white/75">Per 50 x 100 plot</p>
+                <p className="mt-5 max-w-3xl text-base leading-8 text-gray-600">
+                  Tumaini Estate is a near-urban gated project for buyers who
+                  want a quiet place to build, invest, or secure land close to
+                  town. The estate offers 50 x 100 plots with ready title deeds,
+                  guided ownership support, and convenient access to Nakuru CBD.
+                </p>
+              </div>
+
+              {/* COMPACT COMMERCIAL SUMMARY */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-[16px] border border-[#e3e9f0] bg-[#f8fafc] px-4 py-4">
+                  <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-[#748198]">
+                    Price
+                  </p>
+
+                  <p className="mt-1 text-lg font-bold text-[#0b1f52]">
+                    KSh 999,000
+                  </p>
+                </div>
+
+                <div className="rounded-[16px] border border-[#cfe3ad] bg-[#f0f8e4] px-4 py-4">
+                  <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-[#5c9629]">
+                    Installments
+                  </p>
+
+                  <p className="mt-1 text-lg font-bold text-[#0b1f52]">
+                    From KSh 25K/month
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <p className="mt-6 text-base leading-8 text-gray-600">
-              Tumaini Estate is a near-urban gated project in Nakuru for buyers
-              who want a quiet place to build, invest, or secure land close to
-              town. The estate offers 50 x 100 plots with ready title deeds,
-              guided ownership support, and a location approximately 10 minutes
-              from Nakuru CBD.
-            </p>
-
-            <div className="mt-7 grid grid-cols-2 gap-3">
+            <div className="mt-7 grid grid-cols-2 gap-3 md:grid-cols-4">
               <Fact label="Plot Size" value="50 x 100" />
               <Fact label="Location" value="Nakuru" />
-              <Fact label="Distance" value="10 mins to CBD" />
-              <Fact label="Payment" value="Flexible Plans" />
+              <Fact label="Distance" value="~10 mins to CBD" />
+              <Fact label="Title" value="Ready Title Deeds" />
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="#site-visit"
-                className="rounded-full bg-[#7ab62f] px-7 py-3 font-semibold text-[#0b1f52] transition hover:scale-105"
+                className="rounded-full bg-[#7ab62f] px-6 py-3 text-sm font-semibold text-[#0b1f52] transition hover:scale-[1.03]"
               >
                 Book Site Visit
               </a>
 
               <a
                 href="#gallery"
-                className="rounded-full border border-[#0b1f52] px-7 py-3 font-semibold text-[#0b1f52] transition hover:bg-[#0b1f52] hover:text-white"
+                className="rounded-full border border-[#0b1f52] px-6 py-3 text-sm font-semibold text-[#0b1f52] transition hover:bg-[#0b1f52] hover:text-white"
               >
                 View Gallery
               </a>
@@ -226,34 +280,41 @@ Message: ${
         </div>
       </section>
 
-      {/* SUMMARY */}
-      <section className="px-6 pb-20 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
+      {/* =========================================================
+          SUMMARY
+      ========================================================== */}
+      <section className="px-6 pb-16 lg:px-12">
+        <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3">
           <InfoCard
             title="Location Intelligence"
-            text="Located approximately 10 minutes from Nakuru CBD, near Tumaini Resort, RVIST College, and the Nakuru–Njoro corridor."
+            text="Approximately 10 minutes from Nakuru CBD, near Tumaini Resort, RVIST College, and the Nakuru–Njoro corridor."
           />
+
           <InfoCard
             title="Investment Position"
-            text="A practical choice for buyers looking for gated plots in Nakuru with lifestyle appeal and long-term capital appreciation potential."
+            text="A practical choice for buyers looking for a gated Nakuru development with lifestyle appeal and long-term growth potential."
           />
+
           <InfoCard
-            title="Ownership Confidence"
-            text="50 x 100 plots with ready title deeds and flexible installment options for buyers planning to build, invest, or land bank."
+            title="Accessible Ownership"
+            text="Flexible monthly installments make it easier to secure a plot while planning your ownership journey."
+            accent
           />
         </div>
       </section>
 
-      {/* WHY TUMAINI */}
-      <section className="bg-[#f8fafc] px-6 py-20 lg:px-12">
+      {/* =========================================================
+          WHY TUMAINI
+      ========================================================== */}
+      <section className="bg-[#f8fafc] px-6 py-16 lg:px-12 lg:py-20">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
               Why Tumaini
             </p>
 
             <h2 className="text-3xl font-bold sm:text-4xl">
-              Live close, grow faster, and secure value within Nakuru’s
+              Live close, grow faster, and secure value within Nakuru&apos;s
               expansion zone.
             </h2>
 
@@ -265,19 +326,18 @@ Message: ${
               long-term property investment.
             </p>
 
-            <p className="mt-6 text-base leading-8 text-gray-600">
+            <p className="mt-5 text-base leading-8 text-gray-600">
               The project sits within a high-demand residential corridor near
-              Tumaini Resort, RVIST College, and the Nakuru–Njoro route. For
-              buyers comparing plots for sale in Nakuru, Tumaini offers a strong
-              balance of location, ready title deeds, flexible payments, and room
-              for future appreciation.
+              Tumaini Resort, RVIST College, and the Nakuru–Njoro route. Ready
+              title deeds and a flexible payment structure give buyers a clear,
+              practical path to ownership.
             </p>
           </div>
 
           <button
             type="button"
             onClick={() => setVideoOpen(true)}
-            className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-white text-left shadow-[0_24px_70px_rgba(11,31,82,0.12)]"
+            className="group relative aspect-[4/3] overflow-hidden rounded-[24px] bg-white text-left shadow-[0_20px_60px_rgba(11,31,82,0.1)]"
             aria-label="Play Tumaini Estate aerial video"
           >
             <Image
@@ -286,68 +346,91 @@ Message: ${
               alt="Tumaini Estate aerial video preview"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover transition duration-700 group-hover:scale-105"
+              className="object-cover transition duration-700 group-hover:scale-[1.03]"
             />
 
             <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/30" />
 
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/95 text-[#0b1f52] shadow-xl transition group-hover:scale-110">
-                <span className="ml-1 text-3xl">▶</span>
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-[#0b1f52] shadow-xl transition group-hover:scale-110">
+                <span className="ml-1 text-2xl">▶</span>
               </div>
             </div>
 
-            <div className="absolute bottom-5 left-5 rounded-full bg-white/95 px-5 py-2 text-sm font-bold text-[#0b1f52] shadow-sm">
+            <div className="absolute bottom-5 left-5 rounded-full bg-white/95 px-4 py-2 text-xs font-bold text-[#0b1f52] shadow-sm">
               Watch aerial view
             </div>
           </button>
         </div>
       </section>
 
-      {/* FEATURES */}
-      <section className="bg-white px-6 py-20 lg:px-12">
+      {/* =========================================================
+          FEATURES
+      ========================================================== */}
+      <section className="bg-white px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+          <div className="mb-10 text-center">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
               Key Features
             </p>
+
             <h2 className="text-3xl font-bold sm:text-4xl">
               Built for confidence, usability, and future appreciation
             </h2>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <FeatureCard text="Premium gated community concept" />
             <FeatureCard text="Approximately 10 minutes from Nakuru CBD" />
             <FeatureCard text="Near Tumaini Resort and RVIST College" />
             <FeatureCard text="Accessible through the Nakuru–Njoro corridor" />
-            <FeatureCard text="Ideal for residential development" />
-            <FeatureCard text="Ready title deeds with flexible payments" />
+            <FeatureCard text="50 x 100 plots with ready title deeds" />
+            <FeatureCard text="Flexible installments from KSh 25,000/month" accent />
           </div>
         </div>
       </section>
 
-      {/* SITE VISIT FORM */}
-      <section id="site-visit" className="bg-white px-6 py-20 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      {/* =========================================================
+          SITE VISIT FORM
+      ========================================================== */}
+      <section
+        id="site-visit"
+        className="bg-[#f8fafc] px-6 py-16 lg:px-12 lg:py-20"
+      >
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
               Book a Site Visit
             </p>
+
             <h2 className="text-3xl font-bold sm:text-4xl">
-              Interested in this property?
+              Interested in Tumaini Estate?
             </h2>
-            <p className="mt-5 text-base leading-8 text-gray-600">
-              Send your details directly to our team on WhatsApp. The project of
-              interest is already set to Tumaini Estate – Nakuru, and our team
-              can guide you on location, pricing, payment plans, and title deed
-              verification.
+
+            <p className="mt-5 max-w-xl text-base leading-8 text-gray-600">
+              Send your details directly to our team on WhatsApp. We&apos;ll
+              guide you on availability, the payment plan, site visits, and
+              title deed verification.
             </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              <span className="rounded-full border border-[#dfe6ed] bg-white px-4 py-2 text-xs font-semibold text-[#0b1f52]">
+                KSh 999,000
+              </span>
+
+              <span className="rounded-full border border-[#cfe3ad] bg-[#f0f8e4] px-4 py-2 text-xs font-bold text-[#4f8d25]">
+                From KSh 25,000/month
+              </span>
+
+              <span className="rounded-full border border-[#dfe6ed] bg-white px-4 py-2 text-xs font-semibold text-[#0b1f52]">
+                Ready Title Deeds
+              </span>
+            </div>
           </div>
 
           <form
             onSubmit={handleSubmit}
-            className="rounded-[2rem] border border-[#e8eef5] bg-[#f8fafc] p-6 shadow-sm sm:p-8"
+            className="rounded-[24px] border border-[#e8eef5] bg-white p-6 shadow-sm sm:p-8"
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <Field
@@ -355,7 +438,10 @@ Message: ${
                 required
                 value={formData.name}
                 onChange={(value) =>
-                  setFormData((prev) => ({ ...prev, name: value }))
+                  setFormData((prev) => ({
+                    ...prev,
+                    name: value,
+                  }))
                 }
                 placeholder="Enter your name"
               />
@@ -365,7 +451,10 @@ Message: ${
                 required
                 value={formData.phone}
                 onChange={(value) =>
-                  setFormData((prev) => ({ ...prev, phone: value }))
+                  setFormData((prev) => ({
+                    ...prev,
+                    phone: value,
+                  }))
                 }
                 placeholder="Enter your phone number"
               />
@@ -374,12 +463,13 @@ Message: ${
                 <span className="mb-2 block text-sm font-semibold">
                   Preferred Day
                 </span>
+
                 <select
                   value={formData.preferredDay}
-                  onChange={(e) =>
+                  onChange={(event) =>
                     setFormData((prev) => ({
                       ...prev,
-                      preferredDay: e.target.value,
+                      preferredDay: event.target.value,
                     }))
                   }
                   className="w-full rounded-2xl border border-[#e8eef5] bg-white px-4 py-3 text-sm outline-none focus:border-[#7ab62f]"
@@ -396,6 +486,7 @@ Message: ${
                 <span className="mb-2 block text-sm font-semibold">
                   Project of Interest
                 </span>
+
                 <input
                   value={projectName}
                   readOnly
@@ -407,12 +498,13 @@ Message: ${
                 <span className="mb-2 block text-sm font-semibold">
                   Message
                 </span>
+
                 <textarea
                   value={formData.message}
-                  onChange={(e) =>
+                  onChange={(event) =>
                     setFormData((prev) => ({
                       ...prev,
-                      message: e.target.value,
+                      message: event.target.value,
                     }))
                   }
                   placeholder="Optional message"
@@ -424,7 +516,7 @@ Message: ${
 
             <button
               type="submit"
-              className="mt-6 rounded-full bg-[#7ab62f] px-7 py-3 font-semibold text-[#0b1f52] transition hover:scale-105"
+              className="mt-6 rounded-full bg-[#7ab62f] px-7 py-3 text-sm font-semibold text-[#0b1f52] transition hover:scale-[1.03]"
             >
               Submit Interest on WhatsApp
             </button>
@@ -432,16 +524,19 @@ Message: ${
         </div>
       </section>
 
-      {/* GALLERY */}
+      {/* =========================================================
+          GALLERY
+      ========================================================== */}
       <section
         id="gallery"
-        className="scroll-mt-24 bg-[#f8fafc] px-6 py-20 lg:px-12"
+        className="scroll-mt-24 bg-white px-6 py-16 lg:px-12"
       >
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
+          <div className="mb-10 text-center">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7ab62f]">
               Project Gallery
             </p>
+
             <h2 className="text-3xl font-bold sm:text-4xl">
               Explore the project visually
             </h2>
@@ -453,7 +548,7 @@ Message: ${
                 key={src}
                 type="button"
                 onClick={() => setSelectedImage(src)}
-                className="group relative overflow-hidden rounded-[1.5rem] bg-[#eef2f7] shadow-[0_14px_35px_rgba(11,31,82,0.08)]"
+                className="group relative overflow-hidden rounded-[20px] bg-[#eef2f7] shadow-[0_12px_30px_rgba(11,31,82,0.07)]"
               >
                 <div className="relative aspect-[4/3]">
                   <Image
@@ -462,7 +557,7 @@ Message: ${
                     alt={`Tumaini Estate Nakuru gallery image ${index + 1}`}
                     fill
                     sizes="(max-width: 768px) 50vw, 33vw"
-                    className="object-cover"
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
               </button>
@@ -475,6 +570,7 @@ Message: ${
       <FloatingWhatsApp />
       <ChatbotWidget />
 
+      {/* VIDEO MODAL */}
       {videoOpen && (
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10"
@@ -503,12 +599,14 @@ Message: ${
               className="max-h-[80vh] w-full rounded-xl bg-black shadow-2xl"
             >
               <source src={droneVideoSrc} type="video/mp4" />
+
               Your browser does not support the video tag.
             </video>
           </div>
         </div>
       )}
 
+      {/* IMAGE MODAL */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4"
@@ -528,10 +626,12 @@ Message: ${
             </button>
 
             <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-black">
-              <img
+              <Image
                 src={selectedImage}
                 alt="Tumaini Estate enlarged view"
-                className="absolute inset-0 h-full w-full object-contain"
+                fill
+                sizes="100vw"
+                className="object-contain"
               />
             </div>
           </div>
@@ -541,31 +641,86 @@ Message: ${
   );
 }
 
-function Fact({ label, value }: { label: string; value: string }) {
+function Fact({
+  label,
+  value,
+}: {
+  label: string;
+  value: string;
+}) {
   return (
-    <div className="rounded-2xl border border-[#e8eef5] bg-[#f8fafc] p-4">
-      <p className="mb-1 text-xs text-gray-500">{label}</p>
-      <p className="text-sm font-bold text-[#0b1f52]">{value}</p>
+    <div className="rounded-[16px] border border-[#e8eef5] bg-[#f8fafc] p-4">
+      <p className="mb-1 text-[11px] text-gray-500">
+        {label}
+      </p>
+
+      <p className="text-sm font-bold text-[#0b1f52]">
+        {value}
+      </p>
     </div>
   );
 }
 
-function InfoCard({ title, text }: { title: string; text: string }) {
+function InfoCard({
+  title,
+  text,
+  accent = false,
+}: {
+  title: string;
+  text: string;
+  accent?: boolean;
+}) {
   return (
-    <div className="rounded-[1.5rem] border border-[#e8eef5] bg-white p-6 shadow-sm">
-      <h3 className="mb-3 text-xl font-bold">{title}</h3>
-      <p className="text-sm leading-7 text-gray-600">{text}</p>
+    <div
+      className={`rounded-[20px] border p-5 ${
+        accent
+          ? "border-[#d6e8b9] bg-[#f5faee]"
+          : "border-[#e8eef5] bg-white"
+      }`}
+    >
+      <h3
+        className={`mb-2 text-lg font-bold ${
+          accent ? "text-[#4f8d25]" : "text-[#0b1f52]"
+        }`}
+      >
+        {title}
+      </h3>
+
+      <p className="text-sm leading-6 text-gray-600">
+        {text}
+      </p>
     </div>
   );
 }
 
-function FeatureCard({ text }: { text: string }) {
+function FeatureCard({
+  text,
+  accent = false,
+}: {
+  text: string;
+  accent?: boolean;
+}) {
   return (
-    <div className="rounded-[1.5rem] border border-[#e8eef5] bg-white p-6 shadow-sm">
-      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#8cc63f]/15 text-[#4c7d16]">
+    <div
+      className={`flex items-center gap-3 rounded-[18px] border p-5 ${
+        accent
+          ? "border-[#cfe3ad] bg-[#f3f9ea]"
+          : "border-[#e8eef5] bg-white"
+      }`}
+    >
+      <div
+        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm ${
+          accent
+            ? "bg-[#8cc63f] text-[#0b1f52]"
+            : "bg-[#8cc63f]/15 text-[#4c7d16]"
+        }`}
+      >
         ✓
       </div>
-      <p className="font-semibold leading-7 text-[#0b1f52]">{text}</p>
+
+      <p className="text-sm font-semibold leading-6 text-[#0b1f52]">
+        {text}
+      </p>
     </div>
   );
 }
@@ -589,10 +744,11 @@ function Field({
         {label}
         {required ? " *" : ""}
       </span>
+
       <input
         required={required}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
         className="w-full rounded-2xl border border-[#e8eef5] bg-white px-4 py-3 text-sm outline-none focus:border-[#7ab62f]"
       />

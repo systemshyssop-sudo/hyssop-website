@@ -72,191 +72,178 @@ export default function AwardsPage() {
   ];
 
   return (
-    <main className="bg-[#f8f9fa] text-[#0b1f52] min-h-screen">
+    <main className="min-h-screen bg-[#f8f9fa] text-[#0b1f52]">
       <Navbar />
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="mx-auto max-w-[1440px] px-6 pt-20 lg:px-20 lg:pt-32">
-          <div className="h-4 lg:h-8" />
+      <section className="relative overflow-hidden border-b border-[#e7edf4] bg-white">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-12 sm:px-8 lg:min-h-[510px] lg:grid-cols-[0.92fr_1.08fr] lg:px-12 lg:py-14">
+          {/* COPY */}
+          <div className="max-w-xl">
+            <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-[#6aa931]">
+              Awards &amp; Recognition
+            </p>
 
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-0">
-            <div className="pb-16 lg:pb-32">
-              <p className="mb-10 text-[0.75rem] font-bold uppercase tracking-[0.35em] text-[#8cc63f]">
-                Awards &amp; Recognition
-              </p>
+            <h1 className="mt-4 text-4xl font-bold leading-[1.06] tracking-[-0.035em] text-[#0b1f52] sm:text-5xl lg:text-[3.45rem]">
+              Built on trust.
+              <span className="block">Recognized for excellence.</span>
+            </h1>
 
-              <h1 className="max-w-xl text-[3.5rem] font-bold leading-[1.1] tracking-tight text-[#0b1f52] sm:text-6xl lg:text-[5.2rem]">
-                Built on trust.
-                <span className="block">Recognized for excellence.</span>
-              </h1>
+            <p className="mt-6 max-w-lg text-[15px] leading-7 text-[#5d6a84] sm:text-base">
+              Our journey is defined by trust, consistency, and meaningful
+              impact. These recognitions reflect our work as a trusted real
+              estate company in Kenya, our commitment to verified land
+              ownership, and our focus on long-term value for every client.
+            </p>
 
-              <p className="mt-10 max-w-lg text-[1.05rem] leading-relaxed text-[#5d6a84]">
-                Our journey is defined by trust, consistency, and meaningful
-                impact. These recognitions reflect our work as a trusted real
-                estate company in Kenya, our commitment to verified land
-                ownership, and our focus on long-term value for every client.
-              </p>
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              <span className="rounded-full border border-[#dce9c8] bg-[#f1f8e8] px-4 py-2 text-xs font-semibold text-[#0b1f52]">
+                Trusted land brand
+              </span>
 
-              <div className="mt-12 flex flex-wrap items-center gap-4">
-                <span className="rounded-full bg-[#f1f8e8] px-6 py-3 text-xs font-bold text-[#0b1f52]">
-                  Trusted land brand
-                </span>
-                <span className="rounded-full bg-[#f1f4f9] px-6 py-3 text-xs font-bold text-[#0b1f52]">
-                  Industry recognition
-                </span>
-                <span className="rounded-full bg-[#f1f4f9] px-6 py-3 text-xs font-bold text-[#0b1f52]">
-                  Community impact
-                </span>
-              </div>
+              <span className="rounded-full border border-[#e1e6ee] bg-[#f4f6f9] px-4 py-2 text-xs font-semibold text-[#0b1f52]">
+                Industry recognition
+              </span>
+
+              <span className="rounded-full border border-[#e1e6ee] bg-[#f4f6f9] px-4 py-2 text-xs font-semibold text-[#0b1f52]">
+                Community impact
+              </span>
+            </div>
+          </div>
+
+          {/* IMAGE */}
+          <div className="relative">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] bg-[#eef2f6] shadow-[0_22px_60px_rgba(11,31,82,0.12)]">
+              <Image
+                src="/hyssop/awards/hero1.png"
+                alt="Hyssop Properties award recognition in Kenya"
+                fill
+                priority
+                quality={95}
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover object-center"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#061531]/10 via-transparent to-transparent" />
             </div>
 
-            <div className="relative flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[620px]">
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-tl-[3rem] shadow-2xl lg:rounded-tl-[5rem]">
-                  <Image
-                    src="/hyssop/awards/hero1.png"
-                    alt="Hyssop Properties award recognition in Kenya"
-                    fill
-                    priority
-                    quality={100}
-                    className="object-cover object-center"
-                  />
-                </div>
-              </div>
+            <div className="absolute -bottom-3 left-7 rounded-full bg-[#8cc63f] px-5 py-2.5 text-xs font-bold text-[#0b1f52] shadow-[0_10px_28px_rgba(11,31,82,0.14)]">
+              Recognition earned through consistent delivery
             </div>
           </div>
         </div>
       </section>
 
       {/* REAL ESTATE */}
-      <section className="px-6 py-24">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
+      <section className="px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#6aa931]">
               Real Estate Awards
             </p>
 
-            <h2 className="text-3xl font-bold">
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0b1f52]">
               Excellence in Real Estate
             </h2>
 
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-gray-600">
+            <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-7 text-[#61708a]">
               These awards reflect the trust clients place in Hyssop Properties
               when buying land, securing title deeds, and making property
               investment decisions in Kenya.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {realEstateAwards.map((award, i) => (
-              <div
-                key={i}
-                className="relative group rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-300"
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {realEstateAwards.map((award) => (
+              <article
+                key={award.title}
+                className="group overflow-hidden rounded-[22px] border border-[#e2e8ef] bg-white shadow-[0_14px_40px_rgba(11,31,82,0.07)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(11,31,82,0.11)]"
               >
-                <div className="relative h-[240px]">
+                <div className="relative h-[210px] overflow-hidden bg-[#eef2f6]">
                   <Image
                     src={`/hyssop/awards/${award.img}`}
                     alt={award.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition duration-500"
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
 
-                <div className="p-8 space-y-4">
-                  <p className="text-sm text-[#8cc63f] font-bold uppercase tracking-wider">
+                <div className="p-6">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-[#6aa931]">
                     {award.org}
                   </p>
-                  <h3 className="font-bold text-xl leading-tight text-[#0b1f52]">
+
+                  <h3 className="mt-3 text-lg font-bold leading-snug text-[#0b1f52]">
                     {award.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+
+                  <p className="mt-3 text-[14px] leading-6 text-[#65728a]">
                     {award.desc}
                   </p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* BEYOND REAL ESTATE */}
-      <section className="px-6 pb-24">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#8cc63f]">
+      {/* IMPACT */}
+      <section className="bg-white px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#6aa931]">
               Beyond Real Estate
             </p>
 
-            <h2 className="text-3xl font-bold">
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0b1f52]">
               Community, Culture, and Impact
             </h2>
 
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-gray-600">
+            <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-7 text-[#61708a]">
               For Hyssop, real estate is also about people. Our community
               engagements reflect a wider commitment to the clients, partners,
               and communities that shape our growth.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {impactAwards.map((award, i) => (
-              <div
-                key={i}
-                className="relative group rounded-3xl overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-300"
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {impactAwards.map((award) => (
+              <article
+                key={award.title}
+                className="group overflow-hidden rounded-[22px] border border-[#e2e8ef] bg-[#fbfcfe] shadow-[0_12px_34px_rgba(11,31,82,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_48px_rgba(11,31,82,0.1)]"
               >
-                <div className="relative h-[240px]">
+                <div className="relative h-[210px] overflow-hidden bg-[#eef2f6]">
                   <Image
                     src={`/hyssop/awards/${award.img}`}
                     alt={award.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition duration-500"
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
 
-                <div className="p-8 space-y-4">
-                  <p className="text-sm text-[#8cc63f] font-bold uppercase tracking-wider">
+                <div className="p-6">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-[#6aa931]">
                     {award.org}
                   </p>
-                  <h3 className="font-bold text-xl leading-tight text-[#0b1f52]">
+
+                  <h3 className="mt-3 text-lg font-bold leading-snug text-[#0b1f52]">
                     {award.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+
+                  <p className="mt-3 text-[14px] leading-6 text-[#65728a]">
                     {award.desc}
                   </p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 px-6 bg-[#0b1f52] text-white text-center">
-        <div className="max-w-3xl mx-auto space-y-8">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Built on Trust. Driven by Impact.
-          </h2>
-
-          <p className="text-blue-100 text-lg leading-relaxed">
-            From real estate excellence to community engagement, every milestone
-            reflects our commitment to doing more — for our clients, our
-            partners, and the communities we serve.
-          </p>
-
-          <a href="/#contact" className="inline-block">
-            <button className="bg-[#8cc63f] text-[#0b1f52] px-10 py-4 rounded-full font-bold hover:bg-white transition-colors duration-300">
-              Speak to a Consultant
-            </button>
-          </a>
-        </div>
-      </section>
-
-      <div id="contact" className="scroll-mt-[100px]">
-        <ContactSection />
-      </div>
+      {/* SHARED CONTACT FOOTER */}
+      <ContactSection />
     </main>
   );
 }

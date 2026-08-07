@@ -11,7 +11,7 @@ const nakuruProjects = [
     image: "/hyssop/gallery-1.png",
     location: "Nakuru",
     size: "50 x 100",
-    price: "KSh 949,000",
+    price: "KSh 999,000",
     priceLabel: "Per 50 x 100 plot",
     tag: "Premium Gated Investment",
     badge: "Ready Title Deeds",
